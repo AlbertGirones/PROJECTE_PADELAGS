@@ -1,16 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 package com.mycompany.proj1padelags;
 
-/**
- *
- * @author geri
- */
+import Controllers.CourtController;
+import Models.courtQueries;
+import Models.Court;
+import Views.insertForm;
+
 public class PROJ1PadelAGS {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        Court crt = new Court();
+        courtQueries sqlModel = new courtQueries();
+        insertForm iForm = new insertForm();
+        
+        CourtController cctr = new CourtController(crt, sqlModel, iForm);
+        cctr.iniciar();
+        iForm.setVisible(true);
     }
 }

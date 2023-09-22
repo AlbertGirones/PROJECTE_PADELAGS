@@ -8,12 +8,12 @@ package Views;
  *
  * @author geri
  */
-public class insertCourt extends javax.swing.JFrame {
+public class insertForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form insertCourt
+     * Creates new form insertForm
      */
-    public insertCourt() {
+    public insertForm() {
         initComponents();
     }
 
@@ -26,50 +26,50 @@ public class insertCourt extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNameCourt = new javax.swing.JTextField();
-        txtUbicationCourt = new javax.swing.JTextField();
-        btnInsert = new javax.swing.JButton();
+        txtNameInsertCourtForm = new javax.swing.JTextField();
+        txtUbicationInsertCourtForm = new javax.swing.JTextField();
+        btnInsertCourtForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtNameCourt.addActionListener(new java.awt.event.ActionListener() {
+        txtNameInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameCourtActionPerformed(evt);
+                txtNameInsertCourtFormActionPerformed(evt);
             }
         });
 
-        btnInsert.setText("Agregar");
+        btnInsertCourtForm.setText("Agregar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnInsert)
-                    .addComponent(txtNameCourt, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(txtUbicationCourt))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtNameInsertCourtForm)
+                    .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addComponent(btnInsertCourtForm, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(txtNameCourt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUbicationCourt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnInsert)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addComponent(btnInsertCourtForm)
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameCourtActionPerformed
+    private void txtNameInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameInsertCourtFormActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameCourtActionPerformed
+    }//GEN-LAST:event_txtNameInsertCourtFormActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,27 +88,27 @@ public class insertCourt extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(insertCourt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(insertForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(insertCourt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(insertForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(insertCourt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(insertForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(insertCourt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(insertForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new insertCourt().setVisible(true);
+                new insertForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnInsert;
-    public javax.swing.JTextField txtNameCourt;
-    public javax.swing.JTextField txtUbicationCourt;
+    public javax.swing.JButton btnInsertCourtForm;
+    public javax.swing.JTextField txtNameInsertCourtForm;
+    public javax.swing.JTextField txtUbicationInsertCourtForm;
     // End of variables declaration//GEN-END:variables
 }

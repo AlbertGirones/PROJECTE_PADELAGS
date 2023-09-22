@@ -1,28 +1,37 @@
 
 package Models;
 
-public class Court {
+public class Court extends Conexion {
     
-    int id_court;
-    String name;
-    String ubication;
-    
-    public Court() {
-        
+    private int id_court;
+    private String name;
+    private String hours;
+    private String ubication;
+    private String photo;
+    private boolean status;
+
+    public int getId_court() {
+        return id_court;
     }
 
-    public Court(int id_court, String name, String ubication) {
+    public void setId_court(int id_court) {
         this.id_court = id_court;
-        this.name = name;
-        this.ubication = ubication;
     }
-    
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getHours() {
+        return hours;
+    }
+
+    public void setHours(String hours) {
+        this.hours = hours;
     }
 
     public String getUbication() {
@@ -32,10 +41,21 @@ public class Court {
     public void setUbication(String ubication) {
         this.ubication = ubication;
     }
-    
-    public void insertCourt()
-    {
-        
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     
 }

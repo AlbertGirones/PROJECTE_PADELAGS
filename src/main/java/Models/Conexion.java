@@ -1,30 +1,27 @@
-
 package Models;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Conexion {
     
-    private final String base = "proj1padelags";
-    private final String user = "root";
-    private final String password = "";
-    private final String url = "jdbc:mysql://localhost:3306/" + base;
-    private Connection con = null;
+    Connection con = null;
     
-    public Connection getConnection() throws ClassNotFoundException {
-        try{
+    String base = "proj1padelags";
+    String user = "root";
+    String password = "";
+    String url = "jdbc:mysql://localhost:3306/" + base;
+    
+    public Connection getConnection() {
+        
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection(this.url, this.user, this.password);
-        } catch(SQLException e)
-        {
+            con = DriverManager.getConnection(url, user, password);
+        } catch(ClassNotFoundException | SQLException e) {
             System.err.println(e);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return con;
     }
+    
 }
