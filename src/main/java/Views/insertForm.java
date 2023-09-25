@@ -29,6 +29,10 @@ public class insertForm extends javax.swing.JFrame {
         txtNameInsertCourtForm = new javax.swing.JTextField();
         txtUbicationInsertCourtForm = new javax.swing.JTextField();
         btnInsertCourtForm = new javax.swing.JButton();
+        btnDeactivateCourtForm = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnActivateCourtForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,31 +41,72 @@ public class insertForm extends javax.swing.JFrame {
                 txtNameInsertCourtFormActionPerformed(evt);
             }
         });
+        txtNameInsertCourtForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameInsertCourtFormKeyTyped(evt);
+            }
+        });
 
         btnInsertCourtForm.setText("Agregar");
+
+        btnDeactivateCourtForm.setText("Desactivar");
+        btnDeactivateCourtForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeactivateCourtFormActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Nom pista:");
+
+        jLabel2.setText("Ubicació pista:");
+
+        btnActivateCourtForm.setText("Activar");
+        btnActivateCourtForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActivateCourtFormActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtNameInsertCourtForm)
-                    .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                    .addComponent(btnInsertCourtForm, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(76, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnInsertCourtForm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnActivateCourtForm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDeactivateCourtForm)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnInsertCourtForm)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnInsertCourtForm)
+                    .addComponent(btnDeactivateCourtForm)
+                    .addComponent(btnActivateCourtForm))
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -70,6 +115,18 @@ public class insertForm extends javax.swing.JFrame {
     private void txtNameInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameInsertCourtFormActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameInsertCourtFormActionPerformed
+
+    private void btnDeactivateCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeactivateCourtFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeactivateCourtFormActionPerformed
+
+    private void btnActivateCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivateCourtFormActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnActivateCourtFormActionPerformed
+
+    private void txtNameInsertCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameInsertCourtFormKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameInsertCourtFormKeyTyped
 
     /**
      * @param args the command line arguments
@@ -107,7 +164,11 @@ public class insertForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnActivateCourtForm;
+    public javax.swing.JButton btnDeactivateCourtForm;
     public javax.swing.JButton btnInsertCourtForm;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public javax.swing.JTextField txtNameInsertCourtForm;
     public javax.swing.JTextField txtUbicationInsertCourtForm;
     // End of variables declaration//GEN-END:variables
