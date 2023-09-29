@@ -1,21 +1,14 @@
 
 package com.mycompany.proj1padelags;
 
-import Controllers.CourtController;
-import Models.courtQueries;
-import Models.Court;
-import Views.insertForm;
+import Controllers.PrincipalController;
 
 public class PROJ1PadelAGS {
 
     public static void main(String[] args) {
         
-        Court crt = new Court();
-        courtQueries sqlModel = new courtQueries();
-        insertForm iForm = new insertForm();
-        
-        CourtController cctr = new CourtController(crt, sqlModel, iForm);
+        PrincipalController cctr = new PrincipalController();
         cctr.iniciar();
-        iForm.setVisible(true);
+        
     }
 }

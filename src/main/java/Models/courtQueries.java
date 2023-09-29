@@ -5,9 +5,38 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class courtQueries extends Conexion {
 
+    public List listCourts(Court model) {
+        
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        ResultSet rs;
+        
+        List<Court>data=new ArrayList<>();
+        String sql = "SELECT id_court, name, ubication, status FROM court";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Court court = new Court();
+                court.setId_court(rs.getInt(1));
+                court.setName(rs.getString(2));
+                court.setUbication(rs.getString(3));
+                court.isStatus(rs.getBoolean(4));
+                data.add(court);
+                
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+        return data;
+    }
+    
     public boolean insert(Court crt) {
         
         PreparedStatement ps = null;

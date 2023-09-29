@@ -5,7 +5,6 @@ public class Court extends Conexion {
     
     private int id_court;
     private String name;
-    private String hours;
     private String ubication;
     private String photo;
     private boolean status;
@@ -26,14 +25,6 @@ public class Court extends Conexion {
         this.name = name;
     }
 
-    public String getHours() {
-        return hours;
-    }
-
-    public void setHours(String hours) {
-        this.hours = hours;
-    }
-
     public String getUbication() {
         return ubication;
     }
@@ -50,7 +41,7 @@ public class Court extends Conexion {
         this.photo = photo;
     }
 
-    public boolean isStatus() {
+    public boolean isStatus(boolean status) {
         return status;
     }
 
