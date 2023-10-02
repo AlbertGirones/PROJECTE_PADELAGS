@@ -4,8 +4,8 @@
  */
 package Views;
 
-import Controllers.CourtController;
-
+import Controllers.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author geri
@@ -17,6 +17,10 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
      */
     public adminCourtsDashboard() {
         initComponents();
+        DefaultTableModel modelo = new DefaultTableModel();
+        tblCourts.setModel(modelo);
+        PrincipalController.loadTblCourt(modelo);
+        
     }
 
     /**
@@ -33,9 +37,10 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         btnActivateCourtForm = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCourts = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        txtSearchCourt = new javax.swing.JTextField();
+        btnSearchCourt = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnBackCourt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,42 +88,69 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblCourts);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        btnSearchCourt.setText("Carregar");
+        btnSearchCourt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchCourtActionPerformed(evt);
+            }
+        });
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        jLabel1.setText("Nom:");
 
-        setJMenuBar(jMenuBar1);
+        btnBackCourt.setText("Tornar ...");
+        btnBackCourt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackCourtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnInsertCourtForm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 429, Short.MAX_VALUE)
-                .addComponent(btnActivateCourtForm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDeactivateCourtForm)
-                .addContainerGap())
+                .addGap(100, 100, 100)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSearchCourt))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnInsertCourtForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnActivateCourtForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDeactivateCourtForm))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnBackCourt)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+                .addGap(13, 13, 13)
+                .addComponent(btnBackCourt)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchCourt)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertCourtForm)
                     .addComponent(btnDeactivateCourtForm)
                     .addComponent(btnActivateCourtForm))
-                .addGap(14, 14, 14))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -131,6 +163,16 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     private void btnActivateCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivateCourtFormActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActivateCourtFormActionPerformed
+
+    private void btnSearchCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCourtActionPerformed
+        DefaultTableModel modelo = new DefaultTableModel();
+        tblCourts.setModel(modelo);
+        PrincipalController.loadTblCourtWhere(modelo, txtSearchCourt.getText());
+    }//GEN-LAST:event_btnSearchCourtActionPerformed
+
+    private void btnBackCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackCourtActionPerformed
+        PrincipalController.returnCourtPanel();
+    }//GEN-LAST:event_btnBackCourtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,12 +212,13 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActivateCourtForm;
+    public javax.swing.JButton btnBackCourt;
     public javax.swing.JButton btnDeactivateCourtForm;
     public javax.swing.JButton btnInsertCourtForm;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JButton btnSearchCourt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblCourts;
+    public javax.swing.JTextField txtSearchCourt;
     // End of variables declaration//GEN-END:variables
 }

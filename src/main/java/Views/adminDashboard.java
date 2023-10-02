@@ -13,7 +13,7 @@ import javax.swing.JTable;
  */
 public class adminDashboard extends javax.swing.JFrame {
 
-    private JTable JTable;
+    public JTable JTable;
 
     /**
      * Creates new form adminDashboard
@@ -97,7 +97,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRedirectReservationDashboardActionPerformed
 
     private void btnRedirectCourtDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectCourtDashboardActionPerformed
-        PrincipalController.showCourtPanel(JTable tabla);
+        PrincipalController.showCourtPanel();
     }//GEN-LAST:event_btnRedirectCourtDashboardActionPerformed
 
     private void btnRedirectUserDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectUserDashboardActionPerformed

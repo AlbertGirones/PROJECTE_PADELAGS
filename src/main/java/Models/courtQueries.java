@@ -4,37 +4,93 @@ package Models;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class courtQueries extends Conexion {
 
-    public List listCourts(Court model) {
-        
-        PreparedStatement ps = null;
-        Connection con = getConnection();
-        ResultSet rs;
-        
-        List<Court>data=new ArrayList<>();
-        String sql = "SELECT id_court, name, ubication, status FROM court";
+    public boolean loadTbl(DefaultTableModel modelo) {
         
         try {
+            PreparedStatement ps = null;
+            Connection con = getConnection();
+            ResultSet rs = null;
+        
+            String sql = "SELECT id_court, name, ubication, status FROM court";
+            
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnsCount = rsMd.getColumnCount();
+            
+            modelo.addColumn("ID");
+            modelo.addColumn("Nom");
+            modelo.addColumn("Ubicació");
+            modelo.addColumn("Status");
+            
             while (rs.next()) {
-                Court court = new Court();
-                court.setId_court(rs.getInt(1));
-                court.setName(rs.getString(2));
-                court.setUbication(rs.getString(3));
-                court.isStatus(rs.getBoolean(4));
-                data.add(court);
                 
+                Object [] rows = new Object[columnsCount];
+                
+                for (int i=0; i<columnsCount; i++)
+                {
+                    rows[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(rows);
             }
+            return true;
+            
         } catch (SQLException e) {
             System.err.println(e);
         }
-        return data;
+        return false;
+    }
+    
+    public boolean loadTblWhere(DefaultTableModel modelo, String name) {
+        
+        String where = "";
+        
+        if(!"".equals(name))
+        {
+            where = "WHERE name = '"+ name + "'";
+        }
+        
+        try {
+            PreparedStatement ps = null;
+            Connection con = getConnection();
+            ResultSet rs = null;
+        
+            String sql = "SELECT id_court, name, ubication, status FROM court " + where;
+            
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnsCount = rsMd.getColumnCount();
+            
+            modelo.addColumn("ID");
+            modelo.addColumn("Nom");
+            modelo.addColumn("Ubicació");
+            modelo.addColumn("Status");
+            
+            while (rs.next()) {
+                
+                Object [] rows = new Object[columnsCount];
+                
+                for (int i=0; i<columnsCount; i++)
+                {
+                    rows[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(rows);
+            }
+            return true;
+            
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+        return false;
     }
     
     public boolean insert(Court crt) {

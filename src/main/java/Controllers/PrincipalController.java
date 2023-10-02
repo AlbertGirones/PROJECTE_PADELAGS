@@ -3,9 +3,6 @@ package Controllers;
 
 import Models.*;
 import Views.*;
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class PrincipalController {
@@ -40,18 +37,7 @@ public class PrincipalController {
         principalPg.setVisible(false);
     }
     
-    public void showCourtPanel (JTable tabla) {
-        DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
-        List<Court>list=sqlModel.listCourts(model);
-        Object[]object=new Object[4];
-        for (int i=0; i<list.size();i++) {
-            object[0]=list.get(i).getId_court();
-            object[1]=list.get(i).getName();
-            object[2]=list.get(i).getUbication();
-            modelo.addRow(object);      
-            
-        }
-        CourtPanel.tblCourts.setModel(modelo);
+    public static void showCourtPanel () {
         CourtPanel.setVisible(true);
         CourtPanel.setTitle("Gestió pistes");
         adminPanel.setVisible(false);
@@ -59,9 +45,20 @@ public class PrincipalController {
     
     public static void returnCourtPanel() {
         CourtPanel.setVisible(false);
+        adminPanel.setTitle("Administració");
+        adminPanel.setVisible(true);
     }
     
     // COURTS METHODS
+    
+    public static void loadTblCourt(DefaultTableModel modelo) {
+        boolean consulta = sqlModel.loadTbl(modelo);
+    }
+    
+    public static void loadTblCourtWhere(DefaultTableModel modelo, String where) {
+        String name = where;
+        boolean consulta = sqlModel.loadTblWhere(modelo, name);
+    }
     
     // RESERVATION METHODS
     
