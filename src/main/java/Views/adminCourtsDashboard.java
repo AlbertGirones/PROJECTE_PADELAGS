@@ -5,6 +5,8 @@
 package Views;
 
 import Controllers.*;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -157,11 +159,29 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeactivateCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeactivateCourtFormActionPerformed
-        // TODO add your handling code here:
+        if (tblCourts.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        else {
+            DefaultTableModel modelTable = (DefaultTableModel) tblCourts.getModel();
+            int selectedRow = tblCourts.getSelectedRow();
+            System.out.print(selectedRow);
+            int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
+            System.out.print(idCourt);
+            PrincipalController.deactivateCourt(idCourt);
+        }
     }//GEN-LAST:event_btnDeactivateCourtFormActionPerformed
 
     private void btnActivateCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivateCourtFormActionPerformed
-        // TODO add your handling code here:
+        if (tblCourts.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        else {
+            DefaultTableModel modelTable = (DefaultTableModel) tblCourts.getModel();
+            int selectedRow = tblCourts.getSelectedRow();
+            System.out.print(selectedRow);
+            int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
+            System.out.print(idCourt);
+            PrincipalController.activateCourt(idCourt);
+        }
     }//GEN-LAST:event_btnActivateCourtFormActionPerformed
 
     private void btnSearchCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCourtActionPerformed

@@ -3,6 +3,7 @@ package Controllers;
 
 import Models.*;
 import Views.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class PrincipalController {
@@ -58,6 +59,26 @@ public class PrincipalController {
     public static void loadTblCourtWhere(DefaultTableModel modelo, String where) {
         String name = where;
         boolean consulta = sqlModel.loadTblWhere(modelo, name);
+    }
+    
+    public static void activateCourt(int idCourt) {
+        boolean consulta = sqlModel.activate(idCourt);
+        if (consulta == true) {
+            JOptionPane.showMessageDialog(null, "Pista activada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Error al activar pista", "dd", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public static void deactivateCourt(int idCourt) {
+        boolean consulta = sqlModel.deactivate(idCourt);
+        if (consulta == true) {
+            JOptionPane.showMessageDialog(null, "Pista desactivada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Error al desactivar pista", "dd", JOptionPane.WARNING_MESSAGE);
+        }
     }
     
     // RESERVATION METHODS
