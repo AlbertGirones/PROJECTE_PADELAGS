@@ -20,6 +20,7 @@ public class adminDashboard extends javax.swing.JFrame {
      */
     public adminDashboard() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

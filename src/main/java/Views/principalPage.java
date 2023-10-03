@@ -17,6 +17,7 @@ public class principalPage extends javax.swing.JFrame {
      */
     public principalPage() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

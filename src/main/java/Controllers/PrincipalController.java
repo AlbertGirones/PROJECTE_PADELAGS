@@ -18,6 +18,7 @@ public class PrincipalController {
     public static Court model = new Court();
     public static courtQueries sqlModel = new courtQueries();
     public static adminCourtsDashboard CourtPanel = new adminCourtsDashboard();
+    public static adminNewCourtsForm NewformCourt = new adminNewCourtsForm();
     
     // SET RESERVATIONS
     
@@ -44,11 +45,27 @@ public class PrincipalController {
         adminPanel.setVisible(false);
     }
     
+    public static void showNewFormCourtPanel() {
+        NewformCourt.setVisible(true);
+        CourtPanel.setTitle("Insertar pista");
+        CourtPanel.setVisible(false);
+    }
+    
+    // RETURNS
+    
     public static void returnCourtPanel() {
         CourtPanel.setVisible(false);
         adminPanel.setTitle("Administració");
         adminPanel.setVisible(true);
     }
+    
+    public static void returnNewFormCourtPanel() {
+        NewformCourt.setVisible(false);
+        CourtPanel.setTitle("Gestió pistes");
+        CourtPanel.setVisible(true);
+    }
+    
+    
     
     // COURTS METHODS
     
@@ -60,6 +77,35 @@ public class PrincipalController {
         String name = where;
         boolean consulta = sqlModel.loadTblWhere(modelo, name);
     }
+    
+    public static void insertCourt(String name, String ubication) {
+        
+        if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            NewformCourt.setVisible(false);
+            CourtPanel.setTitle("Gestió pistes");
+            CourtPanel.setVisible(true);
+        }
+        else {
+            model.setName(name);
+            model.setUbication(ubication);
+            boolean consulta = sqlModel.insert(model);
+            if (consulta == true) {
+            JOptionPane.showMessageDialog(null, "Pista creada correctament", "", JOptionPane.WARNING_MESSAGE);
+            NewformCourt.setVisible(false);
+            CourtPanel.setTitle("Gestió pistes");
+            CourtPanel.setVisible(true);
+            }
+            else {
+            JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        
+    }
+    
+//    public static updateCourt() {
+//        
+//    }
     
     public static void activateCourt(int idCourt) {
         boolean consulta = sqlModel.activate(idCourt);

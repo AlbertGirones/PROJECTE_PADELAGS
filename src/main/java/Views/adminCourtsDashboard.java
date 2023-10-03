@@ -5,7 +5,6 @@
 package Views;
 
 import Controllers.*;
-import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -19,6 +18,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
      */
     public adminCourtsDashboard() {
         initComponents();
+        this.setLocationRelativeTo(null);
         DefaultTableModel modelo = new DefaultTableModel();
         tblCourts.setModel(modelo);
         PrincipalController.loadTblCourt(modelo);
@@ -47,6 +47,11 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnInsertCourtForm.setText("Agregar");
+        btnInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertCourtFormActionPerformed(evt);
+            }
+        });
 
         btnDeactivateCourtForm.setText("Desactivar");
         btnDeactivateCourtForm.addActionListener(new java.awt.event.ActionListener() {
@@ -193,6 +198,10 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     private void btnBackCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackCourtActionPerformed
         PrincipalController.returnCourtPanel();
     }//GEN-LAST:event_btnBackCourtActionPerformed
+
+    private void btnInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertCourtFormActionPerformed
+        PrincipalController.showNewFormCourtPanel();
+    }//GEN-LAST:event_btnInsertCourtFormActionPerformed
 
     /**
      * @param args the command line arguments
