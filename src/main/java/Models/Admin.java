@@ -1,7 +1,7 @@
 
 package Models;
 
-public class Admin {
+public class Admin extends Conexion {
     
     private int id_admin;
     private String nick;

@@ -12,8 +12,12 @@ public class PrincipalController {
     
     public static principalPage principalPg = new principalPage();
     public static adminDashboard adminPanel = new adminDashboard();
+    public static userDashboard userPanel = new userDashboard();
     
     // SET LOGIN
+    
+    public static userLogin userLoginPanel = new userLogin();
+    public static adminLogin adminLoginPanel = new adminLogin();
     
     // SET COURTS
     
