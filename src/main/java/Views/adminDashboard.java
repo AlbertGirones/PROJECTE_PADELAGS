@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Views;
 
 import Controllers.PrincipalController;
 import javax.swing.JTable;
 
-/**
- *
- * @author geri
- */
 public class adminDashboard extends javax.swing.JFrame {
 
     public JTable JTable;
@@ -102,7 +94,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRedirectCourtDashboardActionPerformed
 
     private void btnRedirectUserDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectUserDashboardActionPerformed
-        // TODO add your handling code here:
+        PrincipalController.showUserPanel();
     }//GEN-LAST:event_btnRedirectUserDashboardActionPerformed
 
     /**

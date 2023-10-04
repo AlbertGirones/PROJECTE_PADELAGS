@@ -34,6 +34,8 @@ public class PrincipalController {
     public static User model2 = new User();
     public static userQueries sqlModel2 = new userQueries();
     public static adminUsersDashboard UserPanel = new adminUsersDashboard();
+    public static adminNewUsersForm NewformUser = new adminNewUsersForm();
+
 
     // INI
     public void iniciar() {
@@ -74,15 +76,15 @@ public class PrincipalController {
 //    }
     
     public static void showUserPanel() {
-        CourtPanel.setVisible(true);
-        CourtPanel.setTitle("Gestió pistes");
+        UserPanel.setVisible(true);
+        UserPanel.setTitle("Gestió d'usuaris");
         adminPanel.setVisible(false);
     }
 
     public static void showNewFormUserPanel() {
-        NewformCourt.setVisible(true);
-        CourtPanel.setTitle("Insertar pista");
-        CourtPanel.setVisible(false);
+        NewformUser.setVisible(true);
+        UserPanel.setTitle("Inserir usuari");
+        UserPanel.setVisible(false);
     }
 
     // RETURNS
@@ -99,15 +101,15 @@ public class PrincipalController {
     }
     
     public static void returnUserPanel() {
-        CourtPanel.setVisible(false);
+        UserPanel.setVisible(false);
         adminPanel.setTitle("Administració");
         adminPanel.setVisible(true);
     }
 
     public static void returnNewFormUserPanel() {
-        NewformCourt.setVisible(false);
-        CourtPanel.setTitle("Gestió pistes");
-        CourtPanel.setVisible(true);
+        NewformUser.setVisible(false);
+        UserPanel.setTitle("Gestió usuaris");
+        UserPanel.setVisible(true);
     }
 
     // SESSION INSTANCES
@@ -190,32 +192,37 @@ public class PrincipalController {
     // USERS METHODS
     
     public static void loadTblUser(DefaultTableModel modelo) {
-        boolean consulta = sqlModel.loadTbl(modelo);
+        boolean consulta = sqlModel2.loadTbl(modelo);
     }
 
     public static void loadTblUserWhere(DefaultTableModel modelo, String where) {
-        String name = where;
-        boolean consulta = sqlModel.loadTblWhere(modelo, name);
+        String dni = where;
+        boolean consulta = sqlModel2.loadTblWhere(modelo, dni);
     }
 
-    public static void insertUser(String name, String ubication) {
+    public static void insertUser(String name, String surname, String dni, String mail, String phone, String passwd) {
 
-        if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
+        if (name.trim().equalsIgnoreCase("") || surname.trim().equalsIgnoreCase("") || dni.trim().equalsIgnoreCase("") || mail.trim().equalsIgnoreCase("") || phone.trim().equalsIgnoreCase("") || passwd.trim().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
-            NewformCourt.setVisible(false);
-            CourtPanel.setTitle("Gestió pistes");
-            CourtPanel.setVisible(true);
+            NewformUser.setVisible(false);
+            UserPanel.setTitle("Gestió usuaris");
+            UserPanel.setVisible(true);
         } else {
-            model.setName(name);
-            model.setUbication(ubication);
-            boolean consulta = sqlModel.insert(model);
+            model2.setName(name);
+            model2.setSurname(surname);
+            model2.setDni(dni);
+            model2.setMail(mail);
+            model2.setPhone(phone);
+            model2.setPasswd(passwd);
+
+            boolean consulta = sqlModel2.insert(model2);
             if (consulta == true) {
-                JOptionPane.showMessageDialog(null, "Pista creada correctament", "", JOptionPane.WARNING_MESSAGE);
-                NewformCourt.setVisible(false);
-                CourtPanel.setTitle("Gestió pistes");
-                CourtPanel.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Usuari creat correctament", "", JOptionPane.WARNING_MESSAGE);
+                NewformUser.setVisible(false);
+                UserPanel.setTitle("Gestió usuaris");
+                UserPanel.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al crear usuari, usuari existent", "", JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -225,20 +232,20 @@ public class PrincipalController {
 //        
 //    }
     public static void activateUser(int idUser) {
-        boolean consulta = sqlModel.activate(idUser);
+        boolean consulta = sqlModel2.activate(idUser);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Pista activada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuari activat correctament", "dd", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al activar pista", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al activar usuari", "dd", JOptionPane.WARNING_MESSAGE);
         }
     }
 
     public static void deactivateUser(int idUser) {
-        boolean consulta = sqlModel.deactivate(idUser);
+        boolean consulta = sqlModel2.deactivate(idUser);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Pista desactivada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuari desactivat correctament", "dd", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al desactivar pista", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al desactivar l'usuari", "dd", JOptionPane.WARNING_MESSAGE);
         }
     }
     

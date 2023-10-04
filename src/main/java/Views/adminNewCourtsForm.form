@@ -46,10 +46,8 @@
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="btnInsertCourtForm" pref="103" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtNameInsertCourtForm" pref="103" max="32767" attributes="0"/>
-                      <Component id="txtUbicationInsertCourtForm" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="txtNameInsertCourtForm" alignment="0" pref="103" max="32767" attributes="0"/>
+                  <Component id="txtUbicationInsertCourtForm" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
           </Group>

@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 
 import Controllers.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author geri
- */
+
 public class adminUsersDashboard extends javax.swing.JFrame {
 
     /**
@@ -165,7 +159,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
 
     private void btnDeactivateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeactivateUserFormActionPerformed
         if (tblUsers.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
@@ -177,7 +171,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
 
     private void btnActivateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivateUserFormActionPerformed
         if (tblUsers.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
