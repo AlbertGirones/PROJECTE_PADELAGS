@@ -10,7 +10,6 @@ public class User extends Conexion {
     private String mail;
     private String phone;
     private String passwd;
-    private boolean iffailed;
     private boolean ifactive;
 
     public int getId_user() {
@@ -67,14 +66,6 @@ public class User extends Conexion {
 
     public void setPasswd(String passwd) {
         this.passwd = passwd;
-    }
-
-    public boolean isIffailed() {
-        return iffailed;
-    }
-
-    public void setIffailed(boolean iffailed) {
-        this.iffailed = iffailed;
     }
 
     public boolean isIfactive() {

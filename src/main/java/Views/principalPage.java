@@ -30,6 +30,7 @@ public class principalPage extends javax.swing.JFrame {
     private void initComponents() {
 
         btnRedirectAdminLogin = new javax.swing.JButton();
+        btnRedirectUserLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,21 +41,32 @@ public class principalPage extends javax.swing.JFrame {
             }
         });
 
+        btnRedirectUserLogin.setText("Log In d'Usuaris");
+        btnRedirectUserLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRedirectUserLoginActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(btnRedirectAdminLogin)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGap(125, 125, 125)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnRedirectAdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRedirectUserLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(257, Short.MAX_VALUE)
-                .addComponent(btnRedirectAdminLogin)
-                .addGap(20, 20, 20))
+                .addGap(81, 81, 81)
+                .addComponent(btnRedirectUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRedirectAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         pack();
@@ -63,6 +75,10 @@ public class principalPage extends javax.swing.JFrame {
     private void btnRedirectAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectAdminLoginActionPerformed
         PrincipalController.showAdminLogin();
     }//GEN-LAST:event_btnRedirectAdminLoginActionPerformed
+
+    private void btnRedirectUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectUserLoginActionPerformed
+//        PrincipalController.showUserLogin();
+    }//GEN-LAST:event_btnRedirectUserLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,5 +117,6 @@ public class principalPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnRedirectAdminLogin;
+    public javax.swing.JButton btnRedirectUserLogin;
     // End of variables declaration//GEN-END:variables
 }
