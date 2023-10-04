@@ -13,6 +13,8 @@ public class PrincipalController {
     public static principalPage principalPg = new principalPage();
     public static adminDashboard adminPanel = new adminDashboard();
     
+    // SET LOGIN
+    
     // SET COURTS
     
     public static Court model = new Court();
