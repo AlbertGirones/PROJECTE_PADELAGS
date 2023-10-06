@@ -25,9 +25,9 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
 
         btnReturnCourtPanel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtNameInsertCourtForm = new javax.swing.JTextField();
+        txtNameModifyCourtForm = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtUbicationInsertCourtForm = new javax.swing.JTextField();
+        txtUbicationModifyCourtForm = new javax.swing.JTextField();
         btnInsertCourtForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,17 +41,17 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
 
         jLabel1.setText("Nom");
 
-        txtNameInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
+        txtNameModifyCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameInsertCourtFormActionPerformed(evt);
+                txtNameModifyCourtFormActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Ubicació");
 
-        txtUbicationInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
+        txtUbicationModifyCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUbicationInsertCourtFormActionPerformed(evt);
+                txtUbicationModifyCourtFormActionPerformed(evt);
             }
         });
 
@@ -85,8 +85,8 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                            .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtNameModifyCourtForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                            .addComponent(txtUbicationModifyCourtForm, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(165, 165, 165))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -100,11 +100,11 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNameModifyCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUbicationModifyCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(82, Short.MAX_VALUE))
@@ -117,19 +117,17 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
         PrincipalController.returnModifyFormCourtPanel();
     }//GEN-LAST:event_btnReturnCourtPanelActionPerformed
 
-    private void txtNameInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameInsertCourtFormActionPerformed
+    private void txtNameModifyCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameModifyCourtFormActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameInsertCourtFormActionPerformed
+    }//GEN-LAST:event_txtNameModifyCourtFormActionPerformed
 
-    private void txtUbicationInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicationInsertCourtFormActionPerformed
+    private void txtUbicationModifyCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUbicationModifyCourtFormActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUbicationInsertCourtFormActionPerformed
+    }//GEN-LAST:event_txtUbicationModifyCourtFormActionPerformed
 
     private void btnInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertCourtFormActionPerformed
-        txtNameInsertCourtForm.setText("");
-        txtUbicationInsertCourtForm.setText("");
-        String name = txtNameInsertCourtForm.getText();
-        String ubication = txtUbicationInsertCourtForm.getText();
+        String name = txtNameModifyCourtForm.getText();
+        String ubication = txtUbicationModifyCourtForm.getText();
         PrincipalController.modifyCourt(name, ubication);
     }//GEN-LAST:event_btnInsertCourtFormActionPerformed
 
@@ -174,7 +172,7 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
     public javax.swing.JButton btnReturnCourtPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    public javax.swing.JTextField txtNameInsertCourtForm;
-    public javax.swing.JTextField txtUbicationInsertCourtForm;
+    public javax.swing.JTextField txtNameModifyCourtForm;
+    public javax.swing.JTextField txtUbicationModifyCourtForm;
     // End of variables declaration//GEN-END:variables
 }

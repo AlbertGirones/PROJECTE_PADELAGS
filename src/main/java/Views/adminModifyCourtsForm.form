@@ -47,8 +47,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="txtNameInsertCourtForm" alignment="0" pref="103" max="32767" attributes="0"/>
-                          <Component id="txtUbicationInsertCourtForm" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNameModifyCourtForm" alignment="0" pref="103" max="32767" attributes="0"/>
+                          <Component id="txtUbicationModifyCourtForm" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                   </Group>
@@ -68,11 +68,11 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtNameInsertCourtForm" min="-2" max="-2" attributes="0"/>
+              <Component id="txtNameModifyCourtForm" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtUbicationInsertCourtForm" min="-2" max="-2" attributes="0"/>
+              <Component id="txtUbicationModifyCourtForm" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnInsertCourtForm" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace pref="82" max="32767" attributes="0"/>
@@ -97,9 +97,9 @@
         <Property name="text" type="java.lang.String" value="Nom"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNameInsertCourtForm">
+    <Component class="javax.swing.JTextField" name="txtNameModifyCourtForm">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameInsertCourtFormActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameModifyCourtFormActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -110,9 +110,9 @@
         <Property name="text" type="java.lang.String" value="Ubicaci&#xf3;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUbicationInsertCourtForm">
+    <Component class="javax.swing.JTextField" name="txtUbicationModifyCourtForm">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUbicationInsertCourtFormActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUbicationModifyCourtFormActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
