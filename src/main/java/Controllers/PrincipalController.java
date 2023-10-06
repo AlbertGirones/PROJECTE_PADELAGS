@@ -36,6 +36,7 @@ public class PrincipalController {
     public static userQueries sqlModel2 = new userQueries();
     public static adminUsersDashboard UserPanel = new adminUsersDashboard();
     public static adminNewUsersForm NewformUser = new adminNewUsersForm();
+    public static adminUpdateUserForm UpdateFormUser = new adminUpdateUserForm();
 
 
     // INI
@@ -93,6 +94,13 @@ public class PrincipalController {
 
     public static void showNewFormUserPanel() {
         NewformUser.setVisible(true);
+        UserPanel.setTitle("Inserir usuari");
+        UserPanel.setVisible(false);
+    }
+    
+    public static void showUpdateFormUserPanel(int idUser){
+        model2.setId_user(idUser);
+        UpdateFormUser.setVisible(true);
         UserPanel.setTitle("Inserir usuari");
         UserPanel.setVisible(false);
     }
@@ -271,9 +279,39 @@ public class PrincipalController {
 
     }
 
-//    public static updateCourt() {
-//        
-//    }
+    public static void modifyUser(String name, String surname, String mail, String phone) {
+        if (name.trim().equalsIgnoreCase("") || surname.trim().equalsIgnoreCase("") || mail.trim().equalsIgnoreCase("") || phone.trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            UpdateFormUser.setVisible(false);
+            UserPanel.setTitle("Gestió Usuaris");
+            UserPanel.setVisible(true);
+        } else {
+            model2.setName(name);
+            model2.setSurname(surname);
+            model2.setMail(mail);
+            model2.setPhone(name);
+            
+            boolean consulta = sqlModel2.update(model2);
+            if (consulta == true) {
+                JOptionPane.showMessageDialog(null, "Usuari actualitzat correctament", "", JOptionPane.WARNING_MESSAGE);
+                UpdateFormUser.setVisible(false);
+                UserPanel.setTitle("Gestió Usuaris");
+                UserPanel.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualitzar usuari, usuari existent", "", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }
+    
+    public static void resetPasswdUser(int idUser) {
+        boolean consulta = sqlModel2.resetPassword(idUser);
+        if (consulta == true) {
+            JOptionPane.showMessageDialog(null, "Contrasenya de l'usuari resetejada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al resetejar la contrasenya de l'usuari", "dd", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     
     public static void activateUser(int idUser) {
         boolean consulta = sqlModel2.activate(idUser);

@@ -37,6 +37,8 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         btnSearchUser = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBackUser = new javax.swing.JButton();
+        btnUpdateUserForm = new javax.swing.JButton();
+        btnResetPasswdUserForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +107,20 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             }
         });
 
+        btnUpdateUserForm.setText("Modificar");
+        btnUpdateUserForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateUserFormActionPerformed(evt);
+            }
+        });
+
+        btnResetPasswdUserForm.setText("Resetejar Passwd");
+        btnResetPasswdUserForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetPasswdUserFormActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,6 +141,10 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnInsertUserForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUpdateUserForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnResetPasswdUserForm)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnActivateUserForm)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -150,7 +170,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertUserForm)
                     .addComponent(btnDeactivateUserForm)
-                    .addComponent(btnActivateUserForm))
+                    .addComponent(btnActivateUserForm)
+                    .addComponent(btnUpdateUserForm)
+                    .addComponent(btnResetPasswdUserForm))
                 .addGap(25, 25, 25))
         );
 
@@ -195,6 +217,30 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         PrincipalController.showNewFormUserPanel();
     }//GEN-LAST:event_btnInsertUserFormActionPerformed
 
+    private void btnUpdateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserFormActionPerformed
+        if (tblUsers.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
+        else {
+            DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
+            int selectedRow = tblUsers.getSelectedRow();
+            int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
+            PrincipalController.showUpdateFormUserPanel(idUser);
+        }
+        
+    }//GEN-LAST:event_btnUpdateUserFormActionPerformed
+
+    private void btnResetPasswdUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswdUserFormActionPerformed
+        if (tblUsers.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
+        else {
+            DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
+            int selectedRow = tblUsers.getSelectedRow();
+            System.out.print(selectedRow);
+            int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
+            PrincipalController.resetPasswdUser(idUser);
+        }
+    }//GEN-LAST:event_btnResetPasswdUserFormActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -238,7 +284,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     public javax.swing.JButton btnBackUser;
     public javax.swing.JButton btnDeactivateUserForm;
     public javax.swing.JButton btnInsertUserForm;
+    public javax.swing.JButton btnResetPasswdUserForm;
     public javax.swing.JButton btnSearchUser;
+    private javax.swing.JButton btnUpdateUserForm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblUsers;

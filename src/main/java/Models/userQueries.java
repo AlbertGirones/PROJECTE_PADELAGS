@@ -32,7 +32,6 @@ public class userQueries extends Conexion {
             modelo.addColumn("DNI");
             modelo.addColumn("Correu");
             modelo.addColumn("Telèfon");
-            modelo.addColumn("Intents");
             modelo.addColumn("Estat");
 
             
@@ -81,7 +80,6 @@ public class userQueries extends Conexion {
             modelo.addColumn("DNI");
             modelo.addColumn("Correu");
             modelo.addColumn("Telèfon");
-            modelo.addColumn("Intents");
             modelo.addColumn("Estat");
             
             while (rs.next()) {
@@ -131,6 +129,34 @@ public class userQueries extends Conexion {
             }
         }
     }
+    
+    public boolean update(User usr) {
+        
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "UPDATE user SET name=?, surname=?, mail=?, phone=? WHERE id_user=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usr.getName());
+            ps.setString(2, usr.getSurname());
+            ps.setString(3, usr.getMail());
+            ps.setString(4, usr.getPhone());
+            ps.setInt(5, usr.getId_user());
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }    
     
     public boolean deactivate(int idUser) {
         
@@ -182,5 +208,29 @@ public class userQueries extends Conexion {
         }  
     }
     
+    public boolean resetPassword(int idUser) {
+        
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "UPDATE user SET passwd='123' WHERE id_user=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idUser);
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }  
+    }
     
 }
