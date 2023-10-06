@@ -27,6 +27,7 @@ public class PrincipalController {
     public static courtQueries sqlModel = new courtQueries();
     public static adminCourtsDashboard CourtPanel = new adminCourtsDashboard();
     public static adminNewCourtsForm NewformCourt = new adminNewCourtsForm();
+    public static adminModifyCourtsForm ModifyFormCourt = new adminModifyCourtsForm();
 
     // SET RESERVATIONS
     
@@ -60,6 +61,15 @@ public class PrincipalController {
     public static void showNewFormCourtPanel() {
         NewformCourt.setVisible(true);
         CourtPanel.setTitle("Insertar pista");
+        CourtPanel.setVisible(false);
+    }
+    
+    public static void showModifyFormCourtPanel(int idCourt, String name, String ubication) {
+        model.setId_court(idCourt);
+        model.setName(name);
+        model.setUbication(ubication);
+        ModifyFormCourt.setVisible(true);
+        ModifyFormCourt.setTitle("Modificar pista");
         CourtPanel.setVisible(false);
     }
 
@@ -100,6 +110,12 @@ public class PrincipalController {
         CourtPanel.setVisible(true);
     }
     
+    public static void returnModifyFormCourtPanel() {
+        ModifyFormCourt.setVisible(false);
+        CourtPanel.setTitle("Gestió pistes");
+        CourtPanel.setVisible(true);
+    }
+    
     public static void returnUserPanel() {
         UserPanel.setVisible(false);
         adminPanel.setTitle("Administració");
@@ -113,24 +129,25 @@ public class PrincipalController {
     }
 
     // SESSION INSTANCES
-    public static PrincipalController getInstance() {
-        if (instance == null) {
-            instance = new PrincipalController();
-        }
-        return instance;
-    }
-
-    public void iniciarSesion(Admin admin) {
-        this.admin = admin;
-    }
-
-    public Admin obtenerAdmin() {
-        return admin;
-    }
-
-    public void cerrarSesion() {
-        admin = null;
-    }
+    
+//    public static PrincipalController getInstance() {
+//        if (instance == null) {
+//            instance = new PrincipalController();
+//        }
+//        return instance;
+//    }
+//
+//    public void iniciarSesion(Admin admin) {
+//        this.admin = admin;
+//    }
+//
+//    public Admin obtenerAdmin() {
+//        return admin;
+//    }
+//
+//    public void cerrarSesion() {
+//        admin = null;
+//    }
 
     // COURTS METHODS
     public static void loadTblCourt(DefaultTableModel modelo) {
@@ -165,9 +182,26 @@ public class PrincipalController {
 
     }
 
-//    public static updateCourt() {
-//        
-//    }
+    public static void modifyCourt(String name, String ubication) {
+        if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            ModifyFormCourt.setVisible(false);
+            CourtPanel.setTitle("Gestió pistes");
+            CourtPanel.setVisible(true);
+        } else {
+            model.setName(name);
+            model.setUbication(ubication);
+            boolean consulta = sqlModel.modify(model);
+            if (consulta == true) {
+                JOptionPane.showMessageDialog(null, "Pista modificada correctament", "", JOptionPane.WARNING_MESSAGE);
+                ModifyFormCourt.setVisible(false);
+                CourtPanel.setTitle("Gestió pistes");
+                CourtPanel.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al modificar pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }
     
     public static void activateCourt(int idCourt) {
         boolean consulta = sqlModel.activate(idCourt);
@@ -175,6 +209,15 @@ public class PrincipalController {
             JOptionPane.showMessageDialog(null, "Pista activada correctament", "dd", JOptionPane.WARNING_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Error al activar pista", "dd", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public static void maintenanceCourt(int idCourt) {
+        boolean consulta = sqlModel.maintenance(idCourt);
+        if (consulta == true) {
+            JOptionPane.showMessageDialog(null, "Pista en manteniment", "dd", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al establir el manteniment en la pista", "dd", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -231,6 +274,7 @@ public class PrincipalController {
 //    public static updateCourt() {
 //        
 //    }
+    
     public static void activateUser(int idUser) {
         boolean consulta = sqlModel2.activate(idUser);
         if (consulta == true) {

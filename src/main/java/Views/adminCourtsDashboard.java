@@ -43,6 +43,8 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         btnSearchCourt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBackCourt = new javax.swing.JButton();
+        btnMaintenanceCourtForm1 = new javax.swing.JButton();
+        btnModifyCourtForm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +81,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
@@ -111,6 +113,20 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
+        btnMaintenanceCourtForm1.setText("En manteniment");
+        btnMaintenanceCourtForm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaintenanceCourtForm1ActionPerformed(evt);
+            }
+        });
+
+        btnModifyCourtForm.setText("Modificar");
+        btnModifyCourtForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyCourtFormActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,8 +147,12 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnInsertCourtForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnModifyCourtForm)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnActivateCourtForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMaintenanceCourtForm1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDeactivateCourtForm))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -156,7 +176,9 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertCourtForm)
                     .addComponent(btnDeactivateCourtForm)
-                    .addComponent(btnActivateCourtForm))
+                    .addComponent(btnActivateCourtForm)
+                    .addComponent(btnMaintenanceCourtForm1)
+                    .addComponent(btnModifyCourtForm))
                 .addGap(25, 25, 25))
         );
 
@@ -169,9 +191,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblCourts.getModel();
             int selectedRow = tblCourts.getSelectedRow();
-            System.out.print(selectedRow);
             int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
-            System.out.print(idCourt);
             PrincipalController.deactivateCourt(idCourt);
         }
     }//GEN-LAST:event_btnDeactivateCourtFormActionPerformed
@@ -182,9 +202,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblCourts.getModel();
             int selectedRow = tblCourts.getSelectedRow();
-            System.out.print(selectedRow);
             int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
-            System.out.print(idCourt);
             PrincipalController.activateCourt(idCourt);
         }
     }//GEN-LAST:event_btnActivateCourtFormActionPerformed
@@ -202,6 +220,30 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     private void btnInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertCourtFormActionPerformed
         PrincipalController.showNewFormCourtPanel();
     }//GEN-LAST:event_btnInsertCourtFormActionPerformed
+
+    private void btnMaintenanceCourtForm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaintenanceCourtForm1ActionPerformed
+        if (tblCourts.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        else {
+            DefaultTableModel modelTable = (DefaultTableModel) tblCourts.getModel();
+            int selectedRow = tblCourts.getSelectedRow();
+            int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
+            PrincipalController.maintenanceCourt(idCourt);
+        }
+    }//GEN-LAST:event_btnMaintenanceCourtForm1ActionPerformed
+
+    private void btnModifyCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyCourtFormActionPerformed
+        if (tblCourts.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        else {
+            DefaultTableModel modelTable = (DefaultTableModel) tblCourts.getModel();
+            int selectedRow = tblCourts.getSelectedRow();
+            int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
+            String name = (String) modelTable.getValueAt(selectedRow,1);
+            String ubication = (String) modelTable.getValueAt(selectedRow,2);
+            PrincipalController.showModifyFormCourtPanel(idCourt, name, ubication);
+        }
+    }//GEN-LAST:event_btnModifyCourtFormActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,6 +286,8 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     public javax.swing.JButton btnBackCourt;
     public javax.swing.JButton btnDeactivateCourtForm;
     public javax.swing.JButton btnInsertCourtForm;
+    public javax.swing.JButton btnMaintenanceCourtForm1;
+    public javax.swing.JButton btnModifyCourtForm;
     public javax.swing.JButton btnSearchCourt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

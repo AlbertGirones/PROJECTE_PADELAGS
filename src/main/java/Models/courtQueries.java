@@ -98,7 +98,7 @@ public class courtQueries extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConnection();
         
-        String sql = "INSERT INTO court (name, ubication, photo, status) VALUES (?, ?, 'hola.jpg', 1)";
+        String sql = "INSERT INTO court (name, ubication, photo, status) VALUES (?, ?, 'predeterminada.jpg', 'Activa')";
         
         try {
             ps = con.prepareStatement(sql);
@@ -121,12 +121,38 @@ public class courtQueries extends Conexion {
         }
     }
     
-    public boolean deactivate(int idCourt) {
+    public boolean modify(Court crt) {
         
         PreparedStatement ps = null;
         Connection con = getConnection();
         
-        String sql = "UPDATE court SET status=0 WHERE id_court=?";
+        String sql = "UPDATE court SET name=?, ubication=? WHERE id_court=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, crt.getName());
+            ps.setString(2, crt.getUbication());
+            ps.setInt(3, crt.getId_court());
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean activate(int idCourt) {
+        
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "UPDATE court SET status='Activa' WHERE id_court=?";
         
         try {
             ps = con.prepareStatement(sql);
@@ -146,12 +172,37 @@ public class courtQueries extends Conexion {
         }  
     }
     
-    public boolean activate(int idCourt) {
+    public boolean maintenance(int idCourt) {
         
         PreparedStatement ps = null;
         Connection con = getConnection();
         
-        String sql = "UPDATE court SET status=1 WHERE id_court=?";
+        String sql = "UPDATE court SET status='En manteniment' WHERE id_court=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idCourt);
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }  
+    }
+    
+    public boolean deactivate(int idCourt) {
+        
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "UPDATE court SET status='No activa' WHERE id_court=?";
         
         try {
             ps = con.prepareStatement(sql);
