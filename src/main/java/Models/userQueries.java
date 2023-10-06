@@ -59,7 +59,7 @@ public class userQueries extends Conexion {
         
         if(!"".equals(dni))
         {
-            where = "WHERE dni = '"+ dni + "'";
+            where = "WHERE dni LIKE '%"+ dni + "%'";
         }
         
         try {

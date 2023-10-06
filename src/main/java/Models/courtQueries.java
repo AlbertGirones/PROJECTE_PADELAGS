@@ -55,7 +55,7 @@ public class courtQueries extends Conexion {
         
         if(!"".equals(name))
         {
-            where = "WHERE name = '"+ name + "'";
+            where = "WHERE name LIKE '%"+ name + "%'";
         }
         
         try {
