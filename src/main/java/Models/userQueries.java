@@ -8,6 +8,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class userQueries extends Conexion {
@@ -231,6 +233,35 @@ public class userQueries extends Conexion {
                 System.err.println(e);
             }
         }  
+    }
+    
+    public boolean login(User usr){
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        ResultSet rs = null;
+        
+        String sql = "SELECT id_user, dni, passwd FROM user WHERE dni = ?  AND passwd = ?";
+        
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usr.getDni());
+            ps.setString(2, usr.getPasswd());
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(usr.getPasswd().equals(rs.getString(3))){
+                    
+                    usr.setId_user(rs.getInt(1));
+                    usr.setDni(rs.getString(2));
+                    return true;
+                } else {
+                    return false;
+                }            }
+            return false;
+        } catch (SQLException ex) {
+            Logger.getLogger(userQueries.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
     
 }

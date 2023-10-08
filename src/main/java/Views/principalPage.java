@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Views;
 
 import Controllers.PrincipalController;
 
-/**
- *
- * @author geri
- */
 public class principalPage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form principalPage
-     */
+    public static adminLogin frmLog;
+    public static userLogin frmUser;
+    
     public principalPage() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -73,11 +66,19 @@ public class principalPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRedirectAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectAdminLoginActionPerformed
-        PrincipalController.showAdminLogin();
+        
+        if(frmLog == null){
+            frmLog = new adminLogin();
+            frmLog.setVisible(true);
+        }
     }//GEN-LAST:event_btnRedirectAdminLoginActionPerformed
 
     private void btnRedirectUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectUserLoginActionPerformed
-//        PrincipalController.showUserLogin();
+        
+        if(frmUser == null){
+            frmUser = new userLogin();
+            frmUser.setVisible(true);
+        }
     }//GEN-LAST:event_btnRedirectUserLoginActionPerformed
 
     /**
