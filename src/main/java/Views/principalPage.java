@@ -67,18 +67,12 @@ public class principalPage extends javax.swing.JFrame {
 
     private void btnRedirectAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectAdminLoginActionPerformed
         
-        if(frmLog == null){
-            frmLog = new adminLogin();
-            frmLog.setVisible(true);
-        }
+        PrincipalController.showAdminLogin();
     }//GEN-LAST:event_btnRedirectAdminLoginActionPerformed
 
     private void btnRedirectUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectUserLoginActionPerformed
         
-        if(frmUser == null){
-            frmUser = new userLogin();
-            frmUser.setVisible(true);
-        }
+        PrincipalController.showUserLogin();
     }//GEN-LAST:event_btnRedirectUserLoginActionPerformed
 
     /**

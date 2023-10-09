@@ -4,6 +4,7 @@
  */
 package Views;
 
+import Controllers.PrincipalController;
 import Models.User;
 import Models.userQueries;
 import javax.swing.JOptionPane;
@@ -38,6 +39,7 @@ public class userLogin extends javax.swing.JFrame {
         passwordField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login d'usuaris");
 
         jLabel1.setText("DNI:");
 
@@ -100,30 +102,9 @@ public class userLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserLoginActionPerformed
-
-        userQueries sqlModel2 = new userQueries();
-        User usr = new User();
-        
-        if(!dniField.getText().equals("") && !passwordField.equals("")){
-                        
-            usr.setDni(dniField.getText());
-            usr.setPasswd(passwordField.getText());
-            
-            if(sqlModel2.login(usr)){
-                
-                principalPage.frmLog = null;
-                this.dispose();
-                
-                userDashboard frmPrincipal = new userDashboard();
-                frmPrincipal.setVisible(true);
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Dades incorrectes");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Introdueix dades si us plau!");
-        }
-
+        String dni = dniField.getText();
+        String password = passwordField.getText();
+        PrincipalController.loginUser(dni, password);
     }//GEN-LAST:event_btnUserLoginActionPerformed
 
     private void dniFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniFieldActionPerformed

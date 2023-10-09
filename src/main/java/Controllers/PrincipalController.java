@@ -38,7 +38,12 @@ public class PrincipalController {
     public static adminNewUsersForm NewformUser = new adminNewUsersForm();
     public static adminUpdateUserForm UpdateFormUser = new adminUpdateUserForm();
 
+    // SET ADMIN
+    public static Admin model3 = new Admin();
+    public static adminQueries sqlModel3 = new adminQueries();
 
+    
+    
     // INI
     public void iniciar() {
         principalPg.setVisible(true);
@@ -48,8 +53,8 @@ public class PrincipalController {
     // SHOW AND CLOSES
     
     public static void showAdminLogin() {
-        adminPanel.setVisible(true);
-        adminPanel.setTitle("Administració");
+        adminLoginPanel.setVisible(true);
+        adminLoginPanel.setTitle("Administració");
         principalPg.setVisible(false);
     }
 
@@ -74,17 +79,11 @@ public class PrincipalController {
         CourtPanel.setVisible(false);
     }
 
-//    public static void showAdminLogin() {
-//        adminLoginPanel.setVisible(true);
-//        adminLoginPanel.setTitle("Administració");
-//        principalPg.setVisible(false);
-//    }
-//
-//    public static void showUserLogin() {
-//        userLoginPanel.setVisible(true);
-//        userLoginPanel.setTitle("Panell d'usuari");
-//        principalPg.setVisible(false);
-//    }
+    public static void showUserLogin() {
+        userLoginPanel.setVisible(true);
+        userLoginPanel.setTitle("Panell d'usuari");
+        principalPg.setVisible(false);
+    }
     
     public static void showUserPanel() {
         UserPanel.setVisible(true);
@@ -135,28 +134,55 @@ public class PrincipalController {
         UserPanel.setTitle("Gestió usuaris");
         UserPanel.setVisible(true);
     }
-
-    // SESSION INSTANCES
     
-//    public static PrincipalController getInstance() {
-//        if (instance == null) {
-//            instance = new PrincipalController();
-//        }
-//        return instance;
-//    }
-//
-//    public void iniciarSesion(Admin admin) {
-//        this.admin = admin;
-//    }
-//
-//    public Admin obtenerAdmin() {
-//        return admin;
-//    }
-//
-//    public void cerrarSesion() {
-//        admin = null;
-//    }
-
+    public static void loginUser(String dni, String password){
+        
+        if(!dni.equals("") && !password.equals("")){
+                        
+            model2.setDni(dni);
+            model2.setPasswd(password);
+            boolean consulta = sqlModel2.login(model2);
+    
+            if(consulta == true){
+                
+                // VARIABLES DE SEXSION
+                
+                userLoginPanel.setVisible(false);
+                userPanel.setTitle("Panell de l'usuari");
+                userPanel.setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Dades incorrectes");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Introdueix dades si us plau!");
+        }
+    }
+    
+    public static void loginAdmin(String user, String password){
+        
+        if(!user.equals("") && !password.equals("")){
+                        
+            model3.setNick(user);
+            model3.setPasswd(password);
+            boolean consulta = sqlModel3.login(model3);
+    
+            if(consulta == true){
+                
+                // VARIABLES DE SEXSION
+                
+                adminLoginPanel.setVisible(false);
+                adminPanel.setTitle("Panell de l'administrador");
+                adminPanel.setVisible(true);
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Dades incorrectes");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Introdueix dades si us plau!");
+        }
+    }
+    
     // COURTS METHODS
     public static void loadTblCourt(DefaultTableModel modelo) {
         boolean consulta = sqlModel.loadTbl(modelo);

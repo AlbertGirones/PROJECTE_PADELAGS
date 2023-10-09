@@ -111,28 +111,9 @@ public class adminLogin extends javax.swing.JFrame {
 
     private void btnAdminLoginFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginFormActionPerformed
         
-        adminQueries sqlModel = new adminQueries();
-        Admin adm = new Admin();
-                
-        if(!nick.getText().equals("") && !passwd.equals("")){
-                        
-            adm.setNick(nick.getText());
-            adm.setPasswd(passwd.getText());
-            
-            if(sqlModel.login(adm)){
-                
-                principalPage.frmLog = null;
-                this.dispose();
-                
-                adminDashboard frmPrincipal = new adminDashboard();
-                frmPrincipal.setVisible(true);
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Dades incorrectes");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Introdueix dades si us plau!");
-        }
+        String user = nick.getText();
+        String password = passwd.getText();
+        PrincipalController.loginAdmin(user, password);       
     }//GEN-LAST:event_btnAdminLoginFormActionPerformed
 
     /**
@@ -174,7 +155,7 @@ public class adminLogin extends javax.swing.JFrame {
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JLabel UserLabel;
     private javax.swing.JButton btnAdminLoginForm;
-    private javax.swing.JTextField nick;
-    private javax.swing.JTextField passwd;
+    public javax.swing.JTextField nick;
+    public javax.swing.JTextField passwd;
     // End of variables declaration//GEN-END:variables
 }
