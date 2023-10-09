@@ -250,6 +250,8 @@ public class PrincipalController {
         boolean consulta = sqlModel.maintenance(idCourt);
         if (consulta == true) {
             JOptionPane.showMessageDialog(null, "Pista en manteniment", "dd", JOptionPane.WARNING_MESSAGE);
+            CourtPanel.setVisible(false);
+            CourtPanel.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Error al establir el manteniment en la pista", "dd", JOptionPane.WARNING_MESSAGE);
         }
@@ -262,6 +264,7 @@ public class PrincipalController {
         } else {
             JOptionPane.showMessageDialog(null, "Error al desactivar pista", "dd", JOptionPane.WARNING_MESSAGE);
         }
+        
     }
 
     // RESERVATION METHODS

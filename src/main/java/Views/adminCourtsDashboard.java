@@ -69,6 +69,11 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
+        tblCourts = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tblCourts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -96,6 +101,17 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tblCourts);
+
+        txtSearchCourt.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtSearchCourtCaretUpdate(evt);
+            }
+        });
+        txtSearchCourt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchCourtKeyReleased(evt);
+            }
+        });
 
         btnSearchCourt.setText("Carregar");
         btnSearchCourt.addActionListener(new java.awt.event.ActionListener() {
@@ -244,6 +260,17 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             PrincipalController.showModifyFormCourtPanel(idCourt, name, ubication);
         }
     }//GEN-LAST:event_btnModifyCourtFormActionPerformed
+
+    private void txtSearchCourtCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchCourtCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchCourtCaretUpdate
+
+    private void txtSearchCourtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchCourtKeyReleased
+        DefaultTableModel modelo = new DefaultTableModel();
+        tblCourts.setModel(modelo);
+        String where = txtSearchCourt.getText();
+        PrincipalController.loadTblCourtWhere(modelo, where);
+    }//GEN-LAST:event_txtSearchCourtKeyReleased
 
     /**
      * @param args the command line arguments
