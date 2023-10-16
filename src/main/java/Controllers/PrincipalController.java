@@ -99,8 +99,16 @@ public class PrincipalController {
         UserPanel.setVisible(false);
     }
     
-    public static void showUpdateFormUserPanel(int idUser){
+    public static void showUpdateFormUserPanel(int idUser, String nom, String cognom, String correu, String telefon){
         model2.setId_user(idUser);
+        model2.setName(nom);
+        model2.setSurname(cognom);
+        model2.setMail(correu);
+        model2.setPhone(telefon);
+        UpdateFormUser.txtNameUpdateUserForm.setText(nom);
+        UpdateFormUser.txtSurnameUpdateUserForm.setText(cognom);
+        UpdateFormUser.txtMailUpdateUserForm.setText(correu);
+        UpdateFormUser.txtPhoneUpdateUserForm.setText(telefon);
         UpdateFormUser.setVisible(true);
         UserPanel.setTitle("Inserir usuari");
         UserPanel.setVisible(false);

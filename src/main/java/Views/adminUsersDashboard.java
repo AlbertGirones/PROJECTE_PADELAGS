@@ -91,6 +91,20 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblUsers);
 
+        txtSearchUser.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtSearchUserCaretUpdate(evt);
+            }
+        });
+        txtSearchUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchUserKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSearchUserKeyTyped(evt);
+            }
+        });
+
         btnSearchUser.setText("Carregar");
         btnSearchUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +238,12 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
             int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
-            PrincipalController.showUpdateFormUserPanel(idUser);
+            String nom = (String) modelTable.getValueAt(selectedRow, 1);
+            String cognom = (String) modelTable.getValueAt(selectedRow, 2);
+            String correu = (String) modelTable.getValueAt(selectedRow, 4);
+            String telefon = (String) modelTable.getValueAt(selectedRow, 5);
+            
+            PrincipalController.showUpdateFormUserPanel(idUser, nom, cognom, correu, telefon);
         }
         
     }//GEN-LAST:event_btnUpdateUserFormActionPerformed
@@ -240,6 +259,21 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             PrincipalController.resetPasswdUser(idUser);
         }
     }//GEN-LAST:event_btnResetPasswdUserFormActionPerformed
+
+    private void txtSearchUserCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchUserCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchUserCaretUpdate
+
+    private void txtSearchUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchUserKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchUserKeyTyped
+
+    private void txtSearchUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchUserKeyReleased
+        DefaultTableModel modelo = new DefaultTableModel();
+        tblUsers.setModel(modelo);
+        String where = txtSearchUser.getText();
+        PrincipalController.loadTblUserWhere(modelo, where);
+    }//GEN-LAST:event_txtSearchUserKeyReleased
 
     /**
      * @param args the command line arguments
