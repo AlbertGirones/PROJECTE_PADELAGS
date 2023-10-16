@@ -215,7 +215,9 @@ public class userQueries extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConnection();
         
-        String sql = "UPDATE user SET passwd='123' WHERE id_user=?";
+        String hashedPassword = md5Hash("123");
+                
+        String sql = "UPDATE user SET passwd='?' WHERE id_user=?";
         
         try {
             ps = con.prepareStatement(sql);
@@ -262,6 +264,21 @@ public class userQueries extends Conexion {
             Logger.getLogger(userQueries.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+        
+    private String md5Hash(String input) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(input.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : array) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
     
 }

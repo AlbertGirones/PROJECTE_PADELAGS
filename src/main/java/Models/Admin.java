@@ -24,11 +24,27 @@ public class Admin extends Conexion {
     }
 
     public String getPasswd() {
-        return passwd;
+        String hashedPassword = md5Hash(passwd);
+        return hashedPassword;
     }
 
     public void setPasswd(String passwd) {
         this.passwd = passwd;
+    }
+    
+    private String md5Hash(String input) {
+        try {
+            java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+            byte[] array = md.digest(input.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : array) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (java.security.NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
     
 }

@@ -15,6 +15,8 @@ public class userDashboard extends javax.swing.JFrame {
      */
     public userDashboard() {
         initComponents();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
