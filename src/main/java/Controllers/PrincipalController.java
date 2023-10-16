@@ -125,12 +125,14 @@ public class PrincipalController {
         NewformCourt.setVisible(false);
         CourtPanel.setTitle("Gestió pistes");
         CourtPanel.setVisible(true);
+        CourtPanel.loadTable();
     }
     
     public static void returnModifyFormCourtPanel() {
         ModifyFormCourt.setVisible(false);
         CourtPanel.setTitle("Gestió pistes");
         CourtPanel.setVisible(true);
+        CourtPanel.loadTable();
     }
     
     public static void returnUserPanel() {
@@ -207,18 +209,14 @@ public class PrincipalController {
 
         if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
-            NewformCourt.setVisible(false);
-            CourtPanel.setTitle("Gestió pistes");
-            CourtPanel.setVisible(true);
+            returnNewFormCourtPanel();
         } else {
             model.setName(name);
             model.setUbication(ubication);
             boolean consulta = sqlModel.insert(model);
             if (consulta == true) {
                 JOptionPane.showMessageDialog(null, "Pista creada correctament", "", JOptionPane.WARNING_MESSAGE);
-                NewformCourt.setVisible(false);
-                CourtPanel.setTitle("Gestió pistes");
-                CourtPanel.setVisible(true);
+                returnNewFormCourtPanel();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
             }
@@ -229,18 +227,14 @@ public class PrincipalController {
     public static void modifyCourt(String name, String ubication) {
         if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
-            ModifyFormCourt.setVisible(false);
-            CourtPanel.setTitle("Gestió pistes");
-            CourtPanel.setVisible(true);
+            returnModifyFormCourtPanel();
         } else {
             model.setName(name);
             model.setUbication(ubication);
             boolean consulta = sqlModel.modify(model);
             if (consulta == true) {
                 JOptionPane.showMessageDialog(null, "Pista modificada correctament", "", JOptionPane.WARNING_MESSAGE);
-                ModifyFormCourt.setVisible(false);
-                CourtPanel.setTitle("Gestió pistes");
-                CourtPanel.setVisible(true);
+                returnModifyFormCourtPanel();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al modificar pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
             }
@@ -259,9 +253,7 @@ public class PrincipalController {
     public static void maintenanceCourt(int idCourt) {
         boolean consulta = sqlModel.maintenance(idCourt);
         if (consulta == true) {
-            CourtPanel.setVisible(false);
             JOptionPane.showMessageDialog(null, "Pista en manteniment", "dd", JOptionPane.WARNING_MESSAGE);
-            CourtPanel.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Error al establir el manteniment en la pista", "dd", JOptionPane.WARNING_MESSAGE);
         }

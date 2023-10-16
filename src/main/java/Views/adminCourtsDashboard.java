@@ -21,8 +21,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         DefaultTableModel modelo = new DefaultTableModel();
         tblCourts.setModel(modelo);
-        PrincipalController.loadTblCourt(modelo);
-        
+        PrincipalController.loadTblCourt(modelo);        
     }
 
     /**
@@ -40,7 +39,6 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCourts = new javax.swing.JTable();
         txtSearchCourt = new javax.swing.JTextField();
-        btnSearchCourt = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBackCourt = new javax.swing.JButton();
         btnMaintenanceCourtForm1 = new javax.swing.JButton();
@@ -113,13 +111,6 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
-        btnSearchCourt.setText("Carregar");
-        btnSearchCourt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchCourtActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Nom:");
 
         btnBackCourt.setText("Tornar ...");
@@ -153,9 +144,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSearchCourt))
+                        .addComponent(txtSearchCourt))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -184,9 +173,8 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchCourt)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,6 +197,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             int selectedRow = tblCourts.getSelectedRow();
             int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.deactivateCourt(idCourt);
+            loadTable();
         }
     }//GEN-LAST:event_btnDeactivateCourtFormActionPerformed
 
@@ -220,14 +209,9 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             int selectedRow = tblCourts.getSelectedRow();
             int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.activateCourt(idCourt);
+            loadTable();
         }
     }//GEN-LAST:event_btnActivateCourtFormActionPerformed
-
-    private void btnSearchCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchCourtActionPerformed
-        DefaultTableModel modelo = new DefaultTableModel();
-        tblCourts.setModel(modelo);
-        PrincipalController.loadTblCourtWhere(modelo, txtSearchCourt.getText());
-    }//GEN-LAST:event_btnSearchCourtActionPerformed
 
     private void btnBackCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackCourtActionPerformed
         PrincipalController.returnCourtPanel();
@@ -235,6 +219,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
 
     private void btnInsertCourtFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertCourtFormActionPerformed
         PrincipalController.showNewFormCourtPanel();
+        
     }//GEN-LAST:event_btnInsertCourtFormActionPerformed
 
     private void btnMaintenanceCourtForm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaintenanceCourtForm1ActionPerformed
@@ -245,6 +230,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             int selectedRow = tblCourts.getSelectedRow();
             int idCourt =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.maintenanceCourt(idCourt);
+            loadTable();
         }
     }//GEN-LAST:event_btnMaintenanceCourtForm1ActionPerformed
 
@@ -315,10 +301,15 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     public javax.swing.JButton btnInsertCourtForm;
     public javax.swing.JButton btnMaintenanceCourtForm1;
     public javax.swing.JButton btnModifyCourtForm;
-    public javax.swing.JButton btnSearchCourt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblCourts;
     public javax.swing.JTextField txtSearchCourt;
     // End of variables declaration//GEN-END:variables
+
+    public void loadTable() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        tblCourts.setModel(modelo);
+        PrincipalController.loadTblCourtWhere(modelo, txtSearchCourt.getText());
+    }
 }
