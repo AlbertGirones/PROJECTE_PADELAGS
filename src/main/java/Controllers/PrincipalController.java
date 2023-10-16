@@ -145,6 +145,14 @@ public class PrincipalController {
         NewformUser.setVisible(false);
         UserPanel.setTitle("Gestió usuaris");
         UserPanel.setVisible(true);
+        UserPanel.loadTable();
+    }
+    
+    public static void returnModifyFormUserPanel() {
+        UpdateFormUser.setVisible(false);
+        UserPanel.setTitle("Gestió Usuaris");
+        UserPanel.setVisible(true);
+        UserPanel.loadTable();
     }
     
     public static void loginUser(String dni, String password){
@@ -286,9 +294,7 @@ public class PrincipalController {
 
         if (name.trim().equalsIgnoreCase("") || surname.trim().equalsIgnoreCase("") || dni.trim().equalsIgnoreCase("") || mail.trim().equalsIgnoreCase("") || phone.trim().equalsIgnoreCase("") || passwd.trim().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
-            NewformUser.setVisible(false);
-            UserPanel.setTitle("Gestió usuaris");
-            UserPanel.setVisible(true);
+            returnNewFormUserPanel();
         } else {
             model2.setName(name);
             model2.setSurname(surname);
@@ -300,9 +306,7 @@ public class PrincipalController {
             boolean consulta = sqlModel2.insert(model2);
             if (consulta == true) {
                 JOptionPane.showMessageDialog(null, "Usuari creat correctament", "", JOptionPane.WARNING_MESSAGE);
-                NewformUser.setVisible(false);
-                UserPanel.setTitle("Gestió usuaris");
-                UserPanel.setVisible(true);
+                returnNewFormUserPanel();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al crear usuari, usuari existent", "", JOptionPane.WARNING_MESSAGE);
             }
@@ -313,9 +317,7 @@ public class PrincipalController {
     public static void modifyUser(String name, String surname, String mail, String phone) {
         if (name.trim().equalsIgnoreCase("") || surname.trim().equalsIgnoreCase("") || mail.trim().equalsIgnoreCase("") || phone.trim().equalsIgnoreCase("")) {
             JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
-            UpdateFormUser.setVisible(false);
-            UserPanel.setTitle("Gestió Usuaris");
-            UserPanel.setVisible(true);
+            returnModifyFormUserPanel();
         } else {
             model2.setName(name);
             model2.setSurname(surname);
@@ -325,9 +327,7 @@ public class PrincipalController {
             boolean consulta = sqlModel2.update(model2);
             if (consulta == true) {
                 JOptionPane.showMessageDialog(null, "Usuari actualitzat correctament", "", JOptionPane.WARNING_MESSAGE);
-                UpdateFormUser.setVisible(false);
-                UserPanel.setTitle("Gestió Usuaris");
-                UserPanel.setVisible(true);
+                returnModifyFormUserPanel();
             } else {
                 JOptionPane.showMessageDialog(null, "Error al actualitzar usuari, usuari existent", "", JOptionPane.WARNING_MESSAGE);
             }

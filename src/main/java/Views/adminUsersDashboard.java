@@ -15,8 +15,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         DefaultTableModel modelo = new DefaultTableModel();
         tblUsers.setModel(modelo);
-        PrincipalController.loadTblUser(modelo);
-        
+        PrincipalController.loadTblUser(modelo);        
     }
 
     /**
@@ -34,7 +33,6 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
         txtSearchUser = new javax.swing.JTextField();
-        btnSearchUser = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBackUser = new javax.swing.JButton();
         btnUpdateUserForm = new javax.swing.JButton();
@@ -105,13 +103,6 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             }
         });
 
-        btnSearchUser.setText("Carregar");
-        btnSearchUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchUserActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("DNI:");
 
         btnBackUser.setText("Tornar ...");
@@ -145,9 +136,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSearchUser))
+                        .addComponent(txtSearchUser))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -176,9 +165,8 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchUser)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -202,6 +190,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             System.out.print(selectedRow);
             int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.deactivateUser(idUser);
+            loadTable();
         }
     }//GEN-LAST:event_btnDeactivateUserFormActionPerformed
 
@@ -214,14 +203,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             System.out.print(selectedRow);
             int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.activateUser(idUser);
+            loadTable();
         }
     }//GEN-LAST:event_btnActivateUserFormActionPerformed
-
-    private void btnSearchUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchUserActionPerformed
-        DefaultTableModel modelo = new DefaultTableModel();
-        tblUsers.setModel(modelo);
-        PrincipalController.loadTblUserWhere(modelo, txtSearchUser.getText());
-    }//GEN-LAST:event_btnSearchUserActionPerformed
 
     private void btnBackUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUserActionPerformed
         PrincipalController.returnUserPanel();
@@ -319,11 +303,16 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     public javax.swing.JButton btnDeactivateUserForm;
     public javax.swing.JButton btnInsertUserForm;
     public javax.swing.JButton btnResetPasswdUserForm;
-    public javax.swing.JButton btnSearchUser;
     private javax.swing.JButton btnUpdateUserForm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblUsers;
     public javax.swing.JTextField txtSearchUser;
     // End of variables declaration//GEN-END:variables
+
+    public void loadTable() {
+        DefaultTableModel modelo = new DefaultTableModel();
+        tblUsers.setModel(modelo);
+        PrincipalController.loadTblUserWhere(modelo, txtSearchUser.getText());
+    }
 }
