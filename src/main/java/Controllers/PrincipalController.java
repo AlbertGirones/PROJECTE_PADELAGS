@@ -291,8 +291,14 @@ public class PrincipalController {
         }
         
     }
+    
+    public static void getListOfCourts(String date) {
+        
+    }
 
     // RESERVATION METHODS
+    
+    
     
     // USERS METHODS
     

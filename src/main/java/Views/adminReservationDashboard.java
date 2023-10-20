@@ -5,6 +5,8 @@
 package Views;
 
 import Controllers.PrincipalController;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -29,12 +31,12 @@ public class adminReservationDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        JCalendarReservationForDate = new com.toedter.calendar.JCalendar();
         btnBackReservation = new javax.swing.JButton();
         btnShowCourtOnReservations = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(575, 443));
 
         btnBackReservation.setText("Tornar ...");
         btnBackReservation.addActionListener(new java.awt.event.ActionListener() {
@@ -44,15 +46,18 @@ public class adminReservationDashboard extends javax.swing.JFrame {
         });
 
         btnShowCourtOnReservations.setText("Veure Pistes");
+        btnShowCourtOnReservations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowCourtOnReservationsActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Selecciona dia de la reserva:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,14 +67,25 @@ public class adminReservationDashboard extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnShowCourtOnReservations)
                         .addGap(235, 235, 235))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(123, Short.MAX_VALUE)
+                        .addComponent(JCalendarReservationForDate, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(jLabel1)))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(btnBackReservation)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(JCalendarReservationForDate, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnShowCourtOnReservations)
                 .addGap(66, 66, 66))
@@ -81,6 +97,12 @@ public class adminReservationDashboard extends javax.swing.JFrame {
     private void btnBackReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackReservationActionPerformed
         PrincipalController.returnReservationPanel();
     }//GEN-LAST:event_btnBackReservationActionPerformed
+
+    private void btnShowCourtOnReservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowCourtOnReservationsActionPerformed
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(JCalendarReservationForDate.getDate());
+        PrincipalController.getListOfCourts(date);
+    }//GEN-LAST:event_btnShowCourtOnReservationsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,8 +140,9 @@ public class adminReservationDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public com.toedter.calendar.JCalendar JCalendarReservationForDate;
     public javax.swing.JButton btnBackReservation;
     public javax.swing.JButton btnShowCourtOnReservations;
-    public com.toedter.calendar.JCalendar jCalendar1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
