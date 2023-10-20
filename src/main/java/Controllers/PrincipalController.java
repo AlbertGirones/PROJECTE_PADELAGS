@@ -31,6 +31,9 @@ public class PrincipalController {
 
     // SET RESERVATIONS
     
+    public static adminReservationDashboard ReservationPanel = new adminReservationDashboard();
+    
+    
     // SET USERS
     public static User model2 = new User();
     public static userQueries sqlModel2 = new userQueries();
@@ -111,7 +114,13 @@ public class PrincipalController {
         UpdateFormUser.txtPhoneUpdateUserForm.setText(telefon);
         UpdateFormUser.setVisible(true);
         UserPanel.setTitle("Inserir usuari");
-        UserPanel.setVisible(false);
+        UserPanel.setVisible(false);     
+    }
+    
+    public static void showReservationPanel() {
+        ReservationPanel.setVisible(true);
+        ReservationPanel.setTitle("Gestió reserves");
+        adminPanel.setVisible(false);
     }
 
     // RETURNS
@@ -153,6 +162,12 @@ public class PrincipalController {
         UserPanel.setTitle("Gestió Usuaris");
         UserPanel.setVisible(true);
         UserPanel.loadTable();
+    }
+    
+    public static void returnReservationPanel() {
+        ReservationPanel.setVisible(false);
+        adminPanel.setTitle("Administració");
+        adminPanel.setVisible(true);
     }
     
     public static void loginUser(String dni, String password){

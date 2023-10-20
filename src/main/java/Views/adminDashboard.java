@@ -86,7 +86,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRedirectReservationDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectReservationDashboardActionPerformed
-        // TODO add your handling code here:
+        PrincipalController.showReservationPanel();
     }//GEN-LAST:event_btnRedirectReservationDashboardActionPerformed
 
     private void btnRedirectCourtDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectCourtDashboardActionPerformed
