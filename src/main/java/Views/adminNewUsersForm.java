@@ -2,6 +2,8 @@
 package Views;
 
 import Controllers.PrincipalController;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class adminNewUsersForm extends javax.swing.JFrame {
 
@@ -11,6 +13,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     public adminNewUsersForm() {
         initComponents();
         this.setLocationRelativeTo(null);
+        btnInsertUserForm.setEnabled(false);
     }
 
     /**
@@ -41,30 +44,55 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         jLabel1.setText("Nom:");
 
+        txtNameInsertUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameInsertUserFormFocusLost(evt);
+            }
+        });
         txtNameInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameInsertUserFormActionPerformed(evt);
             }
         });
 
+        txtSurnameInsertUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSurnameInsertUserFormFocusLost(evt);
+            }
+        });
         txtSurnameInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSurnameInsertUserFormActionPerformed(evt);
             }
         });
 
+        txtMailInsertUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtMailInsertUserFormFocusLost(evt);
+            }
+        });
         txtMailInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMailInsertUserFormActionPerformed(evt);
             }
         });
 
+        txtPhoneInsertUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPhoneInsertUserFormFocusLost(evt);
+            }
+        });
         txtPhoneInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPhoneInsertUserFormActionPerformed(evt);
             }
         });
 
+        txtDniInsertUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtDniInsertUserFormFocusLost(evt);
+            }
+        });
         txtDniInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDniInsertUserFormActionPerformed(evt);
@@ -95,6 +123,11 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         jLabel6.setText("Contrasenya:");
 
+        txtPasswdInsertUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPasswdInsertUserFormFocusLost(evt);
+            }
+        });
         txtPasswdInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswdInsertUserFormActionPerformed(evt);
@@ -192,9 +225,38 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSurnameInsertUserFormActionPerformed
 
     private void txtDniInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniInsertUserFormActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDniInsertUserFormActionPerformed
+        // Obtiene el valor del campo de texto DNI y elimina espacios en blanco.
+//        String dni = txtDniInsertUserForm.getText().trim();
+//        System.out.println(dni);
+//
+//        // Define una expresión regular para verificar que el DNI tenga 8 dígitos seguidos de una letra.
+//        String dniPattern = "\\d{8}[A-Za-z]";
+//
+//        if (dni.matches(dniPattern)) {
+//            // El DNI es válido (cumple con el patrón).
+//            // Puedes realizar alguna acción, como cambiar el color del campo o mostrar un mensaje de validación.
+//            txtDniInsertUserForm.setBackground(Color.GREEN);
+//            // También puedes habilitar el botón para registrar si todos los campos son válidos.
+//            habilitarBotonRegistro();
+//        } else {
+//            // El DNI no es válido, muestra un mensaje de error.
+//            JOptionPane.showMessageDialog(this, "El DNI ingresado no es válido. Debe contener 8 números seguidos de una letra.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+//            // Puedes restaurar el color del campo a su estado original.
+//            txtDniInsertUserForm.setBackground(Color.WHITE);
+//            // También puedes deshabilitar el botón de registro si un campo es inválido.
+//            deshabilitarBotonRegistro();
+//        }
 
+    }//GEN-LAST:event_txtDniInsertUserFormActionPerformed
+    private void habilitarBotonRegistro() {
+        btnInsertUserForm.setEnabled(true);
+    }
+
+    private void deshabilitarBotonRegistro() {
+        btnInsertUserForm.setEnabled(false);
+    }
+    
+    
     private void txtMailInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMailInsertUserFormActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMailInsertUserFormActionPerformed
@@ -210,6 +272,86 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     private void txtPasswdInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswdInsertUserFormActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswdInsertUserFormActionPerformed
+
+    private void txtDniInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDniInsertUserFormFocusLost
+        String dni = txtDniInsertUserForm.getText().trim();
+        String dniPattern = "\\d{8}[A-Za-z]";
+
+        if (dni.matches(dniPattern)) {
+            txtDniInsertUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El DNI introduit no és vàlid. Ha de contenir 8 numeros i una lletra final", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtDniInsertUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtDniInsertUserFormFocusLost
+
+    private void txtPhoneInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPhoneInsertUserFormFocusLost
+        String phoneNumber = txtPhoneInsertUserForm.getText().trim();
+    
+        if (phoneNumber.matches("\\d+")) {
+            txtPhoneInsertUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El número de telèfon introduit no és vàlid. Ha de contenir només numeros.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtPhoneInsertUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtPhoneInsertUserFormFocusLost
+
+    private void txtMailInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMailInsertUserFormFocusLost
+        String email = txtMailInsertUserForm.getText().trim();
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
+
+        if (email.matches(emailPattern)) {
+            txtMailInsertUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El correu electrònic introduit no és vàlid. Ha de ser una direcció de correu de Gmail.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtMailInsertUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtMailInsertUserFormFocusLost
+
+    private void txtSurnameInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSurnameInsertUserFormFocusLost
+        String surname = txtSurnameInsertUserForm.getText().trim();
+    
+        if (surname.matches("^[a-zA-Z]+")) {
+            txtSurnameInsertUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El cognom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+            txtSurnameInsertUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtSurnameInsertUserFormFocusLost
+
+    private void txtNameInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameInsertUserFormFocusLost
+        String name = txtNameInsertUserForm.getText().trim();
+    
+        if (name.matches("^[a-zA-Z]+")) {
+            txtNameInsertUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El nom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtNameInsertUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtNameInsertUserFormFocusLost
+
+    private void txtPasswdInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswdInsertUserFormFocusLost
+        String password = txtPasswdInsertUserForm.getText().trim();
+    
+        if (password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El camp de la contrasenya no pot quedar buit.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtPasswdInsertUserForm.setBackground(Color.RED);
+            deshabilitarBotonRegistro();
+        } else {
+            txtPasswdInsertUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtPasswdInsertUserFormFocusLost
 
     /**
      * @param args the command line arguments

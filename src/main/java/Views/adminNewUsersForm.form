@@ -114,6 +114,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNameInsertUserForm">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtNameInsertUserFormFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameInsertUserFormActionPerformed"/>
       </Events>
       <AuxValues>
@@ -122,6 +123,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtSurnameInsertUserForm">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSurnameInsertUserFormFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSurnameInsertUserFormActionPerformed"/>
       </Events>
       <AuxValues>
@@ -130,6 +132,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtMailInsertUserForm">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtMailInsertUserFormFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMailInsertUserFormActionPerformed"/>
       </Events>
       <AuxValues>
@@ -138,6 +141,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtPhoneInsertUserForm">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPhoneInsertUserFormFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhoneInsertUserFormActionPerformed"/>
       </Events>
       <AuxValues>
@@ -146,6 +150,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtDniInsertUserForm">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtDniInsertUserFormFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDniInsertUserFormActionPerformed"/>
       </Events>
       <AuxValues>
@@ -201,6 +206,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtPasswdInsertUserForm">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPasswdInsertUserFormFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPasswdInsertUserFormActionPerformed"/>
       </Events>
       <AuxValues>
