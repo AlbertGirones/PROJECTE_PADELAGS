@@ -95,6 +95,11 @@ public class adminNewUsersForm extends javax.swing.JFrame {
                 txtNameInsertUserFormActionPerformed(evt);
             }
         });
+        txtNameInsertUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameInsertUserFormKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(30, 30, 30));
@@ -113,6 +118,11 @@ public class adminNewUsersForm extends javax.swing.JFrame {
                 txtSurnameInsertUserFormActionPerformed(evt);
             }
         });
+        txtSurnameInsertUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSurnameInsertUserFormKeyTyped(evt);
+            }
+        });
 
         txtPasswdInsertUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtPasswdInsertUserForm.setForeground(new java.awt.Color(30, 30, 30));
@@ -127,6 +137,11 @@ public class adminNewUsersForm extends javax.swing.JFrame {
                 txtPasswdInsertUserFormActionPerformed(evt);
             }
         });
+        txtPasswdInsertUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPasswdInsertUserFormKeyTyped(evt);
+            }
+        });
 
         txtMailInsertUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtMailInsertUserForm.setForeground(new java.awt.Color(30, 30, 30));
@@ -139,6 +154,11 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         txtMailInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMailInsertUserFormActionPerformed(evt);
+            }
+        });
+        txtMailInsertUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMailInsertUserFormKeyTyped(evt);
             }
         });
 
@@ -253,12 +273,9 @@ public class adminNewUsersForm extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(116, 116, 116))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtDniInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)))
+                                    .addComponent(jLabel3)
+                                    .addComponent(txtDniInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(txtPhoneInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -345,7 +362,11 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPhoneInsertUserFormActionPerformed
 
     private void txtPhoneInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPhoneInsertUserFormFocusLost
-        
+        String phoneNumber = txtPhoneInsertUserForm.getText().trim();
+
+        if (phoneNumber.matches("\\d+")) {
+            txtPhoneInsertUserForm.setBackground(Color.GREEN);
+        } 
     }//GEN-LAST:event_txtPhoneInsertUserFormFocusLost
 
     private void txtMailInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMailInsertUserFormActionPerformed
@@ -357,10 +378,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         String emailPattern = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
 
         if (email.matches(emailPattern)) {
-//            txtMailInsertUserForm.setBackground(Color.GREEN);
-        } else {
-            JOptionPane.showMessageDialog(this, "El correu electrònic introduit no és vàlid. Ha de ser una direcció de correu de Gmail.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
-//            txtMailInsertUserForm.setBackground(Color.WHITE);
+            txtMailInsertUserForm.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_txtMailInsertUserFormFocusLost
 
@@ -371,11 +389,8 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     private void txtPasswdInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswdInsertUserFormFocusLost
         String password = txtPasswdInsertUserForm.getText().trim();
 
-        if (password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El camp de la contrasenya no pot quedar buit.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
-//            txtPasswdInsertUserForm.setBackground(Color.RED);
-        } else {
-//            txtPasswdInsertUserForm.setBackground(Color.GREEN);
+        if (!password.isEmpty()) {
+            txtPasswdInsertUserForm.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_txtPasswdInsertUserFormFocusLost
 
@@ -387,11 +402,8 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         String surname = txtSurnameInsertUserForm.getText().trim();
 
         if (surname.matches("^[a-zA-Z]+")) {
-//            txtSurnameInsertUserForm.setBackground(Color.GREEN);
-        } else {
-            JOptionPane.showMessageDialog(this, "El cognom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
-//            txtSurnameInsertUserForm.setBackground(Color.WHITE);
-        }
+            txtSurnameInsertUserForm.setBackground(Color.GREEN);
+        } 
     }//GEN-LAST:event_txtSurnameInsertUserFormFocusLost
 
     private void txtNameInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameInsertUserFormActionPerformed
@@ -402,10 +414,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         String name = txtNameInsertUserForm.getText().trim();
 
         if (name.matches("^[a-zA-Z]+")) {
-//            txtNameInsertUserForm.setBackground(Color.GREEN);
-        } else {
-            JOptionPane.showMessageDialog(this, "El nom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
-//            txtNameInsertUserForm.setBackground(Color.WHITE);
+            txtNameInsertUserForm.setBackground(Color.GREEN);
         }
     }//GEN-LAST:event_txtNameInsertUserFormFocusLost
 
@@ -437,9 +446,42 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         String phoneNumber = txtPhoneInsertUserForm.getText().trim();
 
         if (!phoneNumber.matches("\\d+")) {
-            JOptionPane.showMessageDialog(this, "El número de telèfon introduit no és vàlid. Ha de contenir només numeros.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtPhoneInsertUserForm.setBackground(Color.RED);
         } 
     }//GEN-LAST:event_txtPhoneInsertUserFormKeyTyped
+
+    private void txtNameInsertUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameInsertUserFormKeyTyped
+        String name = txtNameInsertUserForm.getText().trim();
+
+        if (!name.matches("^[a-zA-Z]+")) {
+            txtNameInsertUserForm.setBackground(Color.RED);
+        }
+    }//GEN-LAST:event_txtNameInsertUserFormKeyTyped
+
+    private void txtSurnameInsertUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSurnameInsertUserFormKeyTyped
+        String surname = txtSurnameInsertUserForm.getText().trim();
+
+        if (!surname.matches("^[a-zA-Z]+")) {
+            txtSurnameInsertUserForm.setBackground(Color.RED);
+        } 
+    }//GEN-LAST:event_txtSurnameInsertUserFormKeyTyped
+
+    private void txtMailInsertUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMailInsertUserFormKeyTyped
+        String email = txtMailInsertUserForm.getText().trim();
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
+
+        if (!email.matches(emailPattern)) {
+            txtMailInsertUserForm.setBackground(Color.RED);
+        }
+    }//GEN-LAST:event_txtMailInsertUserFormKeyTyped
+
+    private void txtPasswdInsertUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswdInsertUserFormKeyTyped
+        String password = txtPasswdInsertUserForm.getText().trim();
+
+        if (password.isEmpty()) {
+            txtPasswdInsertUserForm.setBackground(Color.RED);
+        }
+    }//GEN-LAST:event_txtPasswdInsertUserFormKeyTyped
     
     private void habilitarBotonRegistro() {
         btnInsertUserForm.setEnabled(true);
