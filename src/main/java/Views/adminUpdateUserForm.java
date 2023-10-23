@@ -3,6 +3,8 @@ package Views;
 
 import Controllers.PrincipalController;
 import Models.User;
+import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class adminUpdateUserForm extends javax.swing.JFrame {
 
@@ -39,7 +41,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         btnReturnUserPanelActionPerformed = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(575, 445));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 229, 255));
@@ -47,6 +48,11 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         txtNameUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtNameUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtNameUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtNameUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameUpdateUserFormFocusLost(evt);
+            }
+        });
         txtNameUpdateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameUpdateUserFormActionPerformed(evt);
@@ -64,6 +70,11 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         txtSurnameUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtSurnameUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtSurnameUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtSurnameUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtSurnameUpdateUserFormFocusLost(evt);
+            }
+        });
         txtSurnameUpdateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSurnameUpdateUserFormActionPerformed(evt);
@@ -73,6 +84,11 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         txtMailUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtMailUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtMailUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtMailUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtMailUpdateUserFormFocusLost(evt);
+            }
+        });
         txtMailUpdateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMailUpdateUserFormActionPerformed(evt);
@@ -90,6 +106,11 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         txtPhoneUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtPhoneUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtPhoneUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtPhoneUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPhoneUpdateUserFormFocusLost(evt);
+            }
+        });
         txtPhoneUpdateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPhoneUpdateUserFormActionPerformed(evt);
@@ -235,6 +256,67 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         PrincipalController.returnNewFormUserPanel();
     }//GEN-LAST:event_btnReturnUserPanelActionPerformedActionPerformed
 
+    private void txtNameUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameUpdateUserFormFocusLost
+        String name = txtNameUpdateUserForm.getText().trim();
+    
+        if (name.matches("^[a-zA-Z]+")) {
+            txtNameUpdateUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El nom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtNameUpdateUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtNameUpdateUserFormFocusLost
+
+    private void txtSurnameUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSurnameUpdateUserFormFocusLost
+        String surname = txtSurnameUpdateUserForm.getText().trim();
+    
+        if (surname.matches("^[a-zA-Z]+")) {
+            txtSurnameUpdateUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El cognom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+            txtSurnameUpdateUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtSurnameUpdateUserFormFocusLost
+
+    private void txtMailUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMailUpdateUserFormFocusLost
+        String email = txtMailUpdateUserForm.getText().trim();
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
+
+        if (email.matches(emailPattern)) {
+            txtMailUpdateUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El correu electrònic introduit no és vàlid. Ha de ser una direcció de correu de Gmail.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+            txtMailUpdateUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtMailUpdateUserFormFocusLost
+
+    private void txtPhoneUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPhoneUpdateUserFormFocusLost
+        String phoneNumber = txtPhoneUpdateUserForm.getText().trim();
+    
+        if (phoneNumber.matches("\\d+")) {
+//            txtPhoneUpdateUserForm.setBackground(Color.GREEN);
+            habilitarBotonRegistro();
+        } else {
+            JOptionPane.showMessageDialog(this, "El número de telèfon introduit no és vàlid. Ha de contenir només numeros.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
+//            txtPhoneUpdateUserForm.setBackground(Color.WHITE);
+            deshabilitarBotonRegistro();
+        }
+    }//GEN-LAST:event_txtPhoneUpdateUserFormFocusLost
+
+    private void habilitarBotonRegistro() {
+        btnUpdateUserForm.setEnabled(true);
+    }
+
+    private void deshabilitarBotonRegistro() {
+        btnUpdateUserForm.setEnabled(false);
+    }
+    
     /**
      * @param args the command line arguments
      */

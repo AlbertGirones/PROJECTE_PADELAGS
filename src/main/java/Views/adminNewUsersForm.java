@@ -275,15 +275,11 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -309,29 +305,8 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSurnameInsertUserFormActionPerformed
 
     private void txtDniInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniInsertUserFormActionPerformed
-        // Obtiene el valor del campo de texto DNI y elimina espacios en blanco.
-//        String dni = txtDniInsertUserForm.getText().trim();
-//        System.out.println(dni);
-//
-//        // Define una expresión regular para verificar que el DNI tenga 8 dígitos seguidos de una letra.
-//        String dniPattern = "\\d{8}[A-Za-z]";
-//
-//        if (dni.matches(dniPattern)) {
-//            // El DNI es válido (cumple con el patrón).
-//            // Puedes realizar alguna acción, como cambiar el color del campo o mostrar un mensaje de validación.
-//            txtDniInsertUserForm.setBackground(Color.GREEN);
-//            // También puedes habilitar el botón para registrar si todos los campos son válidos.
-//            habilitarBotonRegistro();
-//        } else {
-//            // El DNI no es válido, muestra un mensaje de error.
-//            JOptionPane.showMessageDialog(this, "El DNI ingresado no es válido. Debe contener 8 números seguidos de una letra.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
-//            // Puedes restaurar el color del campo a su estado original.
-//            txtDniInsertUserForm.setBackground(Color.WHITE);
-//            // También puedes deshabilitar el botón de registro si un campo es inválido.
-//            deshabilitarBotonRegistro();
-//        }
-
     }//GEN-LAST:event_txtDniInsertUserFormActionPerformed
+    
     private void habilitarBotonRegistro() {
         btnInsertUserForm.setEnabled(true);
     }
@@ -339,8 +314,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     private void deshabilitarBotonRegistro() {
         btnInsertUserForm.setEnabled(false);
     }
-    
-    
+        
     private void txtMailInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMailInsertUserFormActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMailInsertUserFormActionPerformed

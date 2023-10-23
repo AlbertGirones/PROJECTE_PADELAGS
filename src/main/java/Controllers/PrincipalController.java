@@ -343,7 +343,7 @@ public class PrincipalController {
             model2.setName(name);
             model2.setSurname(surname);
             model2.setMail(mail);
-            model2.setPhone(name);
+            model2.setPhone(phone);
             
             boolean consulta = sqlModel2.update(model2);
             if (consulta == true) {
