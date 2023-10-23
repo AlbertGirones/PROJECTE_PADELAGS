@@ -51,18 +51,18 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="passwordField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="dniField" alignment="0" pref="241" max="32767" attributes="0"/>
-                      <Component id="btnUserLogin" alignment="0" max="32767" attributes="0"/>
+                      <Component id="dniField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnUserLogin" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                  <EmptySpace pref="170" max="32767" attributes="0"/>
               </Group>
-              <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -102,7 +102,7 @@
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="JLabelLogo" min="-2" pref="135" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btnBackLoginUser" min="-2" pref="93" max="-2" attributes="0"/>
+                      <Component id="btnBackLoginUser" min="-2" pref="59" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
