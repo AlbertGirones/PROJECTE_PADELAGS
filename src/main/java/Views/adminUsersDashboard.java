@@ -28,7 +28,6 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnBackUser = new javax.swing.JButton();
         txtSearchUser = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
@@ -38,22 +37,17 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         btnResetPasswdUserForm = new javax.swing.JButton();
         btnActivateUserForm = new javax.swing.JButton();
         btnDeactivateUserForm = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        JLabelLogo = new javax.swing.JLabel();
+        btnBackUser = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 229, 255));
 
-        jPanel1.setBackground(new java.awt.Color(204, 229, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(30, 30, 30));
         jPanel1.setPreferredSize(new java.awt.Dimension(575, 445));
-
-        btnBackUser.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackUser.setForeground(new java.awt.Color(30, 30, 30));
-        btnBackUser.setText("Tornar ...");
-        btnBackUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnBackUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackUserActionPerformed(evt);
-            }
-        });
 
         txtSearchUser.setBackground(new java.awt.Color(255, 255, 255));
         txtSearchUser.setForeground(new java.awt.Color(30, 30, 30));
@@ -72,7 +66,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             }
         });
 
-        tblUsers.setBackground(new java.awt.Color(153, 204, 255));
+        tblUsers.setBackground(new java.awt.Color(255, 255, 255));
+        tblUsers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblUsers.setForeground(new java.awt.Color(30, 30, 30));
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -99,107 +95,157 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblUsers.setGridColor(new java.awt.Color(255, 255, 255));
+        tblUsers.setGridColor(new java.awt.Color(30, 30, 30));
+        tblUsers.setIntercellSpacing(new java.awt.Dimension(10, 0));
         tblUsers.setSelectionBackground(new java.awt.Color(255, 255, 225));
         jScrollPane1.setViewportView(tblUsers);
 
         jLabel1.setForeground(new java.awt.Color(30, 30, 30));
         jLabel1.setText("Filtra per DNI:");
 
-        btnInsertUserForm.setBackground(new java.awt.Color(255, 255, 255));
-        btnInsertUserForm.setForeground(new java.awt.Color(30, 30, 30));
+        btnInsertUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnInsertUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnInsertUserForm.setForeground(new java.awt.Color(255, 255, 255));
         btnInsertUserForm.setText("Agregar");
-        btnInsertUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnInsertUserForm.setBorder(null);
         btnInsertUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertUserFormActionPerformed(evt);
             }
         });
 
-        btnUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
-        btnUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
+        btnUpdateUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnUpdateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUpdateUserForm.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateUserForm.setText("Modificar");
-        btnUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnUpdateUserForm.setBorder(null);
         btnUpdateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateUserFormActionPerformed(evt);
             }
         });
 
-        btnResetPasswdUserForm.setBackground(new java.awt.Color(255, 255, 255));
-        btnResetPasswdUserForm.setForeground(new java.awt.Color(30, 30, 30));
+        btnResetPasswdUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnResetPasswdUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnResetPasswdUserForm.setForeground(new java.awt.Color(255, 255, 255));
         btnResetPasswdUserForm.setText("Resetejar Passwd");
-        btnResetPasswdUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnResetPasswdUserForm.setBorder(null);
         btnResetPasswdUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetPasswdUserFormActionPerformed(evt);
             }
         });
 
-        btnActivateUserForm.setBackground(new java.awt.Color(255, 255, 255));
-        btnActivateUserForm.setForeground(new java.awt.Color(30, 30, 30));
+        btnActivateUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnActivateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnActivateUserForm.setForeground(new java.awt.Color(255, 255, 255));
         btnActivateUserForm.setText("Activar");
-        btnActivateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnActivateUserForm.setBorder(null);
         btnActivateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActivateUserFormActionPerformed(evt);
             }
         });
 
-        btnDeactivateUserForm.setBackground(new java.awt.Color(255, 255, 255));
-        btnDeactivateUserForm.setForeground(new java.awt.Color(30, 30, 30));
+        btnDeactivateUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnDeactivateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDeactivateUserForm.setForeground(new java.awt.Color(255, 255, 255));
         btnDeactivateUserForm.setText("Desactivar");
-        btnDeactivateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnDeactivateUserForm.setBorder(null);
         btnDeactivateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeactivateUserFormActionPerformed(evt);
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel2.setPreferredSize(new java.awt.Dimension(575, 455));
+
+        JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
+
+        btnBackUser.setBackground(new java.awt.Color(255, 255, 255));
+        btnBackUser.setForeground(new java.awt.Color(30, 30, 30));
+        btnBackUser.setText("Tornar ...");
+        btnBackUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnBackUser.setPreferredSize(new java.awt.Dimension(46, 16));
+        btnBackUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackUserActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(30, 30, 30));
+        jLabel2.setText("LLISTAT D'USUARIS");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtSearchUser))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtSearchUser))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnResetPasswdUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(148, 148, 148)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnDeactivateUserForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnActivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 94, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(btnInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnResetPasswdUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(148, 148, 148)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDeactivateUserForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnActivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(100, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(163, 163, 163))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,7 +257,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                         .addComponent(btnActivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDeactivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 52, 52))
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -345,6 +391,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private transient javax.swing.JLabel JLabelLogo;
     public javax.swing.JButton btnActivateUserForm;
     public javax.swing.JButton btnBackUser;
     public javax.swing.JButton btnDeactivateUserForm;
@@ -352,7 +399,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     public javax.swing.JButton btnResetPasswdUserForm;
     private javax.swing.JButton btnUpdateUserForm;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblUsers;
     public javax.swing.JTextField txtSearchUser;
