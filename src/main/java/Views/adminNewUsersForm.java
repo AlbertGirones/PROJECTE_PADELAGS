@@ -491,14 +491,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
             txtPasswdInsertUserForm.setBackground(Color.RED);
         }
     }//GEN-LAST:event_txtPasswdInsertUserFormKeyTyped
-    
-    private void habilitarBotonRegistro() {
-        btnInsertUserForm.setEnabled(true);
-    }
-
-    private void deshabilitarBotonRegistro() {
-        btnInsertUserForm.setEnabled(false);
-    }
+   
         
     /**
      * @param args the command line arguments

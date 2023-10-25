@@ -14,9 +14,9 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     public adminUpdateUserForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-        btnReturnUserPanel.setBackground(null);
-        btnReturnUserPanel.setContentAreaFilled(false);
-        btnReturnUserPanel.setFocusPainted(false);
+        btnBackUpdateUser.setBackground(null);
+        btnBackUpdateUser.setContentAreaFilled(false);
+        btnBackUpdateUser.setFocusPainted(false);
     }
 
     /**
@@ -39,8 +39,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         txtPhoneUpdateUserForm = new javax.swing.JTextField();
         btnUpdateUserForm = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnReturnUserPanel = new javax.swing.JButton();
         JLabelLogo = new javax.swing.JLabel();
+        btnBackUpdateUser = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -48,6 +48,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtNameUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtNameUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtNameUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNameUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -60,6 +61,11 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
                 txtNameUpdateUserFormActionPerformed(evt);
             }
         });
+        txtNameUpdateUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameUpdateUserFormKeyTyped(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(30, 30, 30));
@@ -69,6 +75,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(30, 30, 30));
         jLabel2.setText("Cognom");
 
+        txtSurnameUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtSurnameUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtSurnameUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtSurnameUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -81,7 +88,13 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
                 txtSurnameUpdateUserFormActionPerformed(evt);
             }
         });
+        txtSurnameUpdateUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSurnameUpdateUserFormKeyTyped(evt);
+            }
+        });
 
+        txtMailUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtMailUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtMailUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtMailUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -94,6 +107,11 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
                 txtMailUpdateUserFormActionPerformed(evt);
             }
         });
+        txtMailUpdateUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMailUpdateUserFormKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(30, 30, 30));
@@ -103,6 +121,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(30, 30, 30));
         jLabel5.setText("Telèfon");
 
+        txtPhoneUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtPhoneUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtPhoneUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtPhoneUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -115,12 +134,17 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
                 txtPhoneUpdateUserFormActionPerformed(evt);
             }
         });
+        txtPhoneUpdateUserForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPhoneUpdateUserFormKeyTyped(evt);
+            }
+        });
 
         btnUpdateUserForm.setBackground(new java.awt.Color(0, 0, 153));
         btnUpdateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnUpdateUserForm.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateUserForm.setText("Actualitzar");
-        btnUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnUpdateUserForm.setBorder(null);
         btnUpdateUserForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateUserFormActionPerformed(evt);
@@ -129,16 +153,19 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
 
-        btnReturnUserPanel.setForeground(new java.awt.Color(255, 255, 255));
-        btnReturnUserPanel.setText("Tornar ...");
-        btnReturnUserPanel.setBorder(null);
-        btnReturnUserPanel.addActionListener(new java.awt.event.ActionListener() {
+        JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
+
+        btnBackUpdateUser.setBackground(new java.awt.Color(255, 255, 255));
+        btnBackUpdateUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackUpdateUser.setText("Tornar ...");
+        btnBackUpdateUser.setBorder(null);
+        btnBackUpdateUser.setBorderPainted(false);
+        btnBackUpdateUser.setFocusPainted(false);
+        btnBackUpdateUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnUserPanelActionPerformed(evt);
+                btnBackUpdateUserActionPerformed(evt);
             }
         });
-
-        JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -148,24 +175,22 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnReturnUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addComponent(btnBackUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBackUpdateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(16, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnReturnUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(30, 30, 30));
-        jLabel3.setText("Actualitza l'usuari");
+        jLabel3.setText("ACTUALITZA L'USUARI");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,22 +198,23 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(txtSurnameUpdateUserForm)
-                    .addComponent(txtNameUpdateUserForm)
-                    .addComponent(jLabel4)
-                    .addComponent(txtMailUpdateUserForm)
-                    .addComponent(jLabel5)
-                    .addComponent(txtPhoneUpdateUserForm)
-                    .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(186, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(183, 183, 183))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(txtSurnameUpdateUserForm)
+                            .addComponent(txtNameUpdateUserForm)
+                            .addComponent(jLabel4)
+                            .addComponent(txtMailUpdateUserForm)
+                            .addComponent(jLabel5)
+                            .addComponent(txtPhoneUpdateUserForm)
+                            .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(jLabel3)))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,20 +282,11 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMailUpdateUserFormActionPerformed
 
-    private void btnReturnUserPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnUserPanelActionPerformed
-        PrincipalController.returnNewFormUserPanel();
-    }//GEN-LAST:event_btnReturnUserPanelActionPerformed
-
     private void txtNameUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameUpdateUserFormFocusLost
         String name = txtNameUpdateUserForm.getText().trim();
     
         if (name.matches("^[a-zA-Z]+")) {
             txtNameUpdateUserForm.setBackground(Color.GREEN);
-            habilitarBotonRegistro();
-        } else {
-            JOptionPane.showMessageDialog(this, "El nom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
-            txtNameUpdateUserForm.setBackground(Color.WHITE);
-            deshabilitarBotonRegistro();
         }
     }//GEN-LAST:event_txtNameUpdateUserFormFocusLost
 
@@ -278,12 +295,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     
         if (surname.matches("^[a-zA-Z]+")) {
             txtSurnameUpdateUserForm.setBackground(Color.GREEN);
-            habilitarBotonRegistro();
-        } else {
-            JOptionPane.showMessageDialog(this, "El cognom introduit no és vàlid. Ha de contenir només lletres.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
-            txtSurnameUpdateUserForm.setBackground(Color.WHITE);
-            deshabilitarBotonRegistro();
-        }
+        } 
     }//GEN-LAST:event_txtSurnameUpdateUserFormFocusLost
 
     private void txtMailUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMailUpdateUserFormFocusLost
@@ -292,11 +304,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (email.matches(emailPattern)) {
             txtMailUpdateUserForm.setBackground(Color.GREEN);
-            habilitarBotonRegistro();
-        } else {
-            JOptionPane.showMessageDialog(this, "El correu electrònic introduit no és vàlid. Ha de ser una direcció de correu de Gmail.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
-            txtMailUpdateUserForm.setBackground(Color.WHITE);
-            deshabilitarBotonRegistro();
         }
     }//GEN-LAST:event_txtMailUpdateUserFormFocusLost
 
@@ -304,22 +311,51 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         String phoneNumber = txtPhoneUpdateUserForm.getText().trim();
     
         if (phoneNumber.matches("\\d+")) {
-//            txtPhoneUpdateUserForm.setBackground(Color.GREEN);
-            habilitarBotonRegistro();
-        } else {
-            JOptionPane.showMessageDialog(this, "El número de telèfon introduit no és vàlid. Ha de contenir només numeros.", "Error de Validació", JOptionPane.ERROR_MESSAGE);
-//            txtPhoneUpdateUserForm.setBackground(Color.WHITE);
-            deshabilitarBotonRegistro();
-        }
+            txtPhoneUpdateUserForm.setBackground(Color.GREEN);
+        }   
     }//GEN-LAST:event_txtPhoneUpdateUserFormFocusLost
 
-    private void habilitarBotonRegistro() {
-        btnUpdateUserForm.setEnabled(true);
-    }
+    private void txtNameUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameUpdateUserFormKeyTyped
+        String name = txtNameUpdateUserForm.getText().trim();
 
-    private void deshabilitarBotonRegistro() {
-        btnUpdateUserForm.setEnabled(false);
-    }
+        if (!name.matches("^[a-zA-Z]+")) {
+            txtNameUpdateUserForm.setBackground(Color.RED);
+        }
+    }//GEN-LAST:event_txtNameUpdateUserFormKeyTyped
+
+    private void txtSurnameUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSurnameUpdateUserFormKeyTyped
+    String surname = txtSurnameUpdateUserForm.getText().trim();
+
+        if (!surname.matches("^[a-zA-Z]+")) {
+            txtSurnameUpdateUserForm.setBackground(Color.RED);
+        } 
+    }//GEN-LAST:event_txtSurnameUpdateUserFormKeyTyped
+
+    private void txtMailUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMailUpdateUserFormKeyTyped
+        String email = txtMailUpdateUserForm.getText().trim();
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@gmail\\.com$";
+
+        if (!email.matches(emailPattern)) {
+            txtMailUpdateUserForm.setBackground(Color.RED);
+        }
+    }//GEN-LAST:event_txtMailUpdateUserFormKeyTyped
+
+    private void txtPhoneUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneUpdateUserFormKeyTyped
+        String phoneNumber = txtPhoneUpdateUserForm.getText().trim();
+
+        if (!phoneNumber.matches("\\d+")) {
+            txtPhoneUpdateUserForm.setBackground(Color.RED);
+        } 
+    }//GEN-LAST:event_txtPhoneUpdateUserFormKeyTyped
+
+    private void btnBackUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUpdateUserActionPerformed
+        PrincipalController.returnModifyFormUserPanel();
+        txtNameUpdateUserForm.setBackground(Color.WHITE);
+        txtSurnameUpdateUserForm.setBackground(Color.WHITE);
+        txtMailUpdateUserForm.setBackground(Color.WHITE);
+        txtPhoneUpdateUserForm.setBackground(Color.WHITE);
+    }//GEN-LAST:event_btnBackUpdateUserActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -358,7 +394,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private transient javax.swing.JLabel JLabelLogo;
-    private javax.swing.JButton btnReturnUserPanel;
+    public javax.swing.JButton btnBackUpdateUser;
     private javax.swing.JButton btnUpdateUserForm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
