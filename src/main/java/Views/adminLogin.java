@@ -19,7 +19,9 @@ public class adminLogin extends javax.swing.JFrame {
     public adminLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
-
+        btnBackLoginAdmin.setBackground(null);
+        btnBackLoginAdmin.setContentAreaFilled(false);
+        btnBackLoginAdmin.setFocusPainted(false);
     }
 
     /**
@@ -38,12 +40,11 @@ public class adminLogin extends javax.swing.JFrame {
         nick = new javax.swing.JTextField();
         UserLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnBackNewUser = new javax.swing.JButton();
+        btnBackLoginAdmin = new javax.swing.JButton();
         JLabelLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(575, 455));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -64,7 +65,6 @@ public class adminLogin extends javax.swing.JFrame {
         PasswordLabel.setForeground(new java.awt.Color(30, 30, 30));
         PasswordLabel.setText("Password:");
 
-        passwd.setBackground(new java.awt.Color(255, 255, 255));
         passwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         passwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +72,6 @@ public class adminLogin extends javax.swing.JFrame {
             }
         });
 
-        nick.setBackground(new java.awt.Color(255, 255, 255));
         nick.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,15 +86,14 @@ public class adminLogin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
         jPanel2.setForeground(new java.awt.Color(30, 30, 30));
 
-        btnBackNewUser.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackNewUser.setForeground(new java.awt.Color(30, 30, 30));
-        btnBackNewUser.setText("Tornar ...");
-        btnBackNewUser.setBorder(null);
-        btnBackNewUser.setBorderPainted(false);
-        btnBackNewUser.setFocusPainted(false);
-        btnBackNewUser.addActionListener(new java.awt.event.ActionListener() {
+        btnBackLoginAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackLoginAdmin.setText("Tornar ...");
+        btnBackLoginAdmin.setBorder(null);
+        btnBackLoginAdmin.setBorderPainted(false);
+        btnBackLoginAdmin.setFocusPainted(false);
+        btnBackLoginAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackNewUserActionPerformed(evt);
+                btnBackLoginAdminActionPerformed(evt);
             }
         });
 
@@ -109,7 +107,7 @@ public class adminLogin extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBackNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBackLoginAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
@@ -118,7 +116,7 @@ public class adminLogin extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(btnBackNewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnBackLoginAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -194,9 +192,9 @@ public class adminLogin extends javax.swing.JFrame {
         PrincipalController.loginAdmin(user, password);       
     }//GEN-LAST:event_btnAdminLoginFormActionPerformed
 
-    private void btnBackNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackNewUserActionPerformed
-        PrincipalController.returnNewFormUserPanel();
-    }//GEN-LAST:event_btnBackNewUserActionPerformed
+    private void btnBackLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackLoginAdminActionPerformed
+        PrincipalController.returnPrincipalPageFromAdmin();
+    }//GEN-LAST:event_btnBackLoginAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,7 +236,7 @@ public class adminLogin extends javax.swing.JFrame {
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JLabel UserLabel;
     private javax.swing.JButton btnAdminLoginForm;
-    public javax.swing.JButton btnBackNewUser;
+    public javax.swing.JButton btnBackLoginAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

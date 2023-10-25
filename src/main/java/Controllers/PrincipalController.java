@@ -131,6 +131,12 @@ public class PrincipalController {
         principalPg.setVisible(true);
     }
     
+    public static void returnPrincipalPageFromAdmin() {
+        adminLoginPanel.setVisible(false);
+        principalPg.setTitle("Pagina principal");
+        principalPg.setVisible(true);
+    }
+    
     public static void returnCourtPanel() {
         CourtPanel.setVisible(false);
         adminPanel.setTitle("Administració");
