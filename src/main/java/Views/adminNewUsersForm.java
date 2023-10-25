@@ -214,7 +214,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
         btnBackNewUser.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackNewUser.setForeground(new java.awt.Color(30, 30, 30));
+        btnBackNewUser.setForeground(new java.awt.Color(255, 255, 255));
         btnBackNewUser.setText("Tornar ...");
         btnBackNewUser.setBorder(null);
         btnBackNewUser.setBorderPainted(false);

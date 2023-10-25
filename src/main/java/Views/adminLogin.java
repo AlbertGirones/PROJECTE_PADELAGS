@@ -54,7 +54,7 @@ public class adminLogin extends javax.swing.JFrame {
         btnAdminLoginForm.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnAdminLoginForm.setForeground(new java.awt.Color(255, 255, 255));
         btnAdminLoginForm.setText("Accedir");
-        btnAdminLoginForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnAdminLoginForm.setBorder(null);
         btnAdminLoginForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdminLoginFormActionPerformed(evt);
@@ -65,6 +65,7 @@ public class adminLogin extends javax.swing.JFrame {
         PasswordLabel.setForeground(new java.awt.Color(30, 30, 30));
         PasswordLabel.setText("Password:");
 
+        passwd.setBackground(new java.awt.Color(255, 255, 255));
         passwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         passwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +73,7 @@ public class adminLogin extends javax.swing.JFrame {
             }
         });
 
+        nick.setBackground(new java.awt.Color(255, 255, 255));
         nick.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +88,7 @@ public class adminLogin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
         jPanel2.setForeground(new java.awt.Color(30, 30, 30));
 
+        btnBackLoginAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btnBackLoginAdmin.setForeground(new java.awt.Color(255, 255, 255));
         btnBackLoginAdmin.setText("Tornar ...");
         btnBackLoginAdmin.setBorder(null);
