@@ -350,6 +350,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (dni.matches(dniPattern)) {
             txtDniInsertUserForm.setBackground(Color.GREEN);
+            btnInsertUserForm.setEnabled(true);
         }
     }//GEN-LAST:event_txtDniInsertUserFormFocusLost
 
@@ -362,6 +363,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (phoneNumber.matches("\\d+")) {
             txtPhoneInsertUserForm.setBackground(Color.GREEN);
+            btnInsertUserForm.setEnabled(true);
         } 
     }//GEN-LAST:event_txtPhoneInsertUserFormFocusLost
 
@@ -375,6 +377,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (email.matches(emailPattern)) {
             txtMailInsertUserForm.setBackground(Color.GREEN);
+            btnInsertUserForm.setEnabled(true);
         }
     }//GEN-LAST:event_txtMailInsertUserFormFocusLost
 
@@ -387,6 +390,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (!password.isEmpty()) {
             txtPasswdInsertUserForm.setBackground(Color.GREEN);
+            btnInsertUserForm.setEnabled(true);
         }
     }//GEN-LAST:event_txtPasswdInsertUserFormFocusLost
 
@@ -399,6 +403,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (surname.matches("^[a-zA-Z]+")) {
             txtSurnameInsertUserForm.setBackground(Color.GREEN);
+            btnInsertUserForm.setEnabled(true);
         } 
     }//GEN-LAST:event_txtSurnameInsertUserFormFocusLost
 
@@ -411,6 +416,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (name.matches("^[a-zA-Z]+")) {
             txtNameInsertUserForm.setBackground(Color.GREEN);
+            btnInsertUserForm.setEnabled(true);
         }
     }//GEN-LAST:event_txtNameInsertUserFormFocusLost
 
@@ -448,6 +454,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (!dni.matches(dniPattern)) {
             txtDniInsertUserForm.setBackground(Color.RED);
+            btnInsertUserForm.setEnabled(false);
         }
     }//GEN-LAST:event_txtDniInsertUserFormKeyTyped
 
@@ -456,6 +463,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (!phoneNumber.matches("\\d+")) {
             txtPhoneInsertUserForm.setBackground(Color.RED);
+            btnInsertUserForm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtPhoneInsertUserFormKeyTyped
 
@@ -464,6 +472,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (!name.matches("^[a-zA-Z]+")) {
             txtNameInsertUserForm.setBackground(Color.RED);
+            btnInsertUserForm.setEnabled(false);
         }
     }//GEN-LAST:event_txtNameInsertUserFormKeyTyped
 
@@ -472,6 +481,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (!surname.matches("^[a-zA-Z]+")) {
             txtSurnameInsertUserForm.setBackground(Color.RED);
+            btnInsertUserForm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtSurnameInsertUserFormKeyTyped
 
@@ -481,6 +491,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (!email.matches(emailPattern)) {
             txtMailInsertUserForm.setBackground(Color.RED);
+            btnInsertUserForm.setEnabled(false);
         }
     }//GEN-LAST:event_txtMailInsertUserFormKeyTyped
 
@@ -489,6 +500,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
 
         if (password.isEmpty()) {
             txtPasswdInsertUserForm.setBackground(Color.RED);
+            btnInsertUserForm.setEnabled(false);
         }
     }//GEN-LAST:event_txtPasswdInsertUserFormKeyTyped
    
@@ -527,7 +539,15 @@ public class adminNewUsersForm extends javax.swing.JFrame {
             }
         });
     }
+    private void habilitarBotonRegistro() {
+        btnInsertUserForm.setEnabled(true);
+    }
 
+    private void deshabilitarBotonRegistro() {
+        btnInsertUserForm.setEnabled(false);
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private transient javax.swing.JLabel JLabelLogo;
     public javax.swing.JButton btnBackNewUser;

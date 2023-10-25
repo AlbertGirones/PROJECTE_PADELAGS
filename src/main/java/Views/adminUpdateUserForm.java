@@ -287,6 +287,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     
         if (name.matches("^[a-zA-Z]+")) {
             txtNameUpdateUserForm.setBackground(Color.GREEN);
+            btnUpdateUserForm.setEnabled(true);
         }
     }//GEN-LAST:event_txtNameUpdateUserFormFocusLost
 
@@ -295,6 +296,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     
         if (surname.matches("^[a-zA-Z]+")) {
             txtSurnameUpdateUserForm.setBackground(Color.GREEN);
+            btnUpdateUserForm.setEnabled(true);
         } 
     }//GEN-LAST:event_txtSurnameUpdateUserFormFocusLost
 
@@ -304,6 +306,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (email.matches(emailPattern)) {
             txtMailUpdateUserForm.setBackground(Color.GREEN);
+            btnUpdateUserForm.setEnabled(true);
         }
     }//GEN-LAST:event_txtMailUpdateUserFormFocusLost
 
@@ -312,6 +315,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     
         if (phoneNumber.matches("\\d+")) {
             txtPhoneUpdateUserForm.setBackground(Color.GREEN);
+            btnUpdateUserForm.setEnabled(true);
         }   
     }//GEN-LAST:event_txtPhoneUpdateUserFormFocusLost
 
@@ -320,6 +324,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!name.matches("^[a-zA-Z]+")) {
             txtNameUpdateUserForm.setBackground(Color.RED);
+            btnUpdateUserForm.setEnabled(false);
         }
     }//GEN-LAST:event_txtNameUpdateUserFormKeyTyped
 
@@ -328,6 +333,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!surname.matches("^[a-zA-Z]+")) {
             txtSurnameUpdateUserForm.setBackground(Color.RED);
+            btnUpdateUserForm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtSurnameUpdateUserFormKeyTyped
 
@@ -337,6 +343,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!email.matches(emailPattern)) {
             txtMailUpdateUserForm.setBackground(Color.RED);
+            btnUpdateUserForm.setEnabled(false);
         }
     }//GEN-LAST:event_txtMailUpdateUserFormKeyTyped
 
@@ -345,6 +352,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!phoneNumber.matches("\\d+")) {
             txtPhoneUpdateUserForm.setBackground(Color.RED);
+            btnUpdateUserForm.setEnabled(false);
         } 
     }//GEN-LAST:event_txtPhoneUpdateUserFormKeyTyped
 
@@ -356,7 +364,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         txtPhoneUpdateUserForm.setBackground(Color.WHITE);
     }//GEN-LAST:event_btnBackUpdateUserActionPerformed
 
-    
+
     /**
      * @param args the command line arguments
      */
