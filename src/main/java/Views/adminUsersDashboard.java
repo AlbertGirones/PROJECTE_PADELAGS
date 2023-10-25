@@ -15,7 +15,10 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         DefaultTableModel modelo = new DefaultTableModel();
         tblUsers.setModel(modelo);
-        PrincipalController.loadTblUser(modelo);        
+        PrincipalController.loadTblUser(modelo);   
+        btnBackUser.setBackground(null);
+        btnBackUser.setContentAreaFilled(false);
+        btnBackUser.setFocusPainted(false);
     }
 
     /**
@@ -27,16 +30,15 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        txtSearchUser = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsers = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        btnDeactivateUserForm = new javax.swing.JButton();
+        btnResetPasswdUserForm = new javax.swing.JButton();
+        txtSearchUser = new javax.swing.JTextField();
+        btnActivateUserForm = new javax.swing.JButton();
         btnInsertUserForm = new javax.swing.JButton();
         btnUpdateUserForm = new javax.swing.JButton();
-        btnResetPasswdUserForm = new javax.swing.JButton();
-        btnActivateUserForm = new javax.swing.JButton();
-        btnDeactivateUserForm = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         JLabelLogo = new javax.swing.JLabel();
         btnBackUser = new javax.swing.JButton();
@@ -44,27 +46,8 @@ public class adminUsersDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 229, 255));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(30, 30, 30));
-        jPanel1.setPreferredSize(new java.awt.Dimension(575, 445));
-
-        txtSearchUser.setBackground(new java.awt.Color(255, 255, 255));
-        txtSearchUser.setForeground(new java.awt.Color(30, 30, 30));
-        txtSearchUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtSearchUser.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                txtSearchUserCaretUpdate(evt);
-            }
-        });
-        txtSearchUser.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchUserKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSearchUserKeyTyped(evt);
-            }
-        });
+        setPreferredSize(new java.awt.Dimension(575, 445));
+        setResizable(false);
 
         tblUsers.setBackground(new java.awt.Color(255, 255, 255));
         tblUsers.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -100,8 +83,55 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         tblUsers.setSelectionBackground(new java.awt.Color(255, 255, 225));
         jScrollPane1.setViewportView(tblUsers);
 
-        jLabel1.setForeground(new java.awt.Color(30, 30, 30));
-        jLabel1.setText("Filtra per DNI:");
+        btnDeactivateUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnDeactivateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDeactivateUserForm.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeactivateUserForm.setText("Desactivar");
+        btnDeactivateUserForm.setBorder(null);
+        btnDeactivateUserForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeactivateUserFormActionPerformed(evt);
+            }
+        });
+
+        btnResetPasswdUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnResetPasswdUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnResetPasswdUserForm.setForeground(new java.awt.Color(255, 255, 255));
+        btnResetPasswdUserForm.setText("Resetejar Passwd");
+        btnResetPasswdUserForm.setBorder(null);
+        btnResetPasswdUserForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetPasswdUserFormActionPerformed(evt);
+            }
+        });
+
+        txtSearchUser.setBackground(new java.awt.Color(255, 255, 255));
+        txtSearchUser.setForeground(new java.awt.Color(30, 30, 30));
+        txtSearchUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtSearchUser.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtSearchUserCaretUpdate(evt);
+            }
+        });
+        txtSearchUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchUserKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSearchUserKeyTyped(evt);
+            }
+        });
+
+        btnActivateUserForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnActivateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnActivateUserForm.setForeground(new java.awt.Color(255, 255, 255));
+        btnActivateUserForm.setText("Activar");
+        btnActivateUserForm.setBorder(null);
+        btnActivateUserForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActivateUserFormActionPerformed(evt);
+            }
+        });
 
         btnInsertUserForm.setBackground(new java.awt.Color(0, 0, 153));
         btnInsertUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -125,38 +155,8 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             }
         });
 
-        btnResetPasswdUserForm.setBackground(new java.awt.Color(0, 0, 153));
-        btnResetPasswdUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnResetPasswdUserForm.setForeground(new java.awt.Color(255, 255, 255));
-        btnResetPasswdUserForm.setText("Resetejar Passwd");
-        btnResetPasswdUserForm.setBorder(null);
-        btnResetPasswdUserForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetPasswdUserFormActionPerformed(evt);
-            }
-        });
-
-        btnActivateUserForm.setBackground(new java.awt.Color(0, 0, 153));
-        btnActivateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnActivateUserForm.setForeground(new java.awt.Color(255, 255, 255));
-        btnActivateUserForm.setText("Activar");
-        btnActivateUserForm.setBorder(null);
-        btnActivateUserForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActivateUserFormActionPerformed(evt);
-            }
-        });
-
-        btnDeactivateUserForm.setBackground(new java.awt.Color(0, 0, 153));
-        btnDeactivateUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnDeactivateUserForm.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeactivateUserForm.setText("Desactivar");
-        btnDeactivateUserForm.setBorder(null);
-        btnDeactivateUserForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeactivateUserFormActionPerformed(evt);
-            }
-        });
+        jLabel1.setForeground(new java.awt.Color(30, 30, 30));
+        jLabel1.setText("Filtra per DNI:");
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
         jPanel2.setPreferredSize(new java.awt.Dimension(575, 455));
@@ -164,10 +164,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
         btnBackUser.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackUser.setForeground(new java.awt.Color(30, 30, 30));
+        btnBackUser.setForeground(new java.awt.Color(255, 255, 255));
         btnBackUser.setText("Tornar ...");
-        btnBackUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnBackUser.setPreferredSize(new java.awt.Dimension(46, 16));
+        btnBackUser.setBorder(null);
         btnBackUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackUserActionPerformed(evt);
@@ -179,7 +178,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(19, 19, 19)
                 .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,95 +187,83 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(30, 30, 30));
         jLabel2.setText("LLISTAT D'USUARIS");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtSearchUser))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(txtSearchUser))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnResetPasswdUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(148, 148, 148)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnDeactivateUserForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnActivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(163, 163, 163))
+                .addGap(0, 107, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnResetPasswdUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnActivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnDeactivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(17, 17, 17))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUserActionPerformed
+        PrincipalController.returnUserPanel();
+    }//GEN-LAST:event_btnBackUserActionPerformed
+
     private void btnDeactivateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeactivateUserFormActionPerformed
         if (tblUsers.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
+        JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
@@ -289,7 +276,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
 
     private void btnActivateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivateUserFormActionPerformed
         if (tblUsers.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
+        JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
@@ -300,34 +287,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnActivateUserFormActionPerformed
 
-    private void btnBackUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUserActionPerformed
-        PrincipalController.returnUserPanel();
-    }//GEN-LAST:event_btnBackUserActionPerformed
-
-    private void btnInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertUserFormActionPerformed
-        PrincipalController.showNewFormUserPanel();
-    }//GEN-LAST:event_btnInsertUserFormActionPerformed
-
-    private void btnUpdateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserFormActionPerformed
-        if (tblUsers.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
-        else {
-            DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
-            int selectedRow = tblUsers.getSelectedRow();
-            int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
-            String nom = (String) modelTable.getValueAt(selectedRow, 1);
-            String cognom = (String) modelTable.getValueAt(selectedRow, 2);
-            String correu = (String) modelTable.getValueAt(selectedRow, 4);
-            String telefon = (String) modelTable.getValueAt(selectedRow, 5);
-            
-            PrincipalController.showUpdateFormUserPanel(idUser, nom, cognom, correu, telefon);
-        }
-        
-    }//GEN-LAST:event_btnUpdateUserFormActionPerformed
-
     private void btnResetPasswdUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPasswdUserFormActionPerformed
         if (tblUsers.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
+        JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
@@ -337,9 +299,26 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnResetPasswdUserFormActionPerformed
 
-    private void txtSearchUserCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchUserCaretUpdate
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchUserCaretUpdate
+    private void btnUpdateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateUserFormActionPerformed
+        if (tblUsers.getSelectedRow() == -1)
+        JOptionPane.showMessageDialog(null, "No s'ha seleccionat cap fila");
+        else {
+            DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
+            int selectedRow = tblUsers.getSelectedRow();
+            int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
+            String nom = (String) modelTable.getValueAt(selectedRow, 1);
+            String cognom = (String) modelTable.getValueAt(selectedRow, 2);
+            String correu = (String) modelTable.getValueAt(selectedRow, 4);
+            String telefon = (String) modelTable.getValueAt(selectedRow, 5);
+
+            PrincipalController.showUpdateFormUserPanel(idUser, nom, cognom, correu, telefon);
+        }
+
+    }//GEN-LAST:event_btnUpdateUserFormActionPerformed
+
+    private void btnInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertUserFormActionPerformed
+        PrincipalController.showNewFormUserPanel();
+    }//GEN-LAST:event_btnInsertUserFormActionPerformed
 
     private void txtSearchUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchUserKeyTyped
         // TODO add your handling code here:
@@ -351,6 +330,10 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         String where = txtSearchUser.getText();
         PrincipalController.loadTblUserWhere(modelo, where);
     }//GEN-LAST:event_txtSearchUserKeyReleased
+
+    private void txtSearchUserCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchUserCaretUpdate
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchUserCaretUpdate
 
     /**
      * @param args the command line arguments
@@ -391,20 +374,19 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private transient javax.swing.JLabel JLabelLogo;
-    public javax.swing.JButton btnActivateUserForm;
-    public javax.swing.JButton btnBackUser;
-    public javax.swing.JButton btnDeactivateUserForm;
-    public javax.swing.JButton btnInsertUserForm;
-    public javax.swing.JButton btnResetPasswdUserForm;
+    private javax.swing.JLabel JLabelLogo;
+    private javax.swing.JButton btnActivateUserForm;
+    private javax.swing.JButton btnBackUser;
+    private javax.swing.JButton btnDeactivateUserForm;
+    private javax.swing.JButton btnInsertUserForm;
+    private javax.swing.JButton btnResetPasswdUserForm;
     private javax.swing.JButton btnUpdateUserForm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable tblUsers;
-    public javax.swing.JTextField txtSearchUser;
+    private javax.swing.JTable tblUsers;
+    private javax.swing.JTextField txtSearchUser;
     // End of variables declaration//GEN-END:variables
 
     public void loadTable() {
