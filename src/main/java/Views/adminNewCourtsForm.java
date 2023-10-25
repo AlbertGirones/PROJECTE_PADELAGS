@@ -2,6 +2,7 @@
 package Views;
 
 import Controllers.PrincipalController;
+import java.awt.Color;
 
 public class adminNewCourtsForm extends javax.swing.JFrame {
 
@@ -11,6 +12,7 @@ public class adminNewCourtsForm extends javax.swing.JFrame {
     public adminNewCourtsForm() {
         initComponents();
         this.setLocationRelativeTo(null);
+        btnInsertCourtForm.setEnabled(false);
     }
 
     /**
@@ -40,17 +42,37 @@ public class adminNewCourtsForm extends javax.swing.JFrame {
 
         jLabel1.setText("Nom");
 
+        txtNameInsertCourtForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameInsertCourtFormFocusLost(evt);
+            }
+        });
         txtNameInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameInsertCourtFormActionPerformed(evt);
             }
         });
+        txtNameInsertCourtForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameInsertCourtFormKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("Ubicació");
 
+        txtUbicationInsertCourtForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUbicationInsertCourtFormFocusLost(evt);
+            }
+        });
         txtUbicationInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUbicationInsertCourtFormActionPerformed(evt);
+            }
+        });
+        txtUbicationInsertCourtForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUbicationInsertCourtFormKeyTyped(evt);
             }
         });
 
@@ -83,9 +105,8 @@ public class adminNewCourtsForm extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnInsertCourtForm, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                        .addComponent(txtUbicationInsertCourtForm)))
+                    .addComponent(txtNameInsertCourtForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(txtUbicationInsertCourtForm, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(165, 165, 165))
         );
         layout.setVerticalGroup(
@@ -127,6 +148,60 @@ public class adminNewCourtsForm extends javax.swing.JFrame {
         PrincipalController.insertCourt(name, ubication);
     }//GEN-LAST:event_btnInsertCourtFormActionPerformed
 
+    private void txtNameInsertCourtFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameInsertCourtFormFocusLost
+        String name = txtNameInsertCourtForm.getText().trim();
+        String namePattern = "^Pista [A-Za-z\\s]+$";
+
+        if (name.matches(namePattern)) {
+            txtNameInsertCourtForm.setBackground(Color.GREEN);
+        }
+        
+    }//GEN-LAST:event_txtNameInsertCourtFormFocusLost
+
+    private void txtNameInsertCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameInsertCourtFormKeyTyped
+        String name = txtNameInsertCourtForm.getText().trim();
+        String namePattern = "^Pista [A-Za-z\\s]+$";
+
+        if (!name.matches(namePattern)) {
+            txtNameInsertCourtForm.setBackground(Color.RED);
+        }
+        checkData();
+    }//GEN-LAST:event_txtNameInsertCourtFormKeyTyped
+
+    private void txtUbicationInsertCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicationInsertCourtFormKeyTyped
+        String ubication = txtUbicationInsertCourtForm.getText().trim();
+        String ubicationPattern = "^Sector \\d+$";
+
+        if (!ubication.matches(ubicationPattern)) {
+            txtUbicationInsertCourtForm.setBackground(Color.RED);
+        }
+        checkData();
+    }//GEN-LAST:event_txtUbicationInsertCourtFormKeyTyped
+
+    private void txtUbicationInsertCourtFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUbicationInsertCourtFormFocusLost
+        String ubication = txtUbicationInsertCourtForm.getText().trim();
+        String ubicationPattern = "^Sector \\d+$";
+
+        if (ubication.matches(ubicationPattern)) {
+            txtUbicationInsertCourtForm.setBackground(Color.GREEN);
+        }
+        checkData();
+    }//GEN-LAST:event_txtUbicationInsertCourtFormFocusLost
+
+    private void checkData() {
+        String name = txtNameInsertCourtForm.getText().trim();
+        String namePattern = "^Pista [A-Za-z\\s]+$";
+        String ubication = txtUbicationInsertCourtForm.getText().trim();
+        String ubicationPattern = "^Sector \\d+$";
+        
+        if (!name.matches(namePattern) || !ubication.matches(ubicationPattern)) {
+            btnInsertCourtForm.setEnabled(false);
+        }
+        else {
+            btnInsertCourtForm.setEnabled(true);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

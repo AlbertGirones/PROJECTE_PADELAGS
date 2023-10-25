@@ -40,17 +40,37 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
 
         jLabel1.setText("Nom");
 
+        txtNameModifyCourtForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNameModifyCourtFormFocusLost(evt);
+            }
+        });
         txtNameModifyCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameModifyCourtFormActionPerformed(evt);
             }
         });
+        txtNameModifyCourtForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameModifyCourtFormKeyTyped(evt);
+            }
+        });
 
         jLabel2.setText("Ubicació");
 
+        txtUbicationModifyCourtForm.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUbicationModifyCourtFormFocusLost(evt);
+            }
+        });
         txtUbicationModifyCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUbicationModifyCourtFormActionPerformed(evt);
+            }
+        });
+        txtUbicationModifyCourtForm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtUbicationModifyCourtFormKeyTyped(evt);
             }
         });
 
@@ -129,6 +149,22 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
         String ubication = txtUbicationModifyCourtForm.getText();
         PrincipalController.modifyCourt(name, ubication);
     }//GEN-LAST:event_btnInsertCourtFormActionPerformed
+
+    private void txtNameModifyCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameModifyCourtFormKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameModifyCourtFormKeyTyped
+
+    private void txtNameModifyCourtFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameModifyCourtFormFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameModifyCourtFormFocusLost
+
+    private void txtUbicationModifyCourtFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUbicationModifyCourtFormFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUbicationModifyCourtFormFocusLost
+
+    private void txtUbicationModifyCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicationModifyCourtFormKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUbicationModifyCourtFormKeyTyped
 
     /**
      * @param args the command line arguments
