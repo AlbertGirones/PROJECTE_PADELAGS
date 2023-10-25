@@ -421,12 +421,25 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         String mail = txtMailInsertUserForm.getText();
         String phone = txtPhoneInsertUserForm.getText();
         String passwd = txtPasswdInsertUserForm.getText();
+        
 
         PrincipalController.insertUser(name, surname, dni, mail, phone, passwd);
     }//GEN-LAST:event_btnInsertUserFormActionPerformed
 
     private void btnBackNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackNewUserActionPerformed
         PrincipalController.returnNewFormUserPanel();
+        txtDniInsertUserForm.setText("");
+        txtNameInsertUserForm.setText("");
+        txtSurnameInsertUserForm.setText("");
+        txtMailInsertUserForm.setText("");
+        txtPhoneInsertUserForm.setText("");
+        txtPasswdInsertUserForm.setText("");
+        txtDniInsertUserForm.setBackground(Color.WHITE);
+        txtNameInsertUserForm.setBackground(Color.WHITE);
+        txtSurnameInsertUserForm.setBackground(Color.WHITE);
+        txtMailInsertUserForm.setBackground(Color.WHITE);
+        txtPhoneInsertUserForm.setBackground(Color.WHITE);
+        txtPasswdInsertUserForm.setBackground(Color.WHITE);
     }//GEN-LAST:event_btnBackNewUserActionPerformed
 
     private void txtDniInsertUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniInsertUserFormKeyTyped

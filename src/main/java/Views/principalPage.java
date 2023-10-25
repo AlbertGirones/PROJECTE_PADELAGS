@@ -36,6 +36,7 @@ public class principalPage extends javax.swing.JFrame {
         JLabelPhoto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(204, 229, 255));
@@ -173,9 +174,9 @@ public class principalPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private transient javax.swing.JLabel JLabelLogo;
-    private javax.swing.JLabel JLabelPhoto;
-    private javax.swing.JButton btnRedirectAdminLogin;
-    private javax.swing.JButton btnRedirectUserLogin;
+    private transient javax.swing.JLabel JLabelPhoto;
+    public javax.swing.JButton btnRedirectAdminLogin;
+    public javax.swing.JButton btnRedirectUserLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
