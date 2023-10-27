@@ -155,7 +155,7 @@ public class adminNewCourtsForm extends javax.swing.JFrame {
         if (name.matches(namePattern)) {
             txtNameInsertCourtForm.setBackground(Color.GREEN);
         }
-        
+        checkData();
     }//GEN-LAST:event_txtNameInsertCourtFormFocusLost
 
     private void txtNameInsertCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameInsertCourtFormKeyTyped

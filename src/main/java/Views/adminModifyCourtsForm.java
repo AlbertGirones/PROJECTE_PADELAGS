@@ -2,6 +2,7 @@
 package Views;
 
 import Controllers.PrincipalController;
+import java.awt.Color;
 
 public class adminModifyCourtsForm extends javax.swing.JFrame {
 
@@ -151,21 +152,59 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertCourtFormActionPerformed
 
     private void txtNameModifyCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameModifyCourtFormKeyTyped
-        // TODO add your handling code here:
+        String name = txtNameModifyCourtForm.getText().trim();
+        String namePattern = "^Pista [A-Za-z\\s]+$";
+
+        if (!name.matches(namePattern)) {
+            txtNameModifyCourtForm.setBackground(Color.RED);
+        }
+        checkData();
     }//GEN-LAST:event_txtNameModifyCourtFormKeyTyped
 
     private void txtNameModifyCourtFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNameModifyCourtFormFocusLost
-        // TODO add your handling code here:
+        String name = txtNameModifyCourtForm.getText().trim();
+        String namePattern = "^Pista [A-Za-z\\s]+$";
+
+        if (name.matches(namePattern)) {
+            txtNameModifyCourtForm.setBackground(Color.GREEN);
+        }
+        checkData();
     }//GEN-LAST:event_txtNameModifyCourtFormFocusLost
 
     private void txtUbicationModifyCourtFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUbicationModifyCourtFormFocusLost
-        // TODO add your handling code here:
+        String ubication = txtUbicationModifyCourtForm.getText().trim();
+        String ubicationPattern = "^Sector \\d+$";
+
+        if (ubication.matches(ubicationPattern)) {
+            txtUbicationModifyCourtForm.setBackground(Color.GREEN);
+        }
+        checkData();
     }//GEN-LAST:event_txtUbicationModifyCourtFormFocusLost
 
     private void txtUbicationModifyCourtFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUbicationModifyCourtFormKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUbicationModifyCourtFormKeyTyped
+        String ubication = txtUbicationModifyCourtForm.getText().trim();
+        String ubicationPattern = "^Sector \\d+$";
 
+        if (!ubication.matches(ubicationPattern)) {
+            txtUbicationModifyCourtForm.setBackground(Color.RED);
+        }
+        checkData();
+    }//GEN-LAST:event_txtUbicationModifyCourtFormKeyTyped
+    
+    private void checkData() {
+        String name = txtNameModifyCourtForm.getText().trim();
+        String namePattern = "^Pista [A-Za-z\\s]+$";
+        String ubication = txtUbicationModifyCourtForm.getText().trim();
+        String ubicationPattern = "^Sector \\d+$";
+        
+        if (!name.matches(namePattern) || !ubication.matches(ubicationPattern)) {
+            btnInsertCourtForm.setEnabled(false);
+        }
+        else {
+            btnInsertCourtForm.setEnabled(true);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

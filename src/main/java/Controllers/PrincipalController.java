@@ -78,6 +78,8 @@ public class PrincipalController {
         model.setId_court(idCourt);
         model.setName(name);
         model.setUbication(ubication);
+        ModifyFormCourt.txtNameModifyCourtForm.setBackground(Color.WHITE);
+        ModifyFormCourt.txtUbicationModifyCourtForm.setBackground(Color.WHITE);
         ModifyFormCourt.txtNameModifyCourtForm.setText(name);
         ModifyFormCourt.txtUbicationModifyCourtForm.setText(ubication);
         ModifyFormCourt.setVisible(true);
