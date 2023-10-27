@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.*;
 import Views.*;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -112,6 +113,10 @@ public class PrincipalController {
         UpdateFormUser.txtSurnameUpdateUserForm.setText(cognom);
         UpdateFormUser.txtMailUpdateUserForm.setText(correu);
         UpdateFormUser.txtPhoneUpdateUserForm.setText(telefon);
+        UpdateFormUser.txtNameUpdateUserForm.setBackground(Color.WHITE);
+        UpdateFormUser.txtSurnameUpdateUserForm.setBackground(Color.WHITE);
+        UpdateFormUser.txtMailUpdateUserForm.setBackground(Color.WHITE);
+        UpdateFormUser.txtPhoneUpdateUserForm.setBackground(Color.WHITE);
         UpdateFormUser.setVisible(true);
         UserPanel.setTitle("Inserir usuari");
         UserPanel.setVisible(false);     

@@ -287,8 +287,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     
         if (name.matches("^[a-zA-Z]+")) {
             txtNameUpdateUserForm.setBackground(Color.GREEN);
-            btnUpdateUserForm.setEnabled(true);
         }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtNameUpdateUserFormFocusLost
 
     private void txtSurnameUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSurnameUpdateUserFormFocusLost
@@ -296,8 +296,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     
         if (surname.matches("^[a-zA-Z]+")) {
             txtSurnameUpdateUserForm.setBackground(Color.GREEN);
-            btnUpdateUserForm.setEnabled(true);
-        } 
+        }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtSurnameUpdateUserFormFocusLost
 
     private void txtMailUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMailUpdateUserFormFocusLost
@@ -306,8 +306,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (email.matches(emailPattern)) {
             txtMailUpdateUserForm.setBackground(Color.GREEN);
-            btnUpdateUserForm.setEnabled(true);
         }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtMailUpdateUserFormFocusLost
 
     private void txtPhoneUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPhoneUpdateUserFormFocusLost
@@ -315,8 +315,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     
         if (phoneNumber.matches("\\d+")) {
             txtPhoneUpdateUserForm.setBackground(Color.GREEN);
-            btnUpdateUserForm.setEnabled(true);
-        }   
+        }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtPhoneUpdateUserFormFocusLost
 
     private void txtNameUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameUpdateUserFormKeyTyped
@@ -324,8 +324,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!name.matches("^[a-zA-Z]+")) {
             txtNameUpdateUserForm.setBackground(Color.RED);
-            btnUpdateUserForm.setEnabled(false);
         }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtNameUpdateUserFormKeyTyped
 
     private void txtSurnameUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSurnameUpdateUserFormKeyTyped
@@ -333,8 +333,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!surname.matches("^[a-zA-Z]+")) {
             txtSurnameUpdateUserForm.setBackground(Color.RED);
-            btnUpdateUserForm.setEnabled(false);
-        } 
+        }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtSurnameUpdateUserFormKeyTyped
 
     private void txtMailUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMailUpdateUserFormKeyTyped
@@ -343,8 +343,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!email.matches(emailPattern)) {
             txtMailUpdateUserForm.setBackground(Color.RED);
-            btnUpdateUserForm.setEnabled(false);
         }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtMailUpdateUserFormKeyTyped
 
     private void txtPhoneUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneUpdateUserFormKeyTyped
@@ -352,8 +352,8 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         if (!phoneNumber.matches("\\d+")) {
             txtPhoneUpdateUserForm.setBackground(Color.RED);
-            btnUpdateUserForm.setEnabled(false);
-        } 
+        }
+        ActivateUpdateButton();
     }//GEN-LAST:event_txtPhoneUpdateUserFormKeyTyped
 
     private void btnBackUpdateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUpdateUserActionPerformed
@@ -364,6 +364,20 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         txtPhoneUpdateUserForm.setBackground(Color.WHITE);
     }//GEN-LAST:event_btnBackUpdateUserActionPerformed
 
+    private void ActivateUpdateButton(){
+        String name = txtNameUpdateUserForm.getText().trim();
+        String surname = txtSurnameUpdateUserForm.getText().trim();
+        String email = txtMailUpdateUserForm.getText().trim();
+        String phoneNumber = txtPhoneUpdateUserForm.getText().trim();
+
+        if(!name.matches("^[a-zA-Z]+") || !surname.matches("^[a-zA-Z]+") || !email.matches("^[a-zA-Z0-9._%+-]+@gmail\\.com$") || !phoneNumber.matches("\\d+")){
+            btnUpdateUserForm.setEnabled(false);
+        }
+        else{
+            btnUpdateUserForm.setEnabled(true);
+        }
+        
+    }
 
     /**
      * @param args the command line arguments

@@ -47,21 +47,30 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        btnInsertCourtForm.setBackground(new java.awt.Color(255, 255, 255));
+        btnInsertCourtForm.setForeground(new java.awt.Color(255, 255, 255));
         btnInsertCourtForm.setText("Agregar");
+        btnInsertCourtForm.setBorder(null);
         btnInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertCourtFormActionPerformed(evt);
             }
         });
 
+        btnDeactivateCourtForm.setBackground(new java.awt.Color(255, 255, 255));
+        btnDeactivateCourtForm.setForeground(new java.awt.Color(255, 255, 255));
         btnDeactivateCourtForm.setText("Desactivar");
+        btnDeactivateCourtForm.setBorder(null);
         btnDeactivateCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeactivateCourtFormActionPerformed(evt);
             }
         });
 
+        btnActivateCourtForm.setBackground(new java.awt.Color(255, 255, 255));
+        btnActivateCourtForm.setForeground(new java.awt.Color(255, 255, 255));
         btnActivateCourtForm.setText("Activar");
+        btnActivateCourtForm.setBorder(null);
         btnActivateCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActivateCourtFormActionPerformed(evt);
@@ -121,14 +130,20 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
+        btnMaintenanceCourtForm1.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaintenanceCourtForm1.setForeground(new java.awt.Color(255, 255, 255));
         btnMaintenanceCourtForm1.setText("En manteniment");
+        btnMaintenanceCourtForm1.setBorder(null);
         btnMaintenanceCourtForm1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaintenanceCourtForm1ActionPerformed(evt);
             }
         });
 
+        btnModifyCourtForm.setBackground(new java.awt.Color(255, 255, 255));
+        btnModifyCourtForm.setForeground(new java.awt.Color(255, 255, 255));
         btnModifyCourtForm.setText("Modificar");
+        btnModifyCourtForm.setBorder(null);
         btnModifyCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifyCourtFormActionPerformed(evt);
@@ -175,7 +190,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
