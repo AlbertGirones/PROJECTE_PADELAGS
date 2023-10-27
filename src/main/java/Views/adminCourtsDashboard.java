@@ -21,7 +21,10 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         DefaultTableModel modelo = new DefaultTableModel();
         tblCourts.setModel(modelo);
-        PrincipalController.loadTblCourt(modelo);        
+        PrincipalController.loadTblCourt(modelo);
+        btnBackCourt.setBackground(null);
+        btnBackCourt.setContentAreaFilled(false);
+        btnBackCourt.setFocusPainted(false);
     }
 
     /**
@@ -33,31 +36,29 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnInsertCourtForm = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         btnDeactivateCourtForm = new javax.swing.JButton();
         btnActivateCourtForm = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCourts = new javax.swing.JTable();
         txtSearchCourt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btnBackCourt = new javax.swing.JButton();
         btnMaintenanceCourtForm1 = new javax.swing.JButton();
         btnModifyCourtForm = new javax.swing.JButton();
+        btnInsertCourtForm = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnBackCourt = new javax.swing.JButton();
+        JLabelLogo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        btnInsertCourtForm.setBackground(new java.awt.Color(255, 255, 255));
-        btnInsertCourtForm.setForeground(new java.awt.Color(255, 255, 255));
-        btnInsertCourtForm.setText("Agregar");
-        btnInsertCourtForm.setBorder(null);
-        btnInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInsertCourtFormActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(575, 445));
 
-        btnDeactivateCourtForm.setBackground(new java.awt.Color(255, 255, 255));
+        btnDeactivateCourtForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnDeactivateCourtForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnDeactivateCourtForm.setForeground(new java.awt.Color(255, 255, 255));
         btnDeactivateCourtForm.setText("Desactivar");
         btnDeactivateCourtForm.setBorder(null);
@@ -67,7 +68,8 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
-        btnActivateCourtForm.setBackground(new java.awt.Color(255, 255, 255));
+        btnActivateCourtForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnActivateCourtForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnActivateCourtForm.setForeground(new java.awt.Color(255, 255, 255));
         btnActivateCourtForm.setText("Activar");
         btnActivateCourtForm.setBorder(null);
@@ -82,6 +84,8 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
                 return false;
             }
         };
+        tblCourts.setBackground(new java.awt.Color(255, 255, 255));
+        tblCourts.setForeground(new java.awt.Color(30, 30, 30));
         tblCourts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -108,11 +112,21 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblCourts.setGridColor(new java.awt.Color(30, 30, 30));
+        tblCourts.setPreferredSize(new java.awt.Dimension(525, 80));
+        tblCourts.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(tblCourts);
 
+        txtSearchCourt.setBackground(new java.awt.Color(255, 255, 255));
+        txtSearchCourt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtSearchCourt.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtSearchCourtCaretUpdate(evt);
+            }
+        });
+        txtSearchCourt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchCourtActionPerformed(evt);
             }
         });
         txtSearchCourt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -121,16 +135,12 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(30, 30, 30));
         jLabel1.setText("Nom:");
 
-        btnBackCourt.setText("Tornar ...");
-        btnBackCourt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackCourtActionPerformed(evt);
-            }
-        });
-
-        btnMaintenanceCourtForm1.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaintenanceCourtForm1.setBackground(new java.awt.Color(0, 0, 153));
+        btnMaintenanceCourtForm1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnMaintenanceCourtForm1.setForeground(new java.awt.Color(255, 255, 255));
         btnMaintenanceCourtForm1.setText("En manteniment");
         btnMaintenanceCourtForm1.setBorder(null);
@@ -140,7 +150,8 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
-        btnModifyCourtForm.setBackground(new java.awt.Color(255, 255, 255));
+        btnModifyCourtForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnModifyCourtForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnModifyCourtForm.setForeground(new java.awt.Color(255, 255, 255));
         btnModifyCourtForm.setText("Modificar");
         btnModifyCourtForm.setBorder(null);
@@ -150,56 +161,120 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
             }
         });
 
+        btnInsertCourtForm.setBackground(new java.awt.Color(0, 0, 153));
+        btnInsertCourtForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnInsertCourtForm.setForeground(new java.awt.Color(255, 255, 255));
+        btnInsertCourtForm.setText("Afegir");
+        btnInsertCourtForm.setBorder(null);
+        btnInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertCourtFormActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel2.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanel2.setPreferredSize(new java.awt.Dimension(575, 84));
+
+        btnBackCourt.setBackground(new java.awt.Color(255, 255, 255));
+        btnBackCourt.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackCourt.setText("Tornar ...");
+        btnBackCourt.setBorder(null);
+        btnBackCourt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackCourtActionPerformed(evt);
+            }
+        });
+
+        JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                .addComponent(btnBackCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBackCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(30, 30, 30));
+        jLabel2.setText("LLISTAT DE PISTES");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnModifyCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnActivateCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDeactivateCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnMaintenanceCourtForm1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(177, 177, 177))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActivateCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeactivateCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInsertCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModifyCourtForm, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMaintenanceCourtForm1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchCourt))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnInsertCourtForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModifyCourtForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnActivateCourtForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMaintenanceCourtForm1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDeactivateCourtForm))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnBackCourt)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(btnBackCourt)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearchCourt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsertCourtForm)
-                    .addComponent(btnDeactivateCourtForm)
-                    .addComponent(btnActivateCourtForm)
-                    .addComponent(btnMaintenanceCourtForm1)
-                    .addComponent(btnModifyCourtForm))
-                .addGap(25, 25, 25))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -274,6 +349,10 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
         PrincipalController.loadTblCourtWhere(modelo, where);
     }//GEN-LAST:event_txtSearchCourtKeyReleased
 
+    private void txtSearchCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchCourtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchCourtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,6 +390,7 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private transient javax.swing.JLabel JLabelLogo;
     public javax.swing.JButton btnActivateCourtForm;
     public javax.swing.JButton btnBackCourt;
     public javax.swing.JButton btnDeactivateCourtForm;
@@ -318,6 +398,9 @@ public class adminCourtsDashboard extends javax.swing.JFrame {
     public javax.swing.JButton btnMaintenanceCourtForm1;
     public javax.swing.JButton btnModifyCourtForm;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tblCourts;
     public javax.swing.JTextField txtSearchCourt;

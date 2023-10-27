@@ -57,6 +57,7 @@ public class userLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(575, 455));
 
+        btnBackLoginUser.setBackground(new java.awt.Color(255, 255, 255));
         btnBackLoginUser.setForeground(new java.awt.Color(255, 255, 255));
         btnBackLoginUser.setText("Tornar ...");
         btnBackLoginUser.setBorder(null);
@@ -113,6 +114,7 @@ public class userLogin extends javax.swing.JFrame {
             }
         });
 
+        dniField.setBackground(new java.awt.Color(255, 255, 255));
         dniField.setForeground(new java.awt.Color(30, 30, 30));
         dniField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         dniField.addActionListener(new java.awt.event.ActionListener() {
@@ -121,6 +123,7 @@ public class userLogin extends javax.swing.JFrame {
             }
         });
 
+        passwordField.setBackground(new java.awt.Color(255, 255, 255));
         passwordField.setForeground(new java.awt.Color(30, 30, 30));
         passwordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         passwordField.addActionListener(new java.awt.event.ActionListener() {
