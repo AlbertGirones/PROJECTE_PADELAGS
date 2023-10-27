@@ -8,6 +8,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
 
 public class courtQueries extends Conexion {
@@ -220,6 +221,30 @@ public class courtQueries extends Conexion {
                 System.err.println(e);
             }
         }  
+    }
+    
+    public boolean getCourtsList(DefaultListModel modelo) {
+        try {
+            PreparedStatement ps = null;
+            Connection con = getConnection();
+            ResultSet rs = null;
+            int filas = 0;
+        
+            String sql = "SELECT name FROM court WHERE status = 'Activa'";
+            
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+                        
+            while (rs.next()) {
+                String name = rs.getString("name");
+                modelo.addElement(name);
+            }
+            return true;
+            
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+        return false;
     }
     
 }

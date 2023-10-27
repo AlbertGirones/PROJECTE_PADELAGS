@@ -37,6 +37,7 @@ public class adminReservationDashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btnBackReservation.setText("Tornar ...");
         btnBackReservation.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +102,7 @@ public class adminReservationDashboard extends javax.swing.JFrame {
     private void btnShowCourtOnReservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowCourtOnReservationsActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(JCalendarReservationForDate.getDate());
-        PrincipalController.getListOfCourts(date);
+        PrincipalController.ListOfCourtsXDate(date);
     }//GEN-LAST:event_btnShowCourtOnReservationsActionPerformed
 
     /**

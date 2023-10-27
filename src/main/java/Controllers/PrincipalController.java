@@ -3,7 +3,9 @@ package Controllers;
 import Models.*;
 import Views.*;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +34,11 @@ public class PrincipalController {
 
     // SET RESERVATIONS
     
+    public static Reservation model4 = new Reservation();
+    public static reservationQueries sqlModel4 = new reservationQueries();
     public static adminReservationDashboard ReservationPanel = new adminReservationDashboard();
+    public static adminReservationListCourt ReservationListCourt = new adminReservationListCourt();
+    public static ReservationListCourtXCourtXDate ReservationListCourtXCourtXDate = new ReservationListCourtXCourtXDate();
     
     
     // SET USERS
@@ -190,6 +196,14 @@ public class PrincipalController {
         adminPanel.setVisible(true);
     }
     
+    public static void returnListCourt() {
+        ReservationListCourt.setVisible(false);
+        ReservationPanel.setTitle("Gestió reserves");
+        ReservationPanel.setVisible(true);
+    }
+    
+    // LOGIN METHODSs
+    
     public static void loginUser(String dni, String password){
         
         if(!dni.equals("") && !password.equals("")){
@@ -312,13 +326,32 @@ public class PrincipalController {
         
     }
     
-    public static void getListOfCourts(String date) {
-        
+    public static void ListOfCourtsXDate(String date) {
+        ReservationListCourt.setVisible(true);
+        ReservationListCourt.setTitle("Gestió reserves | Pistes");
+        ReservationPanel.setVisible(false);
+        ReservationListCourt.actualDate.setText(date);
+//        boolean consulta = sqlModel.getCourtsXDate();
+//        System.out.println(consulta);
     }
-
+    
+    public static void loadListOfCourts(DefaultListModel modelo) {
+        boolean consulta = sqlModel.getCourtsList(modelo);
+    }
+    
     // RESERVATION METHODS
     
+    public static void showReservationsXCourtWDate(String name, String date) {
+        ReservationListCourtXCourtXDate.setVisible(true);
+        ReservationListCourtXCourtXDate.setTitle("Gestió reserves | Pistes/Dia");
+        ReservationPanel.setVisible(false);
+        ReservationListCourtXCourtXDate.nameOfReservation.setText(name);
+        ReservationListCourtXCourtXDate.dateOfReservation.setText(date);
+    }
     
+    public static void loadReservationsXCourtWDate(DefaultTableModel modelo, String name, String date) {
+        boolean consulta = sqlModel4.getReservationXCourtWDate(modelo, name, date);
+    }
     
     // USERS METHODS
     
