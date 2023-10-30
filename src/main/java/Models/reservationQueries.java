@@ -17,14 +17,17 @@ public class reservationQueries extends Conexion {
             Connection con = getConnection();
             ResultSet rs = null;
         
-            // sql = SELECT id_reservation, id_user, id_court, hours, ifpay, status, U.dni, U.name FROM reservation R JOIN (SELECT id_user, dni, name FROM user) AS U ON R.user = U.id_user;
-            
-            String sql = "SELECT id_court, name, ubication, status FROM court";
-            
+            String sql = "SELECT reservation.hours, reservation.id_reservation, user.dni, user.name, reservation.ifpay FROM court INNER JOIN reservation ON court.id_court = reservation.id_court INNER JOIN user ON reservation.user = user.id_user WHERE court.name = 'Pista Gerard' AND reservation.date = '2023-10-31'";            
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             ResultSetMetaData rsMd = rs.getMetaData();
             int columnsCount = rsMd.getColumnCount();
+            
+            modelo.addColumn("Horari");
+            modelo.addColumn("ID Reserva");
+            modelo.addColumn("DNI");
+            modelo.addColumn("Nom client");
+            modelo.addColumn("Pagament");
                                  
             while (rs.next()) {
                 

@@ -339,6 +339,10 @@ public class PrincipalController {
         boolean consulta = sqlModel.getCourtsList(modelo);
     }
     
+    public static void loadListOfCourtsWhere(DefaultListModel modelo, String where) {
+        //boolean consulta = sqlModel.getCourtsList(modelo, where);
+    }
+    
     // RESERVATION METHODS
     
     public static void showReservationsXCourtWDate(String name, String date) {
@@ -350,7 +354,30 @@ public class PrincipalController {
     }
     
     public static void loadReservationsXCourtWDate(DefaultTableModel modelo, String name, String date) {
-        boolean consulta = sqlModel4.getReservationXCourtWDate(modelo, name, date);
+        boolean consulta2 = sqlModel4.getReservationXCourtWDate(modelo, name, date);
+    }
+    
+    public static void showInsertReservation() {
+        
+    }
+    
+    public static void insertReservation(String name, String ubication) {
+
+        if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            returnNewFormCourtPanel();
+        } else {
+            model.setName(name);
+            model.setUbication(ubication);
+            boolean consulta = sqlModel.insert(model);
+            if (consulta == true) {
+                JOptionPane.showMessageDialog(null, "Pista creada correctament", "", JOptionPane.WARNING_MESSAGE);
+                returnNewFormCourtPanel();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+
     }
     
     // USERS METHODS

@@ -247,4 +247,36 @@ public class courtQueries extends Conexion {
         return false;
     }
     
+    public boolean getCourtsListWhere(DefaultListModel modelo, String where) {
+        
+        String wheres = "";
+        
+        if(!"".equals(where))
+        {
+            wheres = "WHERE status = 'Activa' and  LIKE '%"+ where + "%'";
+        }
+        
+        try {
+            PreparedStatement ps = null;
+            Connection con = getConnection();
+            ResultSet rs = null;
+            int filas = 0;
+        
+            String sql = "SELECT court.name FROM court INNER JOIN reservation ON reservation.id_court = court.id_court AND status = 'Activa' AND reservation.hours =  " + wheres;
+            
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+                        
+            while (rs.next()) {
+                String name = rs.getString("name");
+                modelo.addElement(name);
+            }
+            return true;
+            
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+        return false;
+    }
+    
 }
