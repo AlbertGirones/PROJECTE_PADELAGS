@@ -39,4 +39,36 @@ public class adminQueries extends Conexion {
         }
     }
     
+        public static adminQueries instance;
+        public String user;
+        public boolean loggedIn;
+
+        public adminQueries() {
+            // Evita que se pueda instanciar directamente
+        }
+
+        public static adminQueries getInstance() {
+            if (instance == null) {
+                instance = new adminQueries();
+            }
+            return instance;
+        }
+
+        public void login(String user) {
+            this.user = user;
+            loggedIn = true;
+        }
+
+        public void logout() {
+            user = null;
+            loggedIn = false;
+        }
+
+        public boolean isLoggedIn() {
+            return loggedIn;
+        }
+
+        public String getUsername() {
+            return user;
+        }    
 }

@@ -22,6 +22,10 @@ public class adminLogin extends javax.swing.JFrame {
         btnBackLoginAdmin.setBackground(null);
         btnBackLoginAdmin.setContentAreaFilled(false);
         btnBackLoginAdmin.setFocusPainted(false);
+        adminQueries AdminQueries = adminQueries.getInstance();
+        String user = nick.getText();
+        AdminQueries.login(user); // Donde 'username' es el nombre del administrador
+
     }
 
     /**
@@ -74,7 +78,8 @@ public class adminLogin extends javax.swing.JFrame {
         });
 
         nick.setBackground(new java.awt.Color(255, 255, 255));
-        nick.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        nick.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        nick.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         nick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nickActionPerformed(evt);

@@ -16,6 +16,8 @@ public class adminDashboard extends javax.swing.JFrame {
         BtnCloseSessionAdmin.setBackground(null);
         BtnCloseSessionAdmin.setContentAreaFilled(false);
         BtnCloseSessionAdmin.setFocusPainted(false);
+        
+
     }
 
     /**
@@ -208,7 +210,7 @@ public class adminDashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminDashboard().setVisible(true);
+                    new adminDashboard().setVisible(true);
             }
         });
     }

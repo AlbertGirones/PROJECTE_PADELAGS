@@ -77,6 +77,8 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
         btnInsertCourtForm.setBackground(new java.awt.Color(0, 0, 153));
         btnInsertCourtForm.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnInsertCourtForm.setText("Modificar");
+        btnInsertCourtForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnInsertCourtForm.setBorderPainted(false);
         btnInsertCourtForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInsertCourtFormActionPerformed(evt);
