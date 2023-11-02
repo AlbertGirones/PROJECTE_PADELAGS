@@ -223,16 +223,17 @@ public class courtQueries extends Conexion {
         }  
     }
     
-    public boolean getCourtsList(DefaultListModel modelo) {
+    public boolean getCourtsList(DefaultListModel modelo, String selectedDate) {
         try {
             PreparedStatement ps = null;
             Connection con = getConnection();
             ResultSet rs = null;
             int filas = 0;
         
-            String sql = "SELECT name FROM court WHERE status = 'Activa'";
+            String sql = "SELECT DISTINCT court.name FROM court INNER JOIN reservation ON reservation.court = court.id_court AND court.status = 'Activa' AND reservation.date = ?";
             
             ps = con.prepareStatement(sql);
+            ps.setString(1, selectedDate);
             rs = ps.executeQuery();
                         
             while (rs.next()) {
@@ -247,24 +248,16 @@ public class courtQueries extends Conexion {
         return false;
     }
     
-    public boolean getCourtsListWhere(DefaultListModel modelo, String where) {
+    public boolean getCourtsListWhere(DefaultListModel modelo, String where, String selectedDate) {
         
-        String wheres = "";
-        
-        if(!"".equals(where))
-        {
-            wheres = "WHERE status = 'Activa' and  LIKE '%"+ where + "%'";
-        }
-        
-        try {
+        if ("Sense horari".equals(where)){
+            try {
             PreparedStatement ps = null;
             Connection con = getConnection();
             ResultSet rs = null;
-            int filas = 0;
-        
-            String sql = "SELECT court.name FROM court INNER JOIN reservation ON reservation.id_court = court.id_court AND status = 'Activa' AND reservation.hours =  " + wheres;
-            
+            String sql = "SELECT DISTINCT court.name FROM court INNER JOIN reservation ON reservation.court = court.id_court AND court.status = 'Activa' AND reservation.date = ?";
             ps = con.prepareStatement(sql);
+            ps.setString(1, selectedDate);
             rs = ps.executeQuery();
                         
             while (rs.next()) {
@@ -273,10 +266,33 @@ public class courtQueries extends Conexion {
             }
             return true;
             
-        } catch (SQLException e) {
-            System.err.println(e);
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+            return false;
         }
-        return false;
+        else {
+            try {
+            PreparedStatement ps = null;
+            Connection con = getConnection();
+            ResultSet rs = null;
+            String sql = "SELECT name FROM court WHERE status = 'Activa' AND id_court NOT IN (SELECT court FROM reservation WHERE date = ? AND hours = ?)";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, selectedDate);
+            ps.setString(2, where);
+            rs = ps.executeQuery();
+                        
+            while (rs.next()) {
+                String name = rs.getString("name");
+                modelo.addElement(name);
+            }
+            return true;
+            
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+            return false;
+        }
     }
     
 }

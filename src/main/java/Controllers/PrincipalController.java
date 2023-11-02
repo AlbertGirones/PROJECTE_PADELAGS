@@ -36,7 +36,6 @@ public class PrincipalController {
     
     public static Reservation model4 = new Reservation();
     public static reservationQueries sqlModel4 = new reservationQueries();
-    public static adminReservationDashboard ReservationPanel = new adminReservationDashboard();
     public static adminReservationListCourt ReservationListCourt = new adminReservationListCourt();
     public static ReservationListCourtXCourtXDate ReservationListCourtXCourtXDate = new ReservationListCourtXCourtXDate();
     
@@ -131,8 +130,8 @@ public class PrincipalController {
     }
     
     public static void showReservationPanel() {
-        ReservationPanel.setVisible(true);
-        ReservationPanel.setTitle("Gestió reserves");
+        ReservationListCourt.setVisible(true);
+        ReservationListCourt.setTitle("Gestió reserves");
         adminPanel.setVisible(false);
     }
 
@@ -191,16 +190,16 @@ public class PrincipalController {
     }
     
     public static void returnReservationPanel() {
-        ReservationPanel.setVisible(false);
+        ReservationListCourt.setVisible(false);
         adminPanel.setTitle("Administració");
         adminPanel.setVisible(true);
     }
     
-    public static void returnListCourt() {
-        ReservationListCourt.setVisible(false);
-        ReservationPanel.setTitle("Gestió reserves");
-        ReservationPanel.setVisible(true);
-    }
+//    public static void returnListCourt() {
+//        ReservationListCourt.setVisible(false);
+//        ReservationPanel.setTitle("Gestió reserves");
+//        ReservationPanel.setVisible(true);
+//    }
     
     // LOGIN METHODSs
     
@@ -329,18 +328,18 @@ public class PrincipalController {
     public static void ListOfCourtsXDate(String date) {
         ReservationListCourt.setVisible(true);
         ReservationListCourt.setTitle("Gestió reserves | Pistes");
-        ReservationPanel.setVisible(false);
+        ReservationListCourt.setVisible(false);
         ReservationListCourt.actualDate.setText(date);
 //        boolean consulta = sqlModel.getCourtsXDate();
 //        System.out.println(consulta);
     }
     
-    public static void loadListOfCourts(DefaultListModel modelo) {
-        boolean consulta = sqlModel.getCourtsList(modelo);
+    public static void loadListOfCourts(DefaultListModel modelo, String selectedDate) {
+        boolean consulta = sqlModel.getCourtsList(modelo, selectedDate);
     }
     
-    public static void loadListOfCourtsWhere(DefaultListModel modelo, String where) {
-        //boolean consulta = sqlModel.getCourtsList(modelo, where);
+    public static void loadListOfCourtsWhere(DefaultListModel modelo, String where, String selectedDate) {
+        boolean consulta = sqlModel.getCourtsListWhere(modelo, where, selectedDate);
     }
     
     // RESERVATION METHODS
@@ -348,13 +347,30 @@ public class PrincipalController {
     public static void showReservationsXCourtWDate(String name, String date) {
         ReservationListCourtXCourtXDate.setVisible(true);
         ReservationListCourtXCourtXDate.setTitle("Gestió reserves | Pistes/Dia");
-        ReservationPanel.setVisible(false);
+        ReservationListCourt.setVisible(false);
         ReservationListCourtXCourtXDate.nameOfReservation.setText(name);
         ReservationListCourtXCourtXDate.dateOfReservation.setText(date);
+        DefaultTableModel modelo = new DefaultTableModel();
+        ReservationListCourtXCourtXDate.tblReservations.setModel(modelo);
+        boolean consulta2 = sqlModel4.getReservationXCourtWDate(modelo, name, date);
     }
     
-    public static void loadReservationsXCourtWDate(DefaultTableModel modelo, String name, String date) {
-        boolean consulta2 = sqlModel4.getReservationXCourtWDate(modelo, name, date);
+    public static void payReservation(int idReservation) {
+        boolean consulta = sqlModel4.payReservation(idReservation);
+        if (consulta == true) {
+            JOptionPane.showMessageDialog(null, "Reserva pagada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al pagar la reserva", "dd", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public static void cancelReservation(int idReservation) {
+        boolean consulta = sqlModel4.cancelReservation(idReservation);
+        if (consulta == true) {
+            JOptionPane.showMessageDialog(null, "Reserva cancelada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al cancelar la reserva", "dd", JOptionPane.WARNING_MESSAGE);
+        }
     }
     
     public static void showInsertReservation() {
@@ -377,7 +393,6 @@ public class PrincipalController {
                 JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
             }
         }
-
     }
     
     // USERS METHODS

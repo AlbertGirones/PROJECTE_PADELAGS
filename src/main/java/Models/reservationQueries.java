@@ -15,11 +15,11 @@ public class reservationQueries extends Conexion {
         try {
             PreparedStatement ps = null;
             Connection con = getConnection();
-            ResultSet rs = null;
-        
-            String sql = "SELECT reservation.hours, reservation.id_reservation, user.dni, user.name, reservation.ifpay FROM court INNER JOIN reservation ON court.id_court = reservation.id_court INNER JOIN user ON reservation.user = user.id_user WHERE court.name = 'Pista Gerard' AND reservation.date = '2023-10-31'";            
+            String sql = "SELECT reservation.hours, reservation.id_reservation, user.dni, user.name, reservation.ifpay FROM court INNER JOIN reservation ON court.id_court = reservation.court INNER JOIN user ON reservation.user = user.id_user WHERE court.name = ? AND reservation.date = ? ORDER BY reservation.hours ASC";            
             ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
+            ps.setString(1,name);
+            ps.setString(2, date);
+            ResultSet rs = ps.executeQuery();
             ResultSetMetaData rsMd = rs.getMetaData();
             int columnsCount = rsMd.getColumnCount();
             
@@ -48,4 +48,51 @@ public class reservationQueries extends Conexion {
         
     }
     
+    public boolean payReservation(int idReservation) {
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "UPDATE reservation SET ifpay='Pagada' WHERE id_reservation=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idReservation);
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    
+    public boolean cancelReservation(int idReservation) {
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "DELETE FROM reservation WHERE id_reservation  = ?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idReservation);
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
 }

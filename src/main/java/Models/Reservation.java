@@ -8,7 +8,6 @@ public class Reservation extends Conexion {
     private String hours;
     private String date;
     private String ifpay;
-    private String status;
 
     public int getId_reservation() {
         return id_reservation;
@@ -56,14 +55,6 @@ public class Reservation extends Conexion {
 
     public void setIfpay(String ifpay) {
         this.ifpay = ifpay;
-    }
-
-    public String getstatus() {
-        return status;
-    }
-
-    public void setstatus(String status) {
-        this.status = status;
     }
       
 }

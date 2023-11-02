@@ -5,7 +5,10 @@
 package Views;
 
 import Controllers.PrincipalController;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -21,9 +24,22 @@ public class adminReservationListCourt extends javax.swing.JFrame {
     public adminReservationListCourt() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        LocalDate fechaActual = LocalDate.now();
+        Date fechaActualDate = java.sql.Date.valueOf(fechaActual);
+        jDateChooser1.setDate(fechaActualDate);
+        
         DefaultListModel modelo = new DefaultListModel();
-        PrincipalController.loadListOfCourts(modelo);
         ListOfCourts.setModel(modelo);
+        Date date = jDateChooser1.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String selectedDate = sdf.format(date);
+        PrincipalController.loadListOfCourts(modelo, selectedDate);
+        
+        jComboBox1.setSelectedIndex(0);
+        
+        checkReserva();
+        checkLookReserva();
     }
 
     /**
@@ -41,6 +57,9 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         btnVeureReserves = new javax.swing.JButton();
         actualDate = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        btnFerReserves = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -67,6 +86,11 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sense horari", "16:00 - 17:30", "17:30 - 19:00", "19:00 - 20:30", "20:30 - 22:00" }));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseReleased(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -78,55 +102,94 @@ public class adminReservationListCourt extends javax.swing.JFrame {
             }
         });
 
+        btnFerReserves.setText("Reservar");
+        btnFerReserves.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFerReservesActionPerformed(evt);
+            }
+        });
+
+        btnSearch.setText("Buscar");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnVeureReserves)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(actualDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                .addGap(21, 108, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addComponent(btnBackListCourt)
+                        .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnBackListCourt)
-                                .addGap(26, 26, 26))
+                                .addGap(356, 356, 356)
+                                .addComponent(actualDate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18))))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnVeureReserves)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnFerReserves))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSearch)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(btnBackListCourt)
-                .addGap(144, 144, 144)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVeureReserves)
-                    .addComponent(actualDate, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBackListCourt)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVeureReserves)
+                    .addComponent(btnFerReserves))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(actualDate, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackListCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListCourtActionPerformed
-        PrincipalController.returnListCourt();
+        LocalDate fechaActual = LocalDate.now();
+        Date fechaActualDate = java.sql.Date.valueOf(fechaActual);
+        jDateChooser1.setDate(fechaActualDate);
+        
+        DefaultListModel modelo = new DefaultListModel();
+        ListOfCourts.setModel(modelo);
+        Date date = jDateChooser1.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String selectedDate = sdf.format(date);
+        PrincipalController.loadListOfCourts(modelo, selectedDate);
+        
+        setSelect();
+        checkReserva();
+        checkLookReserva();
+        
+        PrincipalController.returnReservationPanel();
         if (ListOfCourts.getSelectedIndex() != -1) {
             ListOfCourts.clearSelection();
         }
@@ -140,25 +203,73 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         if (ListOfCourts.getSelectedIndex() == -1)
             JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
         else {
-            DefaultListModel modelo = (DefaultListModel) ListOfCourts.getModel();
             int selectedRow = ListOfCourts.getSelectedIndex();
             String name = ListOfCourts.getModel().getElementAt(selectedRow);
-            String date = actualDate.getText();
-            PrincipalController.showReservationsXCourtWDate(name, date);
+            Date date = jDateChooser1.getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String selectedDate = sdf.format(date);
+            PrincipalController.showReservationsXCourtWDate(name, selectedDate);
         }
     }//GEN-LAST:event_btnVeureReservesActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox1KeyReleased
+        
+    }//GEN-LAST:event_jComboBox1KeyReleased
+
+    private void btnFerReservesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFerReservesActionPerformed
+        
+    }//GEN-LAST:event_btnFerReservesActionPerformed
+
+    private void jComboBox1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseReleased
+        
+    }//GEN-LAST:event_jComboBox1MouseReleased
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         DefaultListModel modelo = new DefaultListModel();
         ListOfCourts.setModel(modelo);
         String where = (String) jComboBox1.getSelectedItem();
-        PrincipalController.loadListOfCourtsWhere(modelo, where);
-    }//GEN-LAST:event_jComboBox1KeyReleased
+        
+        Date date = jDateChooser1.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String selectedDate = sdf.format(date);
+        
+        checkReserva();
+        checkLookReserva();
+        
+        PrincipalController.loadListOfCourtsWhere(modelo, where, selectedDate);
+        
+    }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void setSelect() {
+        jComboBox1.setSelectedIndex(0);
+    }
+    
+    private void checkReserva() {
+        String hour = (String) jComboBox1.getSelectedItem();
+        
+        if (!hour.equals("Sense horari")) {
+            btnFerReserves.setEnabled(true);
+        }
+        else {
+            btnFerReserves.setEnabled(false);
+        }
+    }
+    
+    private void checkLookReserva() {
+        String hour = (String) jComboBox1.getSelectedItem();
+        
+        if (hour.equals("Sense horari")) {
+            btnVeureReserves.setEnabled(true);
+        }
+        else {
+            btnVeureReserves.setEnabled(false);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -198,8 +309,11 @@ public class adminReservationListCourt extends javax.swing.JFrame {
     public javax.swing.JList<String> ListOfCourts;
     public javax.swing.JLabel actualDate;
     public javax.swing.JButton btnBackListCourt;
+    public javax.swing.JButton btnFerReserves;
+    public javax.swing.JButton btnSearch;
     public javax.swing.JButton btnVeureReserves;
     public javax.swing.JComboBox<String> jComboBox1;
+    public com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
