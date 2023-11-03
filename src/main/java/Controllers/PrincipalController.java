@@ -3,6 +3,7 @@ package Controllers;
 import Models.*;
 import Views.*;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -372,8 +373,10 @@ public class PrincipalController {
         }
     }
     
-    public static void showInsertReservation() {
-        
+    public static void showInsertReservation(String name, String selectedDate, String hora) throws SQLException {
+        //boolean consulta = sqlModel4.insert(name, selectedDate, hora);
+        sqlModel4.insert(name, selectedDate, hora);
+        JOptionPane.showMessageDialog(null, "Reserva feta correctament", "dd", JOptionPane.WARNING_MESSAGE);
     }
     
     public static void insertReservation(String name, String ubication) {

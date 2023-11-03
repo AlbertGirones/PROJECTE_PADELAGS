@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class reservationQueries extends Conexion {
@@ -94,5 +96,46 @@ public class reservationQueries extends Conexion {
                 System.err.println(e);
             }
         }
+    }
+    
+    public void insert(String name, String selectedDate, String hora) throws SQLException {
+        
+        PreparedStatement ps = null;        
+        ResultSet resultSet = null;
+        Connection con = getConnection();
+        
+        String sql = "INSERT INTO reservation (user, court, hours, date, ifpay) VALUES ('1', ?, ?, ?, 'No pagada')";
+        ps = con.prepareStatement(sql);
+
+        String court = (String) name;
+        int courtId = obtainID(court);
+        
+        String date = (String) selectedDate;              
+        
+        ps.setInt(1, courtId);
+        ps.setString(2, hora);
+        ps.setString(3, date);
+        ps.executeUpdate();
+    }
+    
+    public int obtainID(String court) throws SQLException{
+        PreparedStatement ps1 = null;
+        
+        ResultSet resultSet = null;
+        Connection con = getConnection();
+
+        String sql2 = "SELECT id_court FROM court WHERE name = ?";
+        ps1 = con.prepareStatement(sql2);
+        
+        ps1.setString(1, court);
+                System.out.println(ps1);
+
+        resultSet = ps1.executeQuery();
+        int pista = 0;
+        while(resultSet != null && resultSet.next()){
+            pista = resultSet.getInt("id_court");
+            System.out.println(pista);
+        }
+        return pista;
     }
 }

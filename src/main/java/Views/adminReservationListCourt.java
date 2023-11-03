@@ -5,12 +5,17 @@
 package Views;
 
 import Controllers.PrincipalController;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,6 +28,7 @@ public class adminReservationListCourt extends javax.swing.JFrame {
      */
     public adminReservationListCourt() {
         initComponents();
+        configurarFecha();
         this.setLocationRelativeTo(null);
         
         LocalDate fechaActual = LocalDate.now();
@@ -235,6 +241,7 @@ public class adminReservationListCourt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackListCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackListCourtActionPerformed
+        
         LocalDate fechaActual = LocalDate.now();
         Date fechaActualDate = java.sql.Date.valueOf(fechaActual);
         jDateChooser1.setDate(fechaActualDate);
@@ -246,6 +253,8 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         String selectedDate = sdf.format(date);
         PrincipalController.loadListOfCourts(modelo, selectedDate);
         
+
+        
         setSelect();
         checkReserva();
         checkLookReserva();
@@ -256,6 +265,20 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBackListCourtActionPerformed
 
+    private void configurarFecha(){
+        // Obtén la fecha actual
+        Date fechaActual1 = new Date();
+
+        // Crea un calendario y agrega 7 días a la fecha actual
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaActual1);
+        calendar.add(Calendar.DAY_OF_MONTH, 14);
+        Date fechaMaxima = calendar.getTime();
+
+        // Establece los límites mínimo y máximo para el JDateChooser
+        jDateChooser1.setMinSelectableDate(fechaActual1);
+        jDateChooser1.setMaxSelectableDate(fechaMaxima);
+    }
     private void ListOfCourtsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListOfCourtsMouseClicked
 
     }//GEN-LAST:event_ListOfCourtsMouseClicked
@@ -282,7 +305,21 @@ public class adminReservationListCourt extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1KeyReleased
 
     private void btnFerReservesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFerReservesActionPerformed
-        
+        if (ListOfCourts.getSelectedIndex() == -1)
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna fila");
+        else {
+            int selectedRow = ListOfCourts.getSelectedIndex();
+            String name = ListOfCourts.getModel().getElementAt(selectedRow);
+            Date date = jDateChooser1.getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String selectedDate = sdf.format(date);
+            String hora = jComboBox1.getSelectedItem().toString();
+            try {
+                PrincipalController.showInsertReservation(name, selectedDate, hora);
+            } catch (SQLException ex) {
+                Logger.getLogger(adminReservationListCourt.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btnFerReservesActionPerformed
 
     private void jComboBox1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseReleased
