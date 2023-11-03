@@ -251,7 +251,7 @@ public class ReservationListCourtXCourtXDate extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPayReservationActionPerformed
 
     private void btnBackReservationListCourtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackReservationListCourtActionPerformed
-        // TODO add your handling code here:
+        PrincipalController.returnListCourt();
     }//GEN-LAST:event_btnBackReservationListCourtActionPerformed
 
     private void tblReservationsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblReservationsMouseClicked
@@ -300,13 +300,8 @@ public class ReservationListCourtXCourtXDate extends javax.swing.JFrame {
     private void checkPayReserva(String statusReserva) {
         String reservationDate = dateOfReservation.getText();
         Date fechaReserva = java.sql.Date.valueOf(reservationDate);
-        System.out.println(fechaReserva);
         LocalDate fechaActual = LocalDate.now();
         Date fechaActualDate = java.sql.Date.valueOf(fechaActual);
-        System.out.println(fechaActual);
-                
-        System.out.println(fechaActualDate.compareTo(fechaReserva) > 0);
-        System.out.println(statusReserva.equals("Pagada"));
         
         if (fechaReserva.compareTo(fechaActualDate) <= 0 && statusReserva.equals("No pagada")){
             btnPayReservation.setEnabled(true);
@@ -318,7 +313,12 @@ public class ReservationListCourtXCourtXDate extends javax.swing.JFrame {
     }
     
     private void checkCancelReserva(String statusReserva) {
-        if (statusReserva.equals("No pagada")) {
+        String reservationDate = dateOfReservation.getText();
+        Date fechaReserva = java.sql.Date.valueOf(reservationDate);
+        LocalDate fechaActual = LocalDate.now();
+        Date fechaActualDate = java.sql.Date.valueOf(fechaActual);
+        
+        if (fechaReserva.compareTo(fechaActualDate) >= 0 && statusReserva.equals("No pagada")) {
             btnCancelReservation.setEnabled(true);
         }
         else {

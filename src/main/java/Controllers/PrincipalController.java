@@ -195,11 +195,11 @@ public class PrincipalController {
         adminPanel.setVisible(true);
     }
     
-//    public static void returnListCourt() {
-//        ReservationListCourt.setVisible(false);
-//        ReservationPanel.setTitle("Gestió reserves");
-//        ReservationPanel.setVisible(true);
-//    }
+    public static void returnListCourt() {
+        ReservationListCourtXCourtXDate.setVisible(false);
+        ReservationListCourt.setTitle("Gestió reserves");
+        ReservationListCourt.setVisible(true);
+    }
     
     // LOGIN METHODSs
     
@@ -329,7 +329,6 @@ public class PrincipalController {
         ReservationListCourt.setVisible(true);
         ReservationListCourt.setTitle("Gestió reserves | Pistes");
         ReservationListCourt.setVisible(false);
-        ReservationListCourt.actualDate.setText(date);
 //        boolean consulta = sqlModel.getCourtsXDate();
 //        System.out.println(consulta);
     }
