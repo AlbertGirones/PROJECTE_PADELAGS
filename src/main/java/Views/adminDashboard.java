@@ -214,7 +214,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCloseSessionAdmin;
-    private transient javax.swing.JLabel JLabelLogo;
+    private javax.swing.JLabel JLabelLogo;
     public javax.swing.JButton btnRedirectCourtDashboard;
     public javax.swing.JButton btnRedirectReservationDashboard;
     public javax.swing.JButton btnRedirectUserDashboard;
