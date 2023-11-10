@@ -55,7 +55,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
         btnBackUser.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackUser.setForeground(new java.awt.Color(30, 30, 30));
         btnBackUser.setText("Tornar ...");
         btnBackUser.setBorder(null);
         btnBackUser.addActionListener(new java.awt.event.ActionListener() {
@@ -83,9 +83,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(btnBackUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addContainerGap(15, Short.MAX_VALUE)
                         .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

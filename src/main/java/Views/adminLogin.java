@@ -86,7 +86,7 @@ public class adminLogin extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(30, 30, 30));
 
         btnBackLoginAdmin.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackLoginAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackLoginAdmin.setForeground(new java.awt.Color(30, 30, 30));
         btnBackLoginAdmin.setText("Tornar ...");
         btnBackLoginAdmin.setBorder(null);
         btnBackLoginAdmin.setBorderPainted(false);

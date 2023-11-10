@@ -96,7 +96,7 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
 
         btnReturnCourtPanel.setBackground(new java.awt.Color(255, 255, 255));
-        btnReturnCourtPanel.setForeground(new java.awt.Color(255, 255, 255));
+        btnReturnCourtPanel.setForeground(new java.awt.Color(30, 30, 30));
         btnReturnCourtPanel.setText("Tornar ...");
         btnReturnCourtPanel.setBorder(null);
         btnReturnCourtPanel.addActionListener(new java.awt.event.ActionListener() {

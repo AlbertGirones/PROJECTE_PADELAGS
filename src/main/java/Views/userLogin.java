@@ -58,7 +58,7 @@ public class userLogin extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(575, 455));
 
         btnBackLoginUser.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackLoginUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackLoginUser.setForeground(new java.awt.Color(30, 30, 30));
         btnBackLoginUser.setText("Tornar ...");
         btnBackLoginUser.setBorder(null);
         btnBackLoginUser.setBorderPainted(false);
@@ -87,7 +87,7 @@ public class userLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addContainerGap(15, Short.MAX_VALUE)
                         .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)

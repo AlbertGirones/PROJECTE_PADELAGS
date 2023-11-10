@@ -43,7 +43,8 @@ public class principalPage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 153));
 
-        btnRedirectUserLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnRedirectUserLogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnRedirectUserLogin.setForeground(new java.awt.Color(30, 30, 30));
         btnRedirectUserLogin.setText("Log In d'Usuaris");
         btnRedirectUserLogin.setBorder(null);
         btnRedirectUserLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +53,8 @@ public class principalPage extends javax.swing.JFrame {
             }
         });
 
-        btnRedirectAdminLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnRedirectAdminLogin.setBackground(new java.awt.Color(255, 255, 255));
+        btnRedirectAdminLogin.setForeground(new java.awt.Color(30, 30, 30));
         btnRedirectAdminLogin.setText("Administració");
         btnRedirectAdminLogin.setBorder(null);
         btnRedirectAdminLogin.setBorderPainted(false);
@@ -87,9 +89,9 @@ public class principalPage extends javax.swing.JFrame {
                             .addComponent(btnRedirectAdminLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRedirectUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addContainerGap(15, Short.MAX_VALUE)
                         .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
