@@ -83,6 +83,7 @@ public class adminReservationListCourt extends javax.swing.JFrame {
 
         btnVeureReserves.setBackground(new java.awt.Color(0, 0, 153));
         btnVeureReserves.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVeureReserves.setForeground(new java.awt.Color(255, 255, 255));
         btnVeureReserves.setText("Veure reserves");
         btnVeureReserves.setBorder(null);
         btnVeureReserves.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +109,9 @@ public class adminReservationListCourt extends javax.swing.JFrame {
             }
         });
 
+        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser1.setForeground(new java.awt.Color(30, 30, 30));
+
         btnFerReserves.setBackground(new java.awt.Color(0, 0, 153));
         btnFerReserves.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnFerReserves.setText("Reservar");
@@ -120,6 +124,7 @@ public class adminReservationListCourt extends javax.swing.JFrame {
 
         btnSearch.setBackground(new java.awt.Color(0, 0, 153));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Buscar");
         btnSearch.setBorder(null);
         btnSearch.addActionListener(new java.awt.event.ActionListener() {

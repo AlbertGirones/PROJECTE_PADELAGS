@@ -40,13 +40,13 @@ public class adminLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnAdminLoginForm = new javax.swing.JButton();
         PasswordLabel = new javax.swing.JLabel();
-        passwd = new javax.swing.JTextField();
         nick = new javax.swing.JTextField();
         UserLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnBackLoginAdmin = new javax.swing.JButton();
         JLabelLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        passwd = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -68,14 +68,6 @@ public class adminLogin extends javax.swing.JFrame {
         PasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         PasswordLabel.setForeground(new java.awt.Color(30, 30, 30));
         PasswordLabel.setText("Password:");
-
-        passwd.setBackground(new java.awt.Color(255, 255, 255));
-        passwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        passwd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwdActionPerformed(evt);
-            }
-        });
 
         nick.setBackground(new java.awt.Color(255, 255, 255));
         nick.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -135,6 +127,15 @@ public class adminLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(30, 30, 30));
         jLabel1.setText("ADMINISTRACIÓ");
 
+        passwd.setBackground(new java.awt.Color(255, 255, 255));
+        passwd.setForeground(new java.awt.Color(0, 0, 0));
+        passwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        passwd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwdActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -144,12 +145,12 @@ public class adminLogin extends javax.swing.JFrame {
                 .addContainerGap(191, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAdminLoginForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(UserLabel)
-                        .addComponent(PasswordLabel)
-                        .addComponent(passwd)
-                        .addComponent(nick, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(passwd, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnAdminLoginForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(UserLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(PasswordLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(nick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)))
                 .addGap(190, 190, 190))
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,10 +166,10 @@ public class adminLogin extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(PasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(passwd, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(btnAdminLoginForm, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,10 +190,6 @@ public class adminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nickActionPerformed
 
-    private void passwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwdActionPerformed
-
     private void btnAdminLoginFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLoginFormActionPerformed
         
         String user = nick.getText();
@@ -203,6 +200,10 @@ public class adminLogin extends javax.swing.JFrame {
     private void btnBackLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackLoginAdminActionPerformed
         PrincipalController.returnPrincipalPageFromAdmin();
     }//GEN-LAST:event_btnBackLoginAdminActionPerformed
+
+    private void passwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,6 +250,6 @@ public class adminLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JTextField nick;
-    public javax.swing.JTextField passwd;
+    private javax.swing.JPasswordField passwd;
     // End of variables declaration//GEN-END:variables
 }

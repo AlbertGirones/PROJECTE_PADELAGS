@@ -52,12 +52,12 @@
                   <EmptySpace pref="191" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnAdminLoginForm" max="32767" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="passwd" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAdminLoginForm" alignment="0" max="32767" attributes="0"/>
                           <Component id="UserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="PasswordLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="passwd" max="32767" attributes="0"/>
-                          <Component id="nick" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                          <Component id="PasswordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nick" alignment="0" pref="181" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
@@ -76,11 +76,11 @@
                   <Component id="nick" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="PasswordLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="passwd" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="passwd" min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="btnAdminLoginForm" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="97" max="32767" attributes="0"/>
+                  <EmptySpace pref="103" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -116,24 +116,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="passwd">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwdActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="nick">
           <Properties>
@@ -252,6 +234,24 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ADMINISTRACI&#xd3;"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="passwd">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwdActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
