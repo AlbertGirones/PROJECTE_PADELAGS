@@ -20,7 +20,7 @@ public class PrincipalController {
     // SET PRINCIPAL
     public static principalPage principalPg = new principalPage();
     public static adminDashboard adminPanel = new adminDashboard();
-    public static userDashboard userPanel = new userDashboard();
+    public static userProfileDashboard userPanel = new userProfileDashboard();
 
     // SET LOGIN
     public static userLogin userLoginPanel = new userLogin();
@@ -47,6 +47,8 @@ public class PrincipalController {
     public static adminUsersDashboard UserPanel = new adminUsersDashboard();
     public static adminNewUsersForm NewformUser = new adminNewUsersForm();
     public static adminUpdateUserForm UpdateFormUser = new adminUpdateUserForm();
+    public static userMyReservationsDashboard MyReservationsDashboard = new userMyReservationsDashboard();
+    public static userReservationsDashboard ReservationsDashboard = new userReservationsDashboard();
 
     // SET ADMIN
     public static Admin model3 = new Admin();
@@ -135,6 +137,42 @@ public class PrincipalController {
         ReservationListCourt.setTitle("Gestió reserves");
         adminPanel.setVisible(false);
     }
+    
+    public static void showMyReservationsFromProfilePage() {
+        userPanel.setVisible(false);
+        MyReservationsDashboard.setTitle("Les meves reserves");
+        MyReservationsDashboard.setVisible(true);
+    }
+    
+    public static void showReservationsFromProfilePage() {
+        userPanel.setVisible(false);
+        ReservationsDashboard.setTitle("Pistes disponibles");
+        ReservationsDashboard.setVisible(true);
+    }
+    
+    public static void showMyReservationsFromReservationsPage() {
+        ReservationsDashboard.setVisible(false);
+        MyReservationsDashboard.setTitle("Les meves reserves");
+        MyReservationsDashboard.setVisible(true);
+    }
+    
+    public static void showProfileFromReservationsPage() {
+        ReservationsDashboard.setVisible(false);
+        userPanel.setTitle("El meu perfil");
+        userPanel.setVisible(true);
+    }
+    
+    public static void showProfileFromMyReservationsPage() {
+        MyReservationsDashboard.setVisible(false);
+        userPanel.setTitle("El meu perfil");
+        userPanel.setVisible(true);
+    }
+    
+    public static void showReservationsMyReservationsPage() {
+        MyReservationsDashboard.setVisible(false);
+        ReservationsDashboard.setTitle("Pistes disponibles");
+        ReservationsDashboard.setVisible(true);
+    }
 
     // RETURNS
     
@@ -146,6 +184,18 @@ public class PrincipalController {
     
     public static void returnPrincipalPageFromAdmin() {
         adminLoginPanel.setVisible(false);
+        principalPg.setTitle("Pagina principal");
+        principalPg.setVisible(true);
+    }
+    
+    public static void returnPrincipalPageFromUserDashoard() {
+        userPanel.setVisible(false);
+        principalPg.setTitle("Pagina principal");
+        principalPg.setVisible(true);
+    }
+    
+    public static void returnPrincipalPageFromAdminDashboard() {
+        adminPanel.setVisible(false);
         principalPg.setTitle("Pagina principal");
         principalPg.setVisible(true);
     }

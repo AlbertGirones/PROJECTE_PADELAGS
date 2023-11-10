@@ -136,7 +136,7 @@ public class adminDashboard extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(29, 29, 29)
                 .addComponent(btnRedirectUserDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,7 +144,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 .addComponent(btnRedirectReservationDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRedirectCourtDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 246, Short.MAX_VALUE))
+                .addGap(0, 245, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -174,7 +174,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRedirectUserDashboardActionPerformed
 
     private void BtnCloseSessionAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseSessionAdminActionPerformed
-        // TODO add your handling code here:
+        PrincipalController.returnPrincipalPageFromAdminDashboard();
     }//GEN-LAST:event_BtnCloseSessionAdminActionPerformed
 
     /**
