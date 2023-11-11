@@ -13,9 +13,6 @@ public class adminDashboard extends javax.swing.JFrame {
     public adminDashboard() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-        BtnCloseSessionAdmin.setBackground(null);
-        BtnCloseSessionAdmin.setContentAreaFilled(false);
-        BtnCloseSessionAdmin.setFocusPainted(false);
         
 
     }
@@ -83,7 +80,8 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
         jPanel2.setPreferredSize(new java.awt.Dimension(575, 84));
 
-        BtnCloseSessionAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        BtnCloseSessionAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        BtnCloseSessionAdmin.setForeground(new java.awt.Color(30, 30, 30));
         BtnCloseSessionAdmin.setText("Tancar Sessió");
         BtnCloseSessionAdmin.setBorder(null);
         BtnCloseSessionAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +212,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCloseSessionAdmin;
-    private javax.swing.JLabel JLabelLogo;
+    private transient javax.swing.JLabel JLabelLogo;
     public javax.swing.JButton btnRedirectCourtDashboard;
     public javax.swing.JButton btnRedirectReservationDashboard;
     public javax.swing.JButton btnRedirectUserDashboard;
