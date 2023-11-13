@@ -2,12 +2,8 @@
 package Views;
 
 import Controllers.PrincipalController;
-import javax.swing.UIManager;
 
 public class principalPage extends javax.swing.JFrame {
-
-    public static adminLogin frmLog;
-    public static userLogin frmUser;
     
     public principalPage() {
         initComponents();
@@ -115,12 +111,10 @@ public class principalPage extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1826, Short.MAX_VALUE)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 1826, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(547, Short.MAX_VALUE)
-                .addComponent(JLabelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(548, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLabelPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 731, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,12 +133,11 @@ public class principalPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRedirectAdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectAdminLoginActionPerformed
-
         PrincipalController.showAdminLogin();
     }//GEN-LAST:event_btnRedirectAdminLoginActionPerformed
 
     private void btnRedirectUserLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedirectUserLoginActionPerformed
-        // TODO add your handling code here:
+        PrincipalController.showUserLogin();
     }//GEN-LAST:event_btnRedirectUserLoginActionPerformed
 
     /**

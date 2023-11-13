@@ -28,7 +28,7 @@ public class adminReservationListCourt extends javax.swing.JFrame {
      */
     public adminReservationListCourt() {
         initComponents();
-        configurarFecha();
+        
         this.setLocationRelativeTo(null);
         
         LocalDate fechaActual = LocalDate.now();
@@ -43,6 +43,14 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         PrincipalController.loadListOfCourts(modelo, selectedDate);
         
         jComboBox1.setSelectedIndex(0);
+        
+        String where = (String) jComboBox1.getSelectedItem();
+        if(where.equals("Sense horari")){
+            configurarFecha();
+        }
+        else{
+            configurarFechaForReservation();
+        }
         
         checkReserva();
         checkLookReserva();
@@ -112,6 +120,11 @@ public class adminReservationListCourt extends javax.swing.JFrame {
 
         jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
         jDateChooser1.setForeground(new java.awt.Color(30, 30, 30));
+        jDateChooser1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jDateChooser1MouseClicked(evt);
+            }
+        });
 
         btnFerReserves.setBackground(new java.awt.Color(0, 0, 153));
         btnFerReserves.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -147,7 +160,6 @@ public class adminReservationListCourt extends javax.swing.JFrame {
 
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
-        btnBackListCourt.setBackground(new java.awt.Color(255, 255, 255));
         btnBackListCourt.setForeground(new java.awt.Color(30, 30, 30));
         btnBackListCourt.setText("Tornar ...");
         btnBackListCourt.setBorder(null);
@@ -157,7 +169,6 @@ public class adminReservationListCourt extends javax.swing.JFrame {
             }
         });
 
-        BtnCloseSessionAdmin.setBackground(new java.awt.Color(255, 255, 255));
         BtnCloseSessionAdmin.setForeground(new java.awt.Color(30, 30, 30));
         BtnCloseSessionAdmin.setText("Tancar Sessió");
         BtnCloseSessionAdmin.setBorder(null);
@@ -274,8 +285,6 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         String selectedDate = sdf.format(date);
         PrincipalController.loadListOfCourts(modelo, selectedDate);
         
-
-        
         setSelect();
         checkReserva();
         checkLookReserva();
@@ -286,20 +295,6 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBackListCourtActionPerformed
 
-    private void configurarFecha(){
-        // Obtén la fecha actual
-        Date fechaActual1 = new Date();
-
-        // Crea un calendario y agrega 7 días a la fecha actual
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fechaActual1);
-        calendar.add(Calendar.DAY_OF_MONTH, 14);
-        Date fechaMaxima = calendar.getTime();
-
-        // Establece los límites mínimo y máximo para el JDateChooser
-        jDateChooser1.setMinSelectableDate(fechaActual1);
-        jDateChooser1.setMaxSelectableDate(fechaMaxima);
-    }
     private void ListOfCourtsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListOfCourtsMouseClicked
 
     }//GEN-LAST:event_ListOfCourtsMouseClicked
@@ -318,7 +313,13 @@ public class adminReservationListCourt extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVeureReservesActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
+        String where = (String) jComboBox1.getSelectedItem();
+        if(where.equals("Sense horari")){
+            configurarFecha();
+        }
+        else {
+            configurarFechaForReservation();
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboBox1KeyReleased
@@ -344,7 +345,7 @@ public class adminReservationListCourt extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFerReservesActionPerformed
 
     private void jComboBox1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseReleased
-        
+
     }//GEN-LAST:event_jComboBox1MouseReleased
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -366,6 +367,10 @@ public class adminReservationListCourt extends javax.swing.JFrame {
     private void BtnCloseSessionAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseSessionAdminActionPerformed
         PrincipalController.returnPrincipalPageFromAdminDashboard();
     }//GEN-LAST:event_BtnCloseSessionAdminActionPerformed
+
+    private void jDateChooser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jDateChooser1MouseClicked
+
+    }//GEN-LAST:event_jDateChooser1MouseClicked
 
     private void setSelect() {
         jComboBox1.setSelectedIndex(0);
@@ -393,6 +398,41 @@ public class adminReservationListCourt extends javax.swing.JFrame {
         else {
             btnVeureReserves.setEnabled(false);
         }
+    }
+    
+    private void configurarFecha() {
+        // Obtén la fecha actual
+        Date fechaActual1 = new Date();
+
+        // Crea un calendario y agrega 7 días a la fecha actual
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaActual1);
+        calendar.add(Calendar.DAY_OF_MONTH, 14);
+        Date fechaMaxima = calendar.getTime();
+        
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTime(fechaActual1);
+        calendar2.add(Calendar.DAY_OF_MONTH, -14);
+        Date fechaMinima2 = calendar2.getTime();
+
+        // Establece los límites mínimo y máximo para el JDateChooser
+        jDateChooser1.setMinSelectableDate(fechaMinima2);
+        jDateChooser1.setMaxSelectableDate(fechaMaxima);
+    }
+    
+    private void configurarFechaForReservation() {
+        // Obtén la fecha actual
+        Date fechaActual1 = new Date();
+
+        // Crea un calendario y agrega 7 días a la fecha actual
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaActual1);
+        calendar.add(Calendar.DAY_OF_MONTH, 14);
+        Date fechaMaxima = calendar.getTime();
+
+        // Establece los límites mínimo y máximo para el JDateChooser
+        jDateChooser1.setMinSelectableDate(fechaActual1);
+        jDateChooser1.setMaxSelectableDate(fechaMaxima);
     }
     
     /**
