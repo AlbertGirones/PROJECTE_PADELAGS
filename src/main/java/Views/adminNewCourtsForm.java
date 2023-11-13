@@ -13,9 +13,7 @@ public class adminNewCourtsForm extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         btnInsertCourtForm.setEnabled(false);
-        btnReturnCourtPanel.setBackground(null);
-        btnReturnCourtPanel.setContentAreaFilled(false);
-        btnReturnCourtPanel.setFocusPainted(false);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**

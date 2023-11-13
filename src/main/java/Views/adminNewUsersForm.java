@@ -13,9 +13,9 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     public adminNewUsersForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-        btnBackNewUser.setBackground(null);
-        btnBackNewUser.setContentAreaFilled(false);
-        btnBackNewUser.setFocusPainted(false);
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        // Asignar els camps omplerts a buits cada cop que obrim la vista.
         txtDniInsertUserForm.setText("");
         txtNameInsertUserForm.setText("");
         txtSurnameInsertUserForm.setText("");

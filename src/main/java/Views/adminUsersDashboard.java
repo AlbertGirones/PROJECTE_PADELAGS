@@ -7,18 +7,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class adminUsersDashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form insertForm
-     */
     public adminUsersDashboard() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
         DefaultTableModel modelo = new DefaultTableModel();
         tblUsers.setModel(modelo);
         PrincipalController.loadTblUser(modelo);   
-        btnBackUser.setBackground(null);
-        btnBackUser.setContentAreaFilled(false);
-        btnBackUser.setFocusPainted(false);
     }
 
     /**

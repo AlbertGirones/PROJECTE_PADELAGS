@@ -11,20 +11,13 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author geri
- */
 public class ReservationListCourtXCourtXDate extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ReservationListCourtXCourtXDate
-     */
     public ReservationListCourtXCourtXDate() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
