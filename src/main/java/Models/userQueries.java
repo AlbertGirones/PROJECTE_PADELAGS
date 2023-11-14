@@ -242,7 +242,8 @@ public class userQueries extends Conexion {
         Connection con = getConnection();
         ResultSet rs = null;
         
-        String sql = "SELECT id_user, dni, passwd FROM user WHERE dni = ?  AND passwd = ?";
+        String sql = "SELECT id_user, name, surname, dni, mail, phone, passwd, ifactive FROM user WHERE dni = ?  AND passwd = ?";
+        
         
         try{
             ps = con.prepareStatement(sql);
@@ -251,10 +252,15 @@ public class userQueries extends Conexion {
             rs = ps.executeQuery();
             
             if(rs.next()){
-                if(usr.getPasswd().equals(rs.getString(3))){
-                    
+                if(usr.getPasswd().equals(rs.getString(7))){
                     usr.setId_user(rs.getInt(1));
-                    usr.setDni(rs.getString(2));
+                    usr.setName(rs.getString(2));
+                    usr.setSurname(rs.getString(3));
+                    usr.setDni(rs.getString(4));
+                    usr.setMail(rs.getString(5));
+                    usr.setPhone(rs.getString(6));
+                    usr.setPasswd(rs.getString(7));
+                    usr.setIfactive(rs.getBoolean(8));
                     return true;
                 } else {
                     return false;

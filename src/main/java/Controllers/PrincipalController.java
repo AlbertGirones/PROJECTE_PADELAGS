@@ -254,18 +254,21 @@ public class PrincipalController {
     
     // LOGIN METHODSs
     
-    public static void loginUser(String dni, String password){
+    public static void loginUser(String user, String password){
         
-        if(!dni.equals("") && !password.equals("")){
-                        
-            model2.setDni(dni);
+        if(!user.equals("") && !password.equals("")){
+            
+            model2.setDni(user);
             model2.setPasswd(password);
             boolean consulta = sqlModel2.login(model2);
     
             if(consulta == true){
-                
-                // VARIABLES DE SEXSION
-                
+                userPanel.dni.setText(model2.getDni());
+                userPanel.nom.setText(model2.getName());
+                userPanel.cognom.setText(model2.getSurname());
+                userPanel.correu.setText(model2.getMail());
+                userPanel.telefon.setText(model2.getPhone());
+
                 userLoginPanel.setVisible(false);
                 userPanel.setTitle("Panell de l'usuari");
                 userPanel.setVisible(true);
@@ -532,5 +535,10 @@ public class PrincipalController {
     
     // GENERAL METHODS
     
+    public static void drawUserInfo() {
+        System.out.println("gola");
+//        userPanel.dni.setText(dni);
+//        boolean consulta = sqlModel2.obtainInfoUser(dni);
+    }
     
 }

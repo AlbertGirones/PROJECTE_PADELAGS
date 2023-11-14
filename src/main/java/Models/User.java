@@ -12,6 +12,7 @@ public class User extends Conexion {
     private String passwd;
     private boolean ifactive;
 
+    
     public int getId_user() {
         return id_user;
     }
