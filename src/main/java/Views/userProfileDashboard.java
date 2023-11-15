@@ -10,7 +10,6 @@ public class userProfileDashboard extends javax.swing.JFrame {
     public userProfileDashboard() {
         initComponents();              
         this.setExtendedState(MAXIMIZED_BOTH);
-        loadUser();
     }
 
     @SuppressWarnings("unchecked")
@@ -49,7 +48,8 @@ public class userProfileDashboard extends javax.swing.JFrame {
 
         JLabelLogo7.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
-        btnBackLoginUser.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackLoginUser.setBackground(new java.awt.Color(255, 255, 255));
+        btnBackLoginUser.setForeground(new java.awt.Color(30, 30, 30));
         btnBackLoginUser.setText("Tancar sessió");
         btnBackLoginUser.setBorder(null);
         btnBackLoginUser.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +166,11 @@ public class userProfileDashboard extends javax.swing.JFrame {
         changePasswordButton.setForeground(new java.awt.Color(255, 255, 255));
         changePasswordButton.setText("Canviar Contrasenya");
         changePasswordButton.setBorder(null);
+        changePasswordButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changePasswordButtonActionPerformed(evt);
+            }
+        });
 
         changePhotoButton.setBackground(new java.awt.Color(0, 0, 153));
         changePhotoButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -257,7 +262,7 @@ public class userProfileDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
+                        .addGap(77, 77, 77)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -333,12 +338,10 @@ public class userProfileDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_telefonActionPerformed
 
-    private void loadUser() {
-        PrincipalController.drawUserInfo();
-    }
-    /**
-     * @param args the command line arguments
-     */
+    private void changePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePasswordButtonActionPerformed
+        PrincipalController.showChangePassword();
+    }//GEN-LAST:event_changePasswordButtonActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

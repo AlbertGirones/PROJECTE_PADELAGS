@@ -160,6 +160,31 @@ public class userQueries extends Conexion {
         }
     }    
     
+    public boolean updatePasswd(User usr) {
+        
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "UPDATE user SET passwd=? WHERE dni=?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usr.getPasswd());
+            ps.setString(2, usr.getDni());
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }    
+    
     public boolean deactivate(int idUser) {
         
         PreparedStatement ps = null;

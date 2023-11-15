@@ -49,6 +49,7 @@ public class PrincipalController {
     public static adminUpdateUserForm UpdateFormUser = new adminUpdateUserForm();
     public static userMyReservationsDashboard MyReservationsDashboard = new userMyReservationsDashboard();
     public static userReservationsDashboard ReservationsDashboard = new userReservationsDashboard();
+    public static userChangePassword ChangePasswordUser = new userChangePassword();
 
     // SET ADMIN
     public static Admin model3 = new Admin();
@@ -174,6 +175,12 @@ public class PrincipalController {
         ReservationsDashboard.setTitle("Pistes disponibles");
         ReservationsDashboard.setVisible(true);
     }
+    
+    public static void showChangePassword() {
+        userPanel.setVisible(false);
+        ChangePasswordUser.setTitle("Canvi de contrasenya");
+        ChangePasswordUser.setVisible(true);
+    }
 
     // RETURNS
     
@@ -251,6 +258,12 @@ public class PrincipalController {
         ReservationListCourtXCourtXDate.setVisible(false);
         ReservationListCourt.setTitle("Gestió reserves");
         ReservationListCourt.setVisible(true);
+    }
+    
+    public static void returnShowProfileFromMyReservationsPage() {
+        ChangePasswordUser.setVisible(false);
+        userPanel.setTitle("Perfil de l'usuari");
+        userPanel.setVisible(true);
     }
     
     // LOGIN METHODSs
@@ -485,6 +498,24 @@ public class PrincipalController {
         }
 
     }
+    
+    public static void updatePasswdUser(String passwd) {
+        if (passwd.trim().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            returnShowProfileFromMyReservationsPage();
+
+        } else {
+            model2.setPasswd(passwd);
+
+            boolean consulta = sqlModel2.updatePasswd(model2);
+            if (consulta == true) {
+                JOptionPane.showMessageDialog(null, "Contrasenya actualitzada correctament", "", JOptionPane.WARNING_MESSAGE);
+                returnShowProfileFromMyReservationsPage();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al actualitzar el password.", "", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }
 
     public static void modifyUser(String name, String surname, String mail, String phone) {
         if (name.trim().equalsIgnoreCase("") || surname.trim().equalsIgnoreCase("") || mail.trim().equalsIgnoreCase("") || phone.trim().equalsIgnoreCase("")) {
@@ -535,12 +566,6 @@ public class PrincipalController {
     }
     
     // GENERAL METHODS
-    
-    public static void drawUserInfo() {
-        System.out.println("gola");
-//        userPanel.dni.setText(dni);
-//        boolean consulta = sqlModel2.obtainInfoUser(dni);
-    }
     
     public static void loadListOfCourtDisponible(DefaultListModel modelo, String where, String selectedDate) {
         boolean consulta = sqlModel4.getCourtsDisponibleWhere(modelo, where, selectedDate);
