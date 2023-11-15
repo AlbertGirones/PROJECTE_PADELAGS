@@ -197,7 +197,7 @@ public class PrincipalController {
     }
     
     public static void returnPrincipalPageFromUserDashoard() {
-        userPanel.setVisible(false);
+        ChangePasswordUser.setVisible(false);
         principalPg.setTitle("Pagina principal");
         principalPg.setVisible(true);
     }
@@ -265,6 +265,8 @@ public class PrincipalController {
         userPanel.setTitle("Perfil de l'usuari");
         userPanel.setVisible(true);
     }
+   
+    
     
     // LOGIN METHODSs
     

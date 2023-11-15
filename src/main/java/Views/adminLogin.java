@@ -20,6 +20,7 @@ public class adminLogin extends javax.swing.JFrame {
         adminQueries AdminQueries = adminQueries.getInstance();
         String user = nick.getText();
         AdminQueries.login(user);
+        limpiarCampos();
     }
     
     @SuppressWarnings("unchecked")
@@ -61,7 +62,6 @@ public class adminLogin extends javax.swing.JFrame {
         nick.setBackground(new java.awt.Color(255, 255, 255));
         nick.setForeground(new java.awt.Color(30, 30, 30));
         nick.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        nick.setCaretColor(new java.awt.Color(255, 255, 255));
         nick.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         nick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +121,6 @@ public class adminLogin extends javax.swing.JFrame {
         passwd.setBackground(new java.awt.Color(255, 255, 255));
         passwd.setForeground(new java.awt.Color(0, 0, 0));
         passwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        passwd.setCaretColor(new java.awt.Color(255, 255, 255));
         passwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwdActionPerformed(evt);
@@ -199,9 +198,10 @@ public class adminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwdActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void limpiarCampos() {
+        nick.setText(""); // Vaciar campo de usuario
+        passwd.setText(""); // Vaciar campo de contraseña
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -21,7 +21,8 @@ public class userChangePassword extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         JLabelLogo = new javax.swing.JLabel();
-        btnBackLoginUser = new javax.swing.JButton();
+        btnCloseSession = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         ChangePasswd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -36,13 +37,23 @@ public class userChangePassword extends javax.swing.JFrame {
 
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
-        btnBackLoginUser.setBackground(new java.awt.Color(255, 255, 255));
-        btnBackLoginUser.setForeground(new java.awt.Color(30, 30, 30));
-        btnBackLoginUser.setText("Tancar sessió");
-        btnBackLoginUser.setBorder(null);
-        btnBackLoginUser.addActionListener(new java.awt.event.ActionListener() {
+        btnCloseSession.setBackground(new java.awt.Color(255, 255, 255));
+        btnCloseSession.setForeground(new java.awt.Color(30, 30, 30));
+        btnCloseSession.setText("Tancar sessió");
+        btnCloseSession.setBorder(null);
+        btnCloseSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackLoginUserActionPerformed(evt);
+                btnCloseSessionActionPerformed(evt);
+            }
+        });
+
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setForeground(new java.awt.Color(30, 30, 30));
+        btnBack.setText("Tornar...");
+        btnBack.setBorder(null);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -54,7 +65,9 @@ public class userChangePassword extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBackLoginUser, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btnCloseSession, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
@@ -65,7 +78,9 @@ public class userChangePassword extends javax.swing.JFrame {
                     .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(btnBackLoginUser, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCloseSession, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -113,7 +128,7 @@ public class userChangePassword extends javax.swing.JFrame {
                         .addGap(82, 82, 82)
                         .addComponent(PasswdField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(692, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ChangePasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -128,9 +143,9 @@ public class userChangePassword extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(PasswdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(53, 53, 53)
                 .addComponent(ChangePasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,13 +170,17 @@ public class userChangePassword extends javax.swing.JFrame {
         PrincipalController.updatePasswdUser(passwd);
     }//GEN-LAST:event_ChangePasswdActionPerformed
 
-    private void btnBackLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackLoginUserActionPerformed
+    private void btnCloseSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseSessionActionPerformed
         PrincipalController.returnPrincipalPageFromUserDashoard();
-    }//GEN-LAST:event_btnBackLoginUserActionPerformed
+    }//GEN-LAST:event_btnCloseSessionActionPerformed
 
     private void PasswdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswdFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswdFieldActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        PrincipalController.returnShowProfileFromMyReservationsPage();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,7 +221,8 @@ public class userChangePassword extends javax.swing.JFrame {
     public javax.swing.JButton ChangePasswd;
     private transient javax.swing.JLabel JLabelLogo;
     private javax.swing.JPasswordField PasswdField;
-    public javax.swing.JButton btnBackLoginUser;
+    private javax.swing.JButton btnBack;
+    public javax.swing.JButton btnCloseSession;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
