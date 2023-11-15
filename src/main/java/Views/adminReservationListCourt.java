@@ -28,7 +28,6 @@ public class adminReservationListCourt extends javax.swing.JFrame {
      */
     public adminReservationListCourt() {
         initComponents();
-        
         this.setLocationRelativeTo(null);
         
         LocalDate fechaActual = LocalDate.now();

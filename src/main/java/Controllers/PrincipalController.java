@@ -146,6 +146,7 @@ public class PrincipalController {
     
     public static void showReservationsFromProfilePage() {
         userPanel.setVisible(false);
+        ReservationsDashboard.jLabel1.setText(""+model2.getId_user());
         ReservationsDashboard.setTitle("Pistes disponibles");
         ReservationsDashboard.setVisible(true);
     }
@@ -539,6 +540,10 @@ public class PrincipalController {
         System.out.println("gola");
 //        userPanel.dni.setText(dni);
 //        boolean consulta = sqlModel2.obtainInfoUser(dni);
+    }
+    
+    public static void loadListOfCourtDisponible(DefaultListModel modelo, String where, String selectedDate) {
+        boolean consulta = sqlModel4.getCourtsDisponibleWhere(modelo, where, selectedDate);
     }
     
 }

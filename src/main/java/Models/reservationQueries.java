@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -139,4 +140,27 @@ public class reservationQueries extends Conexion {
         return pista;
     }
     
+    public boolean getCourtsDisponibleWhere (DefaultListModel modelo, String where, String selectedDate) {
+        try {
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        ResultSet rs = null;
+        String sql = "SELECT c.name FROM court c LEFT JOIN reservation r ON c.id_court = r.court AND r.date = ? AND r.hours = ? WHERE c.status = 'Activa' AND r.id_reservation IS NULL";
+        ps = con.prepareStatement(sql);
+        ps.setString(1, selectedDate);
+        ps.setString(2, where);
+        rs = ps.executeQuery();
+
+        while (rs.next()) {
+            String name = rs.getString("name");
+            modelo.addElement(name);
+        }
+        return true;
+
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+        return false;
+    }
+     
 }
