@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class reservationQueries extends Conexion {
+    
+    public static User model2 = new User();
         
     public boolean getReservationXCourtWDate(DefaultTableModel modelo, String name, String date) {
         
@@ -129,13 +131,11 @@ public class reservationQueries extends Conexion {
         ps1 = con.prepareStatement(sql2);
         
         ps1.setString(1, court);
-                System.out.println(ps1);
 
         resultSet = ps1.executeQuery();
         int pista = 0;
         while(resultSet != null && resultSet.next()){
             pista = resultSet.getInt("id_court");
-            System.out.println(pista);
         }
         return pista;
     }
@@ -157,6 +157,106 @@ public class reservationQueries extends Conexion {
         }
         return true;
 
+        } catch (SQLException e) {
+            System.err.println(e);
+        }
+        return false;
+    }
+    
+    public int searchReservationWithDateANHour(int court, String where, String selectedDate) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConnection();
+
+        String sql = "SELECT id_reservation FROM reservation WHERE court = ? AND hours = ? AND date = ?";
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, court);
+        ps.setString(2, where);
+        ps.setString(3, selectedDate);
+        rs = ps.executeQuery();
+
+        int reserva = 0;
+        while(rs != null && rs.next()){
+            reserva = rs.getInt("id_reservation");
+        }
+        return reserva;
+    }
+    
+    public int searchReservationFROMUSERWithDateANHour(String idUser, String where, String selectedDate) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConnection();
+
+        String sql = "SELECT id_reservation FROM reservation WHERE user = ? AND hours = ? AND date = ?";
+        ps = con.prepareStatement(sql);
+        ps.setString(1, idUser);
+        ps.setString(2, where);
+        ps.setString(3, selectedDate);
+        rs = ps.executeQuery();
+
+        int reserva = 0;
+        while(rs != null && rs.next()){
+            reserva = rs.getInt("id_reservation");
+        }
+        return reserva;
+    }
+    
+    public boolean insertReservationFormUser(int id, int court, String where, String selectedDate) {
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+
+        String sql = "INSERT INTO reservation (user, court, hours, date, ifpay) VALUES (?, ?, ?, ?, 'No pagada')";
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setInt(2, court);
+            ps.setString(3, where);
+            ps.setString(4, selectedDate);
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean loadTblMyReservationsFromUser(DefaultTableModel modelo, int idUser) {
+        try {
+            PreparedStatement ps = null;
+            Connection con = getConnection();
+            ResultSet rs = null;
+
+            String sql = "SELECT r.id_reservation, r.date, r.hours, c.name, c.ubication, r.ifpay FROM reservation r INNER JOIN court c ON r.court = c.id_court WHERE r.user = ?";
+
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idUser);
+            rs = ps.executeQuery();
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int columnsCount = rsMd.getColumnCount();
+
+            modelo.addColumn("ID Reserva");
+            modelo.addColumn("Dia");
+            modelo.addColumn("Hora");
+            modelo.addColumn("Pista");
+            modelo.addColumn("Ubicació");
+            modelo.addColumn("Pagament");
+
+            while (rs.next()) {
+
+                Object [] rows = new Object[columnsCount];
+
+                for (int i=0; i<columnsCount; i++){
+                    rows[i] = rs.getObject(i + 1);
+                }
+                modelo.addRow(rows);
+            }
+            return true;
         } catch (SQLException e) {
             System.err.println(e);
         }

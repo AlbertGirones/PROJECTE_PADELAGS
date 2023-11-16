@@ -59,7 +59,6 @@ public class adminLogin extends javax.swing.JFrame {
         PasswordLabel.setForeground(new java.awt.Color(30, 30, 30));
         PasswordLabel.setText("Password:");
 
-        nick.setBackground(new java.awt.Color(255, 255, 255));
         nick.setForeground(new java.awt.Color(30, 30, 30));
         nick.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nick.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -76,7 +75,6 @@ public class adminLogin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
         jPanel2.setForeground(new java.awt.Color(30, 30, 30));
 
-        btnBackLoginAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btnBackLoginAdmin.setForeground(new java.awt.Color(30, 30, 30));
         btnBackLoginAdmin.setText("Tornar ...");
         btnBackLoginAdmin.setBorder(null);
@@ -118,8 +116,6 @@ public class adminLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(30, 30, 30));
         jLabel1.setText("ADMINISTRACIÓ");
 
-        passwd.setBackground(new java.awt.Color(255, 255, 255));
-        passwd.setForeground(new java.awt.Color(0, 0, 0));
         passwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         passwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +144,7 @@ public class adminLogin extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(68, 68, 68)
                 .addComponent(UserLabel)
@@ -171,9 +167,7 @@ public class adminLogin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
         );
 
         pack();

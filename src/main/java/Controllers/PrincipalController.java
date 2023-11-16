@@ -3,12 +3,19 @@ package Controllers;
 import Models.*;
 import Views.*;
 import java.awt.Color;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import static javax.swing.Spring.height;
+import static javax.swing.Spring.width;
 import javax.swing.table.DefaultTableModel;
 
 public class PrincipalController {
@@ -21,6 +28,8 @@ public class PrincipalController {
     public static principalPage principalPg = new principalPage();
     public static adminDashboard adminPanel = new adminDashboard();
     public static userProfileDashboard userPanel = new userProfileDashboard();
+    public static userTrueReservation trueReservationUser = new userTrueReservation();
+    //public static userFalseReservation falseReservationUser = new userFalseReservation();
 
     // SET LOGIN
     public static userLogin userLoginPanel = new userLogin();
@@ -140,22 +149,39 @@ public class PrincipalController {
     }
     
     public static void showMyReservationsFromProfilePage() {
-        userPanel.setVisible(false);
-        MyReservationsDashboard.setTitle("Les meves reserves");
+        int id = model2.getId_user();
+        String name = model2.getName();
+        String surname = model2.getSurname();
+        MyReservationsDashboard.jLabel1.setText(name);
+        MyReservationsDashboard.jLabel2.setText(surname);
+        DefaultTableModel modelo = new DefaultTableModel();
+        MyReservationsDashboard.tblMyReservations.setModel(modelo);
+        sqlModel4.loadTblMyReservationsFromUser(modelo, id);
         MyReservationsDashboard.setVisible(true);
+        MyReservationsDashboard.setTitle("Les meves reserves");
+        userPanel.setVisible(false);
     }
     
     public static void showReservationsFromProfilePage() {
         userPanel.setVisible(false);
         ReservationsDashboard.jLabel1.setText(""+model2.getId_user());
+        ReservationsDashboard.jLabel2.setText(model2.getName()+" "+model2.getSurname());
         ReservationsDashboard.setTitle("Pistes disponibles");
         ReservationsDashboard.setVisible(true);
     }
     
     public static void showMyReservationsFromReservationsPage() {
-        ReservationsDashboard.setVisible(false);
-        MyReservationsDashboard.setTitle("Les meves reserves");
+        int id = model2.getId_user();
+        String name = model2.getName();
+        String surname = model2.getSurname();
+        MyReservationsDashboard.jLabel1.setText(name);
+        MyReservationsDashboard.jLabel2.setText(surname);
+        DefaultTableModel modelo = new DefaultTableModel();
+        MyReservationsDashboard.tblMyReservations.setModel(modelo);
+        sqlModel4.loadTblMyReservationsFromUser(modelo, id);
         MyReservationsDashboard.setVisible(true);
+        MyReservationsDashboard.setTitle("Les meves reserves");
+        ReservationsDashboard.setVisible(false);
     }
     
     public static void showProfileFromReservationsPage() {
@@ -172,6 +198,8 @@ public class PrincipalController {
     
     public static void showReservationsMyReservationsPage() {
         MyReservationsDashboard.setVisible(false);
+        ReservationsDashboard.jLabel1.setText(""+model2.getId_user());
+        ReservationsDashboard.jLabel2.setText(model2.getName()+" "+model2.getSurname());
         ReservationsDashboard.setTitle("Pistes disponibles");
         ReservationsDashboard.setVisible(true);
     }
@@ -284,7 +312,6 @@ public class PrincipalController {
                 userPanel.cognom.setText(model2.getSurname());
                 userPanel.correu.setText(model2.getMail());
                 userPanel.telefon.setText(model2.getPhone());
-
                 userLoginPanel.setVisible(false);
                 userPanel.setTitle("Panell de l'usuari");
                 userPanel.setVisible(true);
@@ -399,8 +426,6 @@ public class PrincipalController {
         ReservationListCourt.setVisible(true);
         ReservationListCourt.setTitle("Gestió reserves | Pistes");
         ReservationListCourt.setVisible(false);
-//        boolean consulta = sqlModel.getCourtsXDate();
-//        System.out.println(consulta);
     }
     
     public static void loadListOfCourts(DefaultListModel modelo, String selectedDate) {
@@ -443,7 +468,6 @@ public class PrincipalController {
     }
     
     public static void showInsertReservation(String name, String selectedDate, String hora) throws SQLException {
-        //boolean consulta = sqlModel4.insert(name, selectedDate, hora);
         sqlModel4.insert(name, selectedDate, hora);
         JOptionPane.showMessageDialog(null, "Reserva feta correctament", "dd", JOptionPane.WARNING_MESSAGE);
     }
@@ -483,6 +507,7 @@ public class PrincipalController {
             JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
             returnNewFormUserPanel();
         } else {
+            
             model2.setName(name);
             model2.setSurname(surname);
             model2.setDni(dni);
@@ -573,4 +598,39 @@ public class PrincipalController {
         boolean consulta = sqlModel4.getCourtsDisponibleWhere(modelo, where, selectedDate);
     }
     
+    public static void doReservationFromUser(String nameCourt, String selectedDate, String idUser, String nameUser, String where) throws SQLException {
+        int court = sqlModel4.obtainID(nameCourt);
+        int id = Integer.parseInt(idUser);
+        int consulta = sqlModel4.searchReservationWithDateANHour(court, where, selectedDate);
+        int consulta2 = sqlModel4.searchReservationFROMUSERWithDateANHour(idUser, where, selectedDate);
+        if (consulta == 0) {
+            if(consulta2 == 0){
+                sqlModel4.insertReservationFormUser(id, court, where, selectedDate);
+                trueReservationUser.setVisible(true);
+                trueReservationUser.setTitle("Resum reserva");
+                trueReservationUser.txtDay.setText(selectedDate);
+                trueReservationUser.txtHour.setText(where);
+                trueReservationUser.txtNameCourt.setText(nameCourt);
+                trueReservationUser.txtUser.setText(nameUser);
+                ReservationsDashboard.setVisible(false);
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Actualment tens una reserva activa el "+selectedDate+" de "+where+" !", "dd", JOptionPane.WARNING_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Has modificat la franja horaria!", "dd", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+    
+    public static void loadTableOFMyReservations() {
+        int id = model2.getId_user();
+        String name = model2.getName();
+        String surname = model2.getSurname();
+        MyReservationsDashboard.jLabel1.setText(name);
+        MyReservationsDashboard.jLabel2.setText(surname);
+        DefaultTableModel modelo = new DefaultTableModel();
+        MyReservationsDashboard.tblMyReservations.setModel(modelo);
+        sqlModel4.loadTblMyReservationsFromUser(modelo, id);
+    }
+
 }

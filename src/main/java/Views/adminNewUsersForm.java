@@ -412,7 +412,7 @@ public class adminNewUsersForm extends javax.swing.JFrame {
     private void txtSurnameInsertUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSurnameInsertUserFormFocusLost
         String surname = txtSurnameInsertUserForm.getText().trim();
 
-        if (surname.matches("^[a-zA-Z]+")) {
+        if (surname.matches("^[^\\d\\s]+ [^\\d\\s]+$")) {
             txtSurnameInsertUserForm.setBackground(Color.GREEN);
             btnInsertUserForm.setEnabled(true);
         } 
@@ -439,7 +439,6 @@ public class adminNewUsersForm extends javax.swing.JFrame {
         String phone = txtPhoneInsertUserForm.getText();
         String passwd = txtPasswdInsertUserForm.getText();
         
-
         PrincipalController.insertUser(name, surname, dni, mail, phone, passwd);
     }//GEN-LAST:event_btnInsertUserFormActionPerformed
 

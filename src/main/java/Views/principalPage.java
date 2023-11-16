@@ -40,7 +40,6 @@ public class principalPage extends javax.swing.JFrame {
 
         JLabelLogo1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
-        btnRedirectUserLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnRedirectUserLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRedirectUserLogin.setForeground(new java.awt.Color(30, 30, 30));
         btnRedirectUserLogin.setText("Log In d'Usuaris");
@@ -77,7 +76,6 @@ public class principalPage extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 0, 153));
         jPanel4.setPreferredSize(new java.awt.Dimension(575, 84));
 
-        btnRedirectAdminLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnRedirectAdminLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnRedirectAdminLogin.setForeground(new java.awt.Color(30, 30, 30));
         btnRedirectAdminLogin.setText("Administració");
