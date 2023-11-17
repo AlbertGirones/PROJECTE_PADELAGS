@@ -48,20 +48,18 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="passwd" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btnAdminLoginForm" alignment="0" max="32767" attributes="0"/>
-                      <Component id="UserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="PasswordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="nick" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="passwd" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAdminLoginForm" alignment="0" max="32767" attributes="0"/>
+                          <Component id="UserLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="PasswordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nick" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -70,7 +68,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="129" max="32767" attributes="0"/>
+                  <EmptySpace pref="126" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Component id="UserLabel" min="-2" max="-2" attributes="0"/>
@@ -80,9 +78,9 @@
                   <Component id="PasswordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="passwd" min="-2" pref="18" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnAdminLoginForm" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="288" max="32767" attributes="0"/>
+                  <EmptySpace pref="285" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

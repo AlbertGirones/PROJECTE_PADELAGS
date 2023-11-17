@@ -5,9 +5,6 @@
 package Views;
 
 import Controllers.PrincipalController;
-import Models.User;
-import Models.userQueries;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,9 +19,6 @@ public class userLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
-
-        dniField.setText(""); 
-        passwordField.setText("");
     }
 
     /**
@@ -49,8 +43,6 @@ public class userLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login d'usuaris");
-        setPreferredSize(new java.awt.Dimension(1826, 758));
-        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setMaximumSize(new java.awt.Dimension(575, 455));
@@ -58,7 +50,6 @@ public class userLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 153));
         jPanel1.setPreferredSize(new java.awt.Dimension(575, 455));
 
-        btnBackLoginUser.setBackground(new java.awt.Color(255, 255, 255));
         btnBackLoginUser.setForeground(new java.awt.Color(30, 30, 30));
         btnBackLoginUser.setText("Tornar ...");
         btnBackLoginUser.setBorder(null);
@@ -115,7 +106,6 @@ public class userLogin extends javax.swing.JFrame {
             }
         });
 
-        dniField.setBackground(new java.awt.Color(255, 255, 255));
         dniField.setForeground(new java.awt.Color(30, 30, 30));
         dniField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         dniField.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +118,6 @@ public class userLogin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(30, 30, 30));
         jLabel3.setText("INICIA SESSIÓ");
 
-        passwordField.setBackground(new java.awt.Color(255, 255, 255));
         passwordField.setForeground(new java.awt.Color(30, 30, 30));
         passwordField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         passwordField.addActionListener(new java.awt.event.ActionListener() {
@@ -161,19 +150,19 @@ public class userLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(69, 69, 69)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(btnUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(321, 321, 321))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,6 +183,7 @@ public class userLogin extends javax.swing.JFrame {
         String dni = dniField.getText();
         String password = passwordField.getText();
         PrincipalController.loginUser(dni, password);
+        clean();
         
 
     }//GEN-LAST:event_btnUserLoginActionPerformed
@@ -204,6 +194,7 @@ public class userLogin extends javax.swing.JFrame {
 
     private void btnBackLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackLoginUserActionPerformed
         PrincipalController.returnPrincipalPageFromUser();
+        clean();
     }//GEN-LAST:event_btnBackLoginUserActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
@@ -257,4 +248,10 @@ public class userLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPasswordField passwordField;
     // End of variables declaration//GEN-END:variables
+
+    public void clean() {
+        dniField.setText("");
+        passwordField.setText("");
+    }
+    
 }

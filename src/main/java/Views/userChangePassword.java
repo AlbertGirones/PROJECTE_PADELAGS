@@ -11,7 +11,6 @@ public class userChangePassword extends javax.swing.JFrame {
     public userChangePassword() {
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -37,7 +36,6 @@ public class userChangePassword extends javax.swing.JFrame {
 
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
-        btnCloseSession.setBackground(new java.awt.Color(255, 255, 255));
         btnCloseSession.setForeground(new java.awt.Color(30, 30, 30));
         btnCloseSession.setText("Tancar sessió");
         btnCloseSession.setBorder(null);
@@ -47,7 +45,6 @@ public class userChangePassword extends javax.swing.JFrame {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setForeground(new java.awt.Color(30, 30, 30));
         btnBack.setText("Tornar...");
         btnBack.setBorder(null);
@@ -65,8 +62,8 @@ public class userChangePassword extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(JLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCloseSession, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -104,7 +101,6 @@ public class userChangePassword extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(30, 30, 30));
         jLabel1.setText("INTRODUEIX LA NOVA CONTRASENYA");
 
-        PasswdField.setBackground(new java.awt.Color(255, 255, 255));
         PasswdField.setForeground(new java.awt.Color(30, 30, 30));
         PasswdField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PasswdField.addActionListener(new java.awt.event.ActionListener() {
@@ -119,42 +115,40 @@ public class userChangePassword extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(691, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82)
-                        .addComponent(PasswdField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(692, Short.MAX_VALUE))
+                .addContainerGap(702, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap(681, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ChangePasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PasswdField, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ChangePasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(151, 151, 151)
+                .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(PasswdField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
                 .addComponent(ChangePasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addContainerGap(423, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,10 +162,12 @@ public class userChangePassword extends javax.swing.JFrame {
         String passwd = PasswdField.getText();
         
         PrincipalController.updatePasswdUser(passwd);
+        clean();
     }//GEN-LAST:event_ChangePasswdActionPerformed
 
     private void btnCloseSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseSessionActionPerformed
         PrincipalController.returnPrincipalPageFromUserDashoard();
+        clean();
     }//GEN-LAST:event_btnCloseSessionActionPerformed
 
     private void PasswdFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswdFieldActionPerformed
@@ -180,6 +176,7 @@ public class userChangePassword extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         PrincipalController.returnShowProfileFromMyReservationsPage();
+        clean();
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
@@ -217,6 +214,10 @@ public class userChangePassword extends javax.swing.JFrame {
         });
     }
 
+    private void clean() {
+        PasswdField.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton ChangePasswd;
     private transient javax.swing.JLabel JLabelLogo;

@@ -139,17 +139,15 @@ public class PrincipalController {
     }
     
     public static void showMyReservationsFromProfilePage() {
+        userPanel.setVisible(false);
         int id = model2.getId_user();
         String name = model2.getName();
-        String surname = model2.getSurname();
         MyReservationsDashboard.jLabel1.setText(name);
-        MyReservationsDashboard.jLabel2.setText(surname);
         DefaultTableModel modelo = new DefaultTableModel();
         MyReservationsDashboard.tblMyReservations.setModel(modelo);
         sqlModel4.loadTblMyReservationsFromUser(modelo, id);
-        MyReservationsDashboard.setVisible(true);
         MyReservationsDashboard.setTitle("Les meves reserves");
-        userPanel.setVisible(false);
+        MyReservationsDashboard.setVisible(true);
     }
     
     public static void showReservationsFromProfilePage() {
@@ -161,17 +159,15 @@ public class PrincipalController {
     }
     
     public static void showMyReservationsFromReservationsPage() {
+        ReservationsDashboard.setVisible(false);
         int id = model2.getId_user();
         String name = model2.getName();
-        String surname = model2.getSurname();
         MyReservationsDashboard.jLabel1.setText(name);
-        MyReservationsDashboard.jLabel2.setText(surname);
         DefaultTableModel modelo = new DefaultTableModel();
         MyReservationsDashboard.tblMyReservations.setModel(modelo);
         sqlModel4.loadTblMyReservationsFromUser(modelo, id);
-        MyReservationsDashboard.setVisible(true);
         MyReservationsDashboard.setTitle("Les meves reserves");
-        ReservationsDashboard.setVisible(false);
+        MyReservationsDashboard.setVisible(true);
     }
     
     public static void showProfileFromReservationsPage() {
@@ -190,6 +186,12 @@ public class PrincipalController {
         MyReservationsDashboard.setVisible(false);
         ReservationsDashboard.jLabel1.setText(""+model2.getId_user());
         ReservationsDashboard.jLabel2.setText(model2.getName()+" "+model2.getSurname());
+        ReservationsDashboard.setTitle("Pistes disponibles");
+        ReservationsDashboard.setVisible(true);
+    }
+    
+    public static void showReservationsFromTrueReservationsPage() {
+        trueReservationUser.setVisible(false);
         ReservationsDashboard.setTitle("Pistes disponibles");
         ReservationsDashboard.setVisible(true);
     }
@@ -216,6 +218,24 @@ public class PrincipalController {
     
     public static void returnPrincipalPageFromUserDashoard() {
         ChangePasswordUser.setVisible(false);
+        principalPg.setTitle("Pagina principal");
+        principalPg.setVisible(true);
+    }
+    
+    public static void returnPrincipalPageFromProfilePage() {
+        userPanel.setVisible(false);
+        principalPg.setTitle("Pagina principal");
+        principalPg.setVisible(true);
+    }
+    
+    public static void returnPrincipalPageFromReservationsPage() {
+        ReservationsDashboard.setVisible(false);
+        principalPg.setTitle("Pagina principal");
+        principalPg.setVisible(true);
+    }
+    
+    public static void returnPrincipalPageFromMyReservationsPage() {
+        MyReservationsDashboard.setVisible(false);
         principalPg.setTitle("Pagina principal");
         principalPg.setVisible(true);
     }
@@ -606,9 +626,7 @@ public class PrincipalController {
     public static void loadTableOFMyReservations() {
         int id = model2.getId_user();
         String name = model2.getName();
-        String surname = model2.getSurname();
         MyReservationsDashboard.jLabel1.setText(name);
-        MyReservationsDashboard.jLabel2.setText(surname);
         DefaultTableModel modelo = new DefaultTableModel();
         MyReservationsDashboard.tblMyReservations.setModel(modelo);
         sqlModel4.loadTblMyReservationsFromUser(modelo, id);
