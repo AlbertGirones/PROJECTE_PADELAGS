@@ -63,6 +63,8 @@ public class userReservationsDashboard extends javax.swing.JFrame {
 
         JLabelLogo7.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
+        btnBackLoginUser.setBackground(new java.awt.Color(255, 255, 255));
+        btnBackLoginUser.setForeground(new java.awt.Color(30, 30, 30));
         btnBackLoginUser.setText("Tancar sessió");
         btnBackLoginUser.setBorder(null);
         btnBackLoginUser.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +99,8 @@ public class userReservationsDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
         jPanel2.setPreferredSize(new java.awt.Dimension(280, 674));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(30, 30, 30));
         jButton1.setText("Perfil");
         jButton1.setBorder(null);
         jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -106,6 +110,8 @@ public class userReservationsDashboard extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(30, 30, 30));
         jButton2.setText("Les meves reserves");
         jButton2.setBorder(null);
         jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -115,6 +121,8 @@ public class userReservationsDashboard extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(30, 30, 30));
         jButton3.setText("Pistes disponibles");
         jButton3.setBorder(null);
         jButton3.setMargin(new java.awt.Insets(0, 0, 0, 0));
