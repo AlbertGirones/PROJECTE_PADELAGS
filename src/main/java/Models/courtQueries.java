@@ -20,7 +20,7 @@ public class courtQueries extends Conexion {
             Connection con = getConnection();
             ResultSet rs = null;
         
-            String sql = "SELECT id_court, name, ubication, status FROM court";
+            String sql = "SELECT * FROM court";
             
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
@@ -99,7 +99,7 @@ public class courtQueries extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConnection();
         
-        String sql = "INSERT INTO court (name, ubication, photo, status) VALUES (?, ?, 'predeterminada.jpg', 'Activa')";
+        String sql = "INSERT INTO court (name, ubication, status) VALUES (?, ?, 'Activa')";
         
         try {
             ps = con.prepareStatement(sql);

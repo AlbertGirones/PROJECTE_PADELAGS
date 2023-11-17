@@ -242,11 +242,12 @@ public class userQueries extends Conexion {
         
         String hashedPassword = md5Hash("123");
                 
-        String sql = "UPDATE user SET passwd='?' WHERE id_user=?";
+        String sql = "UPDATE user SET passwd=? WHERE id_user=?";
         
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, idUser);
+            ps.setString(1, hashedPassword);
+            ps.setInt(2, idUser);
             ps.execute();
             return true;
         }

@@ -291,7 +291,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     private void txtSurnameUpdateUserFormFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSurnameUpdateUserFormFocusLost
         String surname = txtSurnameUpdateUserForm.getText().trim();
     
-        if (surname.matches("^[a-zA-Z]+")) {
+        if (surname.matches("^[^\\d\\s]+ [^\\d\\s]+$")) {
             txtSurnameUpdateUserForm.setBackground(Color.GREEN);
         }
         ActivateUpdateButton();
@@ -328,7 +328,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
     private void txtSurnameUpdateUserFormKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSurnameUpdateUserFormKeyTyped
     String surname = txtSurnameUpdateUserForm.getText().trim();
 
-        if (!surname.matches("^[a-zA-Z]+")) {
+        if (!surname.matches("^[^\\d\\s]+ [^\\d\\s]+$")) {
             txtSurnameUpdateUserForm.setBackground(Color.RED);
         }
         ActivateUpdateButton();
@@ -371,7 +371,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         String email = txtMailUpdateUserForm.getText().trim();
         String phoneNumber = txtPhoneUpdateUserForm.getText().trim();
 
-        if(!name.matches("^[a-zA-Z]+") || !surname.matches("^[a-zA-Z]+") || !email.matches("^[a-zA-Z0-9._%+-]+@gmail\\.com$") || !phoneNumber.matches("\\d+")){
+        if(!name.matches("^[a-zA-Z]+") || !surname.matches("^[^\\d\\s]+ [^\\d\\s]+$") || !email.matches("^[a-zA-Z0-9._%+-]+@gmail\\.com$") || !phoneNumber.matches("\\d+")){
             btnUpdateUserForm.setEnabled(false);
         }
         else{
