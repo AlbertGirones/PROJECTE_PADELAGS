@@ -415,6 +415,7 @@ public class PrincipalController {
     
     public static void deactivateCourt(int idCourt) {
         boolean consulta = sqlModel.deactivate(idCourt);
+        sqlModel4.cancelAllReservations(idCourt);
         if (consulta == true) {
             JOptionPane.showMessageDialog(null, "Pista desactivada correctament", "Panell administrador | Baixa pista", JOptionPane.WARNING_MESSAGE);
         } else {

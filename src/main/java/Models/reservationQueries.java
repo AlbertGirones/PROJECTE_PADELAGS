@@ -262,5 +262,29 @@ public class reservationQueries extends Conexion {
         }
         return false;
     }
+    
+    public boolean cancelAllReservations(int idCourt) {
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        
+        String sql = "DELETE FROM reservation WHERE court = ?";
+        
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idCourt);
+            ps.execute();
+            return true;
+        }
+        catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
      
 }
