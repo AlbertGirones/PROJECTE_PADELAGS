@@ -3,33 +3,18 @@ package Controllers;
 import Models.*;
 import Views.*;
 import java.awt.Color;
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import static javax.swing.Spring.height;
-import static javax.swing.Spring.width;
 import javax.swing.table.DefaultTableModel;
 
 public class PrincipalController {
-
-    // INSTANCES
-    private static PrincipalController instance;
-    private Admin admin;
-    
+  
     // SET PRINCIPAL
     public static principalPage principalPg = new principalPage();
     public static adminDashboard adminPanel = new adminDashboard();
     public static userProfileDashboard userPanel = new userProfileDashboard();
     public static userTrueReservation trueReservationUser = new userTrueReservation();
-    //public static userFalseReservation falseReservationUser = new userFalseReservation();
 
     // SET LOGIN
     public static userLogin userLoginPanel = new userLogin();
@@ -87,6 +72,11 @@ public class PrincipalController {
     }
 
     public static void showNewFormCourtPanel() {
+        NewformCourt.txtNameInsertCourtForm.setText("");
+        NewformCourt.txtUbicationInsertCourtForm.setText("");
+        NewformCourt.txtNameInsertCourtForm.setBackground(Color.WHITE);
+        NewformCourt.txtUbicationInsertCourtForm.setBackground(Color.WHITE);
+        
         NewformCourt.setVisible(true);
         CourtPanel.setTitle("Insertar pista");
         CourtPanel.setVisible(false);
@@ -350,28 +340,28 @@ public class PrincipalController {
     
     // COURTS METHODS
     public static void loadTblCourt(DefaultTableModel modelo) {
-        boolean consulta = sqlModel.loadTbl(modelo);
+        sqlModel.loadTbl(modelo);
     }
 
     public static void loadTblCourtWhere(DefaultTableModel modelo, String where) {
         String name = where;
-        boolean consulta = sqlModel.loadTblWhere(modelo, name);
+        sqlModel.loadTblWhere(modelo, name);
     }
 
     public static void insertCourt(String name, String ubication) {
 
         if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "Panell administrador | Alta pista", JOptionPane.WARNING_MESSAGE);
             returnNewFormCourtPanel();
         } else {
             model.setName(name);
             model.setUbication(ubication);
             boolean consulta = sqlModel.insert(model);
             if (consulta == true) {
-                JOptionPane.showMessageDialog(null, "Pista creada correctament", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Pista creada correctament", "Panell administrador | Alta pista", JOptionPane.WARNING_MESSAGE);
                 returnNewFormCourtPanel();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "Panell administrador | Alta pista", JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -386,10 +376,10 @@ public class PrincipalController {
             model.setUbication(ubication);
             boolean consulta = sqlModel.modify(model);
             if (consulta == true) {
-                JOptionPane.showMessageDialog(null, "Pista modificada correctament", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Pista modificada correctament", "Panell administrador | Actualitzar pista", JOptionPane.WARNING_MESSAGE);
                 returnModifyFormCourtPanel();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al modificar pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al modificar pista, pista existent", "Panell administrador | Actualitzar pista", JOptionPane.WARNING_MESSAGE);
             }
         }
     }
@@ -397,27 +387,18 @@ public class PrincipalController {
     public static void activateCourt(int idCourt) {
         boolean consulta = sqlModel.activate(idCourt);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Pista activada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Pista activada correctament", "Panell administrador | Activació pista", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al activar pista", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al activar pista", "Panell administrador | Activació pista", JOptionPane.WARNING_MESSAGE);
         }
     }
     
-    public static void maintenanceCourt(int idCourt) {
-        boolean consulta = sqlModel.maintenance(idCourt);
-        if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Pista en manteniment", "dd", JOptionPane.WARNING_MESSAGE);
-        } else {
-            JOptionPane.showMessageDialog(null, "Error al establir el manteniment en la pista", "dd", JOptionPane.WARNING_MESSAGE);
-        }
-    }
-
     public static void deactivateCourt(int idCourt) {
         boolean consulta = sqlModel.deactivate(idCourt);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Pista desactivada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Pista desactivada correctament", "Panell administrador | Baixa pista", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al desactivar pista", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al desactivar pista", "Panell administrador | Baixa pista", JOptionPane.WARNING_MESSAGE);
         }
         
     }
@@ -429,11 +410,11 @@ public class PrincipalController {
     }
     
     public static void loadListOfCourts(DefaultListModel modelo, String selectedDate) {
-        boolean consulta = sqlModel.getCourtsList(modelo, selectedDate);
+        sqlModel.getCourtsList(modelo, selectedDate);
     }
     
     public static void loadListOfCourtsWhere(DefaultListModel modelo, String where, String selectedDate) {
-        boolean consulta = sqlModel.getCourtsListWhere(modelo, where, selectedDate);
+        sqlModel.getCourtsListWhere(modelo, where, selectedDate);
     }
     
     // RESERVATION METHODS
@@ -446,46 +427,46 @@ public class PrincipalController {
         ReservationListCourtXCourtXDate.dateOfReservation.setText(date);
         DefaultTableModel modelo = new DefaultTableModel();
         ReservationListCourtXCourtXDate.tblReservations.setModel(modelo);
-        boolean consulta2 = sqlModel4.getReservationXCourtWDate(modelo, name, date);
+        sqlModel4.getReservationXCourtWDate(modelo, name, date);
     }
     
     public static void payReservation(int idReservation) {
         boolean consulta = sqlModel4.payReservation(idReservation);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Reserva pagada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Reserva pagada correctament", "Panell administrador | Pagament reserva", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al pagar la reserva", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al pagar la reserva", "Panell administrador | Pagament reserva", JOptionPane.WARNING_MESSAGE);
         }
     }
     
     public static void cancelReservation(int idReservation) {
         boolean consulta = sqlModel4.cancelReservation(idReservation);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Reserva cancelada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Reserva cancelada correctament", "Panell administrador | Cancelar reserva", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al cancelar la reserva", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al cancelar la reserva", "Panell administrador | Cancelar reserva", JOptionPane.WARNING_MESSAGE);
         }
     }
     
     public static void showInsertReservation(String name, String selectedDate, String hora) throws SQLException {
         sqlModel4.insert(name, selectedDate, hora);
-        JOptionPane.showMessageDialog(null, "Reserva feta correctament", "dd", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Reserva feta correctament", "Panell administrador | Realitzar reserva", JOptionPane.WARNING_MESSAGE);
     }
     
     public static void insertReservation(String name, String ubication) {
 
         if (name.trim().equalsIgnoreCase("") || ubication.trim().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "Panell administrador | Realitzar reserva", JOptionPane.WARNING_MESSAGE);
             returnNewFormCourtPanel();
         } else {
             model.setName(name);
             model.setUbication(ubication);
             boolean consulta = sqlModel.insert(model);
             if (consulta == true) {
-                JOptionPane.showMessageDialog(null, "Pista creada correctament", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Pista creada correctament", "Panell administrador | Realitzar reserva", JOptionPane.WARNING_MESSAGE);
                 returnNewFormCourtPanel();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al crear pista, pista existent", "Panell administrador | Realitzar reserva", JOptionPane.WARNING_MESSAGE);
             }
         }
     }
@@ -493,18 +474,18 @@ public class PrincipalController {
     // USERS METHODS
     
     public static void loadTblUser(DefaultTableModel modelo) {
-        boolean consulta = sqlModel2.loadTbl(modelo);
+        sqlModel2.loadTbl(modelo);
     }
 
     public static void loadTblUserWhere(DefaultTableModel modelo, String where) {
         String dni = where;
-        boolean consulta = sqlModel2.loadTblWhere(modelo, dni);
+        sqlModel2.loadTblWhere(modelo, dni);
     }
 
     public static void insertUser(String name, String surname, String dni, String mail, String phone, String passwd) {
 
         if (name.trim().equalsIgnoreCase("") || surname.trim().equalsIgnoreCase("") || dni.trim().equalsIgnoreCase("") || mail.trim().equalsIgnoreCase("") || phone.trim().equalsIgnoreCase("") || passwd.trim().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "Panell administrador | Alta usuari", JOptionPane.WARNING_MESSAGE);
             returnNewFormUserPanel();
         } else {
             
@@ -517,10 +498,10 @@ public class PrincipalController {
 
             boolean consulta = sqlModel2.insert(model2);
             if (consulta == true) {
-                JOptionPane.showMessageDialog(null, "Usuari creat correctament", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Usuari creat correctament", "Panell administrador | Alta usuari", JOptionPane.WARNING_MESSAGE);
                 returnNewFormUserPanel();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al crear usuari, usuari existent", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al crear usuari, usuari existent", "Panell administrador | Alta usuari", JOptionPane.WARNING_MESSAGE);
             }
         }
 
@@ -528,7 +509,7 @@ public class PrincipalController {
     
     public static void updatePasswdUser(String passwd) {
         if (passwd.trim().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "El meu perfil | Contrasenya", JOptionPane.WARNING_MESSAGE);
             returnShowProfileFromMyReservationsPage();
 
         } else {
@@ -536,17 +517,17 @@ public class PrincipalController {
 
             boolean consulta = sqlModel2.updatePasswd(model2);
             if (consulta == true) {
-                JOptionPane.showMessageDialog(null, "Contrasenya actualitzada correctament", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Contrasenya actualitzada correctament", "El meu perfil | Contrasenya", JOptionPane.WARNING_MESSAGE);
                 returnShowProfileFromMyReservationsPage();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al actualitzar el password.", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al actualitzar el password.", "El meu perfil | Contrasenya", JOptionPane.WARNING_MESSAGE);
             }
         }
     }
 
     public static void modifyUser(String name, String surname, String mail, String phone) {
         if (name.trim().equalsIgnoreCase("") || surname.trim().equalsIgnoreCase("") || mail.trim().equalsIgnoreCase("") || phone.trim().equalsIgnoreCase("")) {
-            JOptionPane.showMessageDialog(null, "Introdueix valors!", "", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Introdueix valors!", "Panell administrador | Actualitzar usuari", JOptionPane.WARNING_MESSAGE);
             returnModifyFormUserPanel();
         } else {
             model2.setName(name);
@@ -556,10 +537,10 @@ public class PrincipalController {
             
             boolean consulta = sqlModel2.update(model2);
             if (consulta == true) {
-                JOptionPane.showMessageDialog(null, "Usuari actualitzat correctament", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Usuari actualitzat correctament", "Panell administrador | Actualitzar usuari", JOptionPane.WARNING_MESSAGE);
                 returnModifyFormUserPanel();
             } else {
-                JOptionPane.showMessageDialog(null, "Error al actualitzar usuari, usuari existent", "", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al actualitzar usuari, usuari existent", "Panell administrador | Actualitzar usuari", JOptionPane.WARNING_MESSAGE);
             }
         }
     }
@@ -567,9 +548,9 @@ public class PrincipalController {
     public static void resetPasswdUser(int idUser) {
         boolean consulta = sqlModel2.resetPassword(idUser);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Contrasenya de l'usuari resetejada correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Contrasenya de l'usuari resetejada correctament", "Panell administrador | Reset contrasenya", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al resetejar la contrasenya de l'usuari", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al resetejar la contrasenya de l'usuari", "Panell administrador | Reset contrasenya", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -577,25 +558,25 @@ public class PrincipalController {
     public static void activateUser(int idUser) {
         boolean consulta = sqlModel2.activate(idUser);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Usuari activat correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuari activat correctament", "Panell administrador | Activació usuari", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al activar usuari", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al activar usuari", "Panell administrador | Activació usuari", JOptionPane.WARNING_MESSAGE);
         }
     }
 
     public static void deactivateUser(int idUser) {
         boolean consulta = sqlModel2.deactivate(idUser);
         if (consulta == true) {
-            JOptionPane.showMessageDialog(null, "Usuari desactivat correctament", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuari desactivat correctament", "Panell administrador | Baixa usuari", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Error al desactivar l'usuari", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al desactivar l'usuari", "Panell administrador | Baixa usuari", JOptionPane.WARNING_MESSAGE);
         }
     }
     
     // GENERAL METHODS
     
     public static void loadListOfCourtDisponible(DefaultListModel modelo, String where, String selectedDate) {
-        boolean consulta = sqlModel4.getCourtsDisponibleWhere(modelo, where, selectedDate);
+        sqlModel4.getCourtsDisponibleWhere(modelo, where, selectedDate);
     }
     
     public static void doReservationFromUser(String nameCourt, String selectedDate, String idUser, String nameUser, String where) throws SQLException {
@@ -618,7 +599,7 @@ public class PrincipalController {
                 JOptionPane.showMessageDialog(null, "Actualment tens una reserva activa el "+selectedDate+" de "+where+" !", "dd", JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Has modificat la franja horaria!", "dd", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Has modificat la franja horaria!", "Departament de seguretat", JOptionPane.WARNING_MESSAGE);
         }
     }
     

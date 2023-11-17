@@ -20,7 +20,6 @@ public class adminLogin extends javax.swing.JFrame {
         adminQueries AdminQueries = adminQueries.getInstance();
         String user = nick.getText();
         AdminQueries.login(user);
-        limpiarCampos();
     }
     
     @SuppressWarnings("unchecked")
@@ -130,14 +129,16 @@ public class adminLogin extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(passwd, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnAdminLoginForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(UserLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(PasswordLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(passwd, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAdminLoginForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(UserLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PasswordLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nick, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,7 +147,7 @@ public class adminLogin extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(68, 68, 68)
+                .addGap(71, 71, 71)
                 .addComponent(UserLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,7 +157,7 @@ public class adminLogin extends javax.swing.JFrame {
                 .addComponent(passwd, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAdminLoginForm, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -181,21 +182,19 @@ public class adminLogin extends javax.swing.JFrame {
         
         String user = nick.getText();
         String password = passwd.getText();
-        PrincipalController.loginAdmin(user, password);       
+        PrincipalController.loginAdmin(user, password);  
+        clean();
     }//GEN-LAST:event_btnAdminLoginFormActionPerformed
 
     private void btnBackLoginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackLoginAdminActionPerformed
         PrincipalController.returnPrincipalPageFromAdmin();
+        clean();
     }//GEN-LAST:event_btnBackLoginAdminActionPerformed
 
     private void passwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwdActionPerformed
 
-    private void limpiarCampos() {
-        nick.setText(""); // Vaciar campo de usuario
-        passwd.setText(""); // Vaciar campo de contraseña
-    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -240,4 +239,10 @@ public class adminLogin extends javax.swing.JFrame {
     public javax.swing.JTextField nick;
     private javax.swing.JPasswordField passwd;
     // End of variables declaration//GEN-END:variables
+
+    public void clean() {
+        nick.setText("");
+        passwd.setText("");
+    }
+   
 }

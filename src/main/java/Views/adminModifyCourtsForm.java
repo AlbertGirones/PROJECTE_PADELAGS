@@ -10,6 +10,8 @@ public class adminModifyCourtsForm extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
+        txtNameModifyCourtForm.setText("");
+        txtUbicationModifyCourtForm.setText("");
     }
 
     @SuppressWarnings("unchecked")

@@ -39,7 +39,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(758, 1400));
 
-        txtNameUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtNameUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtNameUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNameUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -66,7 +65,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(30, 30, 30));
         jLabel2.setText("Cognom");
 
-        txtSurnameUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtSurnameUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtSurnameUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtSurnameUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -85,7 +83,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
             }
         });
 
-        txtMailUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtMailUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtMailUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtMailUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -112,7 +109,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(30, 30, 30));
         jLabel5.setText("Telèfon");
 
-        txtPhoneUpdateUserForm.setBackground(new java.awt.Color(255, 255, 255));
         txtPhoneUpdateUserForm.setForeground(new java.awt.Color(30, 30, 30));
         txtPhoneUpdateUserForm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtPhoneUpdateUserForm.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -146,7 +142,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
 
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
-        btnBackUpdateUser.setBackground(new java.awt.Color(255, 255, 255));
         btnBackUpdateUser.setForeground(new java.awt.Color(30, 30, 30));
         btnBackUpdateUser.setText("Tornar ...");
         btnBackUpdateUser.setBorder(null);
@@ -158,7 +153,6 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
             }
         });
 
-        BtnCloseSessionAdmin.setBackground(new java.awt.Color(255, 255, 255));
         BtnCloseSessionAdmin.setForeground(new java.awt.Color(30, 30, 30));
         BtnCloseSessionAdmin.setText("Tancar Sessió");
         BtnCloseSessionAdmin.setBorder(null);
@@ -204,27 +198,28 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2)
-                        .addComponent(txtSurnameUpdateUserForm)
-                        .addComponent(txtNameUpdateUserForm)
-                        .addComponent(jLabel4)
-                        .addComponent(txtMailUpdateUserForm)
-                        .addComponent(jLabel5)
-                        .addComponent(txtPhoneUpdateUserForm)
-                        .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNameUpdateUserForm)
+                    .addComponent(txtSurnameUpdateUserForm)
+                    .addComponent(txtMailUpdateUserForm)
+                    .addComponent(txtPhoneUpdateUserForm)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(98, 98, 98)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNameUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,9 +227,9 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSurnameUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addGap(1, 1, 1)
+                .addGap(7, 7, 7)
                 .addComponent(txtMailUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
@@ -242,7 +237,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
                 .addComponent(txtPhoneUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -253,9 +248,7 @@ public class adminUpdateUserForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
         );
 
         pack();

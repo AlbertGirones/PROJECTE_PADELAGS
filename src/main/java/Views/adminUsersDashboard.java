@@ -13,7 +13,16 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         DefaultTableModel modelo = new DefaultTableModel();
         tblUsers.setModel(modelo);
-        PrincipalController.loadTblUser(modelo);   
+        PrincipalController.loadTblUser(modelo);
+        if (tblUsers.getColumnModel().getColumnCount() > 0) {
+            tblUsers.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tblUsers.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tblUsers.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(4).setPreferredWidth(170);
+            tblUsers.getColumnModel().getColumn(5).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(6).setPreferredWidth(25);
+        }
     }
 
     /**
@@ -43,14 +52,12 @@ public class adminUsersDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 153));
         jPanel2.setPreferredSize(new java.awt.Dimension(575, 455));
 
         JLabelLogo.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Images\\logoPadelAGWhite.png"));
 
-        btnBackUser.setBackground(new java.awt.Color(255, 255, 255));
         btnBackUser.setForeground(new java.awt.Color(30, 30, 30));
         btnBackUser.setText("Tornar ...");
         btnBackUser.setBorder(null);
@@ -60,7 +67,6 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             }
         });
 
-        BtnCloseSessionAdmin.setBackground(new java.awt.Color(255, 255, 255));
         BtnCloseSessionAdmin.setForeground(new java.awt.Color(30, 30, 30));
         BtnCloseSessionAdmin.setText("Tancar Sessió");
         BtnCloseSessionAdmin.setBorder(null);
@@ -102,7 +108,6 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(30, 30, 30));
         jLabel2.setText("LLISTAT D'USUARIS");
 
-        txtSearchUser.setBackground(new java.awt.Color(255, 255, 255));
         txtSearchUser.setForeground(new java.awt.Color(30, 30, 30));
         txtSearchUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtSearchUser.addCaretListener(new javax.swing.event.CaretListener() {
@@ -123,7 +128,6 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(30, 30, 30));
         jLabel1.setText("Filtra per DNI:");
 
-        tblUsers.setBackground(new java.awt.Color(255, 255, 255));
         tblUsers.setForeground(new java.awt.Color(30, 30, 30));
         tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,10 +155,19 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblUsers.setGridColor(new java.awt.Color(30, 30, 30));
+        tblUsers.setGridColor(new java.awt.Color(255, 255, 255));
         tblUsers.setIntercellSpacing(new java.awt.Dimension(10, 0));
         tblUsers.setSelectionBackground(new java.awt.Color(255, 255, 225));
         jScrollPane1.setViewportView(tblUsers);
+        if (tblUsers.getColumnModel().getColumnCount() > 0) {
+            tblUsers.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tblUsers.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tblUsers.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(4).setPreferredWidth(170);
+            tblUsers.getColumnModel().getColumn(5).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(6).setPreferredWidth(25);
+        }
 
         btnInsertUserForm.setBackground(new java.awt.Color(0, 0, 153));
         btnInsertUserForm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -216,8 +229,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(725, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(550, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -225,30 +239,33 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnUpdateUserForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(btnResetPasswdUserForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(81, 81, 81)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnDeactivateUserForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnActivateUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
-                .addContainerGap(726, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addGap(255, 255, 255)))
+                .addContainerGap(551, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel2)
-                .addGap(77, 77, 77)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearchUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnActivateUserForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -260,7 +277,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
                             .addComponent(btnInsertUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnResetPasswdUserForm, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -274,9 +291,8 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE))
         );
 
         pack();
@@ -284,6 +300,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
 
     private void btnBackUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUserActionPerformed
         PrincipalController.returnUserPanel();
+        clean();
+        loadTable();
+        styleTbl();
     }//GEN-LAST:event_btnBackUserActionPerformed
 
     private void btnDeactivateUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeactivateUserFormActionPerformed
@@ -292,10 +311,10 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
-            System.out.print(selectedRow);
             int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.deactivateUser(idUser);
             loadTable();
+            styleTbl();
         }
     }//GEN-LAST:event_btnDeactivateUserFormActionPerformed
 
@@ -305,10 +324,10 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
-            System.out.print(selectedRow);
             int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.activateUser(idUser);
             loadTable();
+            styleTbl();
         }
     }//GEN-LAST:event_btnActivateUserFormActionPerformed
 
@@ -318,9 +337,11 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         else {
             DefaultTableModel modelTable = (DefaultTableModel) tblUsers.getModel();
             int selectedRow = tblUsers.getSelectedRow();
-            System.out.print(selectedRow);
             int idUser =  (int) modelTable.getValueAt(selectedRow, 0);
             PrincipalController.resetPasswdUser(idUser);
+            clean();
+            loadTable();
+            styleTbl();
         }
     }//GEN-LAST:event_btnResetPasswdUserFormActionPerformed
 
@@ -335,14 +356,19 @@ public class adminUsersDashboard extends javax.swing.JFrame {
             String cognom = (String) modelTable.getValueAt(selectedRow, 2);
             String correu = (String) modelTable.getValueAt(selectedRow, 4);
             String telefon = (String) modelTable.getValueAt(selectedRow, 5);
-
             PrincipalController.showUpdateFormUserPanel(idUser, nom, cognom, correu, telefon);
+            clean();
+            loadTable();
+            styleTbl();
         }
 
     }//GEN-LAST:event_btnUpdateUserFormActionPerformed
 
     private void btnInsertUserFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertUserFormActionPerformed
         PrincipalController.showNewFormUserPanel();
+        clean();
+        loadTable();
+        styleTbl();
     }//GEN-LAST:event_btnInsertUserFormActionPerformed
 
     private void txtSearchUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchUserKeyTyped
@@ -354,6 +380,7 @@ public class adminUsersDashboard extends javax.swing.JFrame {
         tblUsers.setModel(modelo);
         String where = txtSearchUser.getText();
         PrincipalController.loadTblUserWhere(modelo, where);
+        styleTbl();
     }//GEN-LAST:event_txtSearchUserKeyReleased
 
     private void txtSearchUserCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchUserCaretUpdate
@@ -362,6 +389,9 @@ public class adminUsersDashboard extends javax.swing.JFrame {
 
     private void BtnCloseSessionAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCloseSessionAdminActionPerformed
         PrincipalController.returnPrincipalPageFromAdminDashboard();
+        clean();
+        loadTable();
+        styleTbl();
     }//GEN-LAST:event_BtnCloseSessionAdminActionPerformed
 
     /**
@@ -420,6 +450,22 @@ public class adminUsersDashboard extends javax.swing.JFrame {
     public javax.swing.JTextField txtSearchUser;
     // End of variables declaration//GEN-END:variables
 
+    public void clean() {
+        txtSearchUser.setText("");
+    }
+    
+    public void styleTbl() {
+        if (tblUsers.getColumnModel().getColumnCount() > 0) {
+            tblUsers.getColumnModel().getColumn(0).setPreferredWidth(15);
+            tblUsers.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(2).setPreferredWidth(150);
+            tblUsers.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(4).setPreferredWidth(170);
+            tblUsers.getColumnModel().getColumn(5).setPreferredWidth(50);
+            tblUsers.getColumnModel().getColumn(6).setPreferredWidth(25);
+        }
+    }
+    
     public void loadTable() {
         DefaultTableModel modelo = new DefaultTableModel();
         tblUsers.setModel(modelo);

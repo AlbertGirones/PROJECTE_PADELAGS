@@ -11,9 +11,11 @@ public class adminNewCourtsForm extends javax.swing.JFrame {
      */
     public adminNewCourtsForm() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         btnInsertCourtForm.setEnabled(false);
-        this.setExtendedState(MAXIMIZED_BOTH);
+        txtNameInsertCourtForm.setText("");
+        txtUbicationInsertCourtForm.setText("");
     }
 
     /**
